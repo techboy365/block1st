@@ -1,36 +1,64 @@
 #!/usr/bin/env python3
 """
 SSL VPN Detection Tool
-
+======================
 Identifies whether a supplied IP address or domain hosts a Fortinet SSL VPN
 or Cisco SSL VPN web portal.
+
+Usage
+-----
+  # Targets as arguments
+  python3 vpn_checker.py 192.168.1.10 vpn.example.com 203.0.113.50
+
+  # Targets from a file (one per line, # comments ignored)
+  python3 vpn_checker.py --input targets.txt
+
+  # Custom options
+  python3 vpn_checker.py --input targets.txt --timeout 15 --retries 2 --retry-delay 3 -v
+
+Options
+-------
+  TARGET                IP addresses or domains to scan
+  -i/--input FILE       File containing one target per line
+  --timeout SECONDS     HTTP request timeout (default: 10)
+  --retries N           Retry attempts per failed request (default: 3)
+  --retry-delay SECONDS Delay between retries in seconds (default: 2)
+  --fortinet-out FILE   Output file for Fortinet hits (default: fortinet.txt)
+  --cisco-out FILE      Output file for Cisco hits (default: cisco.txt)
+  -v/--verbose          Enable debug logging
+
+Dependencies
+------------
+  Python 3.6+ standard library only — no third-party packages required.
 """
 
 import argparse
+import http.client
 import logging
+import ssl
 import sys
 import time
+import urllib.error
+import urllib.request
 from pathlib import Path
-from urllib.parse import urlparse
-
-import requests
-from requests.exceptions import ConnectionError, Timeout, RequestException
 
 # ---------------------------------------------------------------------------
-# Constants
+# Detection configuration
 # ---------------------------------------------------------------------------
 
 FORTINET_PATH = "/remote/login?lang=en"
 CISCO_PATH = "/+CSCOE+/logon.html"
 
 FORTINET_INDICATORS = ["fortinet", "fortigate", "fortissl", "forticlient"]
-CISCO_INDICATORS = ["cisco", "webvpn", "cscoe", "+cscoe+"]
+CISCO_INDICATORS = ["cisco", "webvpn", "cscoe"]
+
+# ---------------------------------------------------------------------------
+# Defaults
+# ---------------------------------------------------------------------------
 
 DEFAULT_TIMEOUT = 10
 DEFAULT_RETRIES = 3
-DEFAULT_RETRY_DELAY = 2  # seconds between retries
-DEFAULT_CONCURRENCY = 20
-
+DEFAULT_RETRY_DELAY = 2.0
 FORTINET_OUTPUT = "fortinet.txt"
 CISCO_OUTPUT = "cisco.txt"
 
@@ -45,6 +73,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# ---------------------------------------------------------------------------
+# TLS context — skip certificate verification for self-signed VPN appliances
+# ---------------------------------------------------------------------------
+
+_SSL_CTX = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+_SSL_CTX.check_hostname = False
+_SSL_CTX.verify_mode = ssl.CERT_NONE
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -52,58 +88,62 @@ logger = logging.getLogger(__name__)
 
 
 def normalize_target(target: str) -> str:
-    """Return a fully qualified HTTPS URL for *target*.
+    """Return a fully-qualified HTTPS URL for *target*.
 
-    If the target already contains a scheme it is returned unchanged.
-    Plain IP addresses and hostnames are prefixed with ``https://``.
+    Plain hostnames and IPs are prefixed with ``https://``.
+    Targets that already carry a scheme are returned unchanged (trailing
+    slash stripped).
     """
     target = target.strip()
     if not target:
         raise ValueError("Empty target")
-
     if "://" in target:
         return target.rstrip("/")
-
     return f"https://{target}"
 
 
-def build_session(timeout: int, retries: int) -> requests.Session:
-    """Return a :class:`requests.Session` with TLS verification disabled."""
-    session = requests.Session()
-    # Suppress InsecureRequestWarning; TLS certs on VPN appliances are often
-    # self-signed and we intentionally skip verification.
-    import urllib3
+def http_get(url: str, timeout: int) -> tuple[int, str]:
+    """Perform an HTTP GET for *url* and return ``(status_code, body)``.
 
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    session.verify = False
-    return session
+    Uses a permissive TLS context so self-signed certificates are accepted.
+    Raises :class:`urllib.error.URLError` / :class:`OSError` on network
+    failures.
+    """
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; VPN-Checker/1.0)"},
+    )
+    with urllib.request.urlopen(req, timeout=timeout, context=_SSL_CTX) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+        return resp.status, body
 
 
 def fetch_with_retry(
-    session: requests.Session,
     url: str,
     timeout: int,
     retries: int,
     retry_delay: float,
-) -> requests.Response | None:
-    """Fetch *url* with up to *retries* retry attempts on failure.
+) -> tuple[int, str] | None:
+    """Fetch *url*, retrying up to *retries* times on failure.
 
-    Returns the :class:`requests.Response` on success or ``None`` if all
-    attempts fail.
+    Returns ``(status_code, body)`` on success or ``None`` after all
+    attempts are exhausted.
     """
-    last_exc: Exception | None = None
-
-    for attempt in range(1, retries + 2):  # initial attempt + retries
+    max_attempts = retries + 1
+    for attempt in range(1, max_attempts + 1):
         try:
-            resp = session.get(url, timeout=timeout, allow_redirects=True)
-            return resp
-        except (ConnectionError, Timeout) as exc:
-            last_exc = exc
-            if attempt <= retries:
+            return http_get(url, timeout)
+        except urllib.error.HTTPError as exc:
+            # HTTPError carries a real HTTP status — return it directly so
+            # callers can decide whether it is a hit (unlikely at 4xx/5xx).
+            body = exc.read().decode("utf-8", errors="replace") if exc.fp else ""
+            return exc.code, body
+        except (urllib.error.URLError, OSError, TimeoutError) as exc:
+            if attempt < max_attempts:
                 logger.warning(
                     "Attempt %d/%d failed for %s: %s — retrying in %.1fs",
                     attempt,
-                    retries + 1,
+                    max_attempts,
                     url,
                     exc,
                     retry_delay,
@@ -112,22 +152,17 @@ def fetch_with_retry(
             else:
                 logger.error(
                     "All %d attempt(s) failed for %s: %s",
-                    retries + 1,
+                    max_attempts,
                     url,
                     exc,
                 )
-        except RequestException as exc:
-            last_exc = exc
-            logger.error("Request error for %s: %s", url, exc)
-            break  # non-retriable error
-
     return None
 
 
-def response_contains(response: requests.Response, indicators: list[str]) -> bool:
-    """Return True if the response body contains any of *indicators* (case-insensitive)."""
-    body = response.text.lower()
-    return any(indicator.lower() in body for indicator in indicators)
+def body_contains(body: str, indicators: list) -> bool:
+    """Return True if *body* contains any indicator (case-insensitive)."""
+    lower = body.lower()
+    return any(ind.lower() in lower for ind in indicators)
 
 
 # ---------------------------------------------------------------------------
@@ -135,43 +170,31 @@ def response_contains(response: requests.Response, indicators: list[str]) -> boo
 # ---------------------------------------------------------------------------
 
 
-def check_fortinet(
-    base_url: str,
-    session: requests.Session,
-    timeout: int,
-    retries: int,
-    retry_delay: float,
-) -> bool:
-    """Return True if *base_url* serves a Fortinet SSL VPN login page."""
+def check_fortinet(base_url: str, timeout: int, retries: int, retry_delay: float) -> bool:
     url = base_url + FORTINET_PATH
-    resp = fetch_with_retry(session, url, timeout, retries, retry_delay)
-    if resp is None:
+    result = fetch_with_retry(url, timeout, retries, retry_delay)
+    if result is None:
         return False
-    if resp.status_code != 200:
-        logger.debug("Fortinet check: %s returned HTTP %d", url, resp.status_code)
+    status, body = result
+    if status != 200:
+        logger.debug("Fortinet check: %s returned HTTP %d", url, status)
         return False
-    if response_contains(resp, FORTINET_INDICATORS):
+    if body_contains(body, FORTINET_INDICATORS):
         logger.info("Fortinet SSL VPN detected at %s", base_url)
         return True
     return False
 
 
-def check_cisco(
-    base_url: str,
-    session: requests.Session,
-    timeout: int,
-    retries: int,
-    retry_delay: float,
-) -> bool:
-    """Return True if *base_url* serves a Cisco SSL VPN login page."""
+def check_cisco(base_url: str, timeout: int, retries: int, retry_delay: float) -> bool:
     url = base_url + CISCO_PATH
-    resp = fetch_with_retry(session, url, timeout, retries, retry_delay)
-    if resp is None:
+    result = fetch_with_retry(url, timeout, retries, retry_delay)
+    if result is None:
         return False
-    if resp.status_code != 200:
-        logger.debug("Cisco check: %s returned HTTP %d", url, resp.status_code)
+    status, body = result
+    if status != 200:
+        logger.debug("Cisco check: %s returned HTTP %d", url, status)
         return False
-    if response_contains(resp, CISCO_INDICATORS):
+    if body_contains(body, CISCO_INDICATORS):
         logger.info("Cisco SSL VPN detected at %s", base_url)
         return True
     return False
@@ -182,16 +205,15 @@ def check_cisco(
 # ---------------------------------------------------------------------------
 
 
-def load_existing(path: str) -> set[str]:
-    """Return the set of URLs already written to *path*."""
+def load_existing(path: str) -> set:
     p = Path(path)
     if not p.exists():
         return set()
     return {line.strip() for line in p.read_text().splitlines() if line.strip()}
 
 
-def append_result(path: str, url: str, seen: set[str]) -> None:
-    """Append *url* to *path* if it has not been written before."""
+def record_hit(path: str, url: str, seen: set) -> None:
+    """Append *url* to *path* once, skipping duplicates."""
     if url in seen:
         return
     seen.add(url)
@@ -201,28 +223,25 @@ def append_result(path: str, url: str, seen: set[str]) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Main scan logic
+# Scan
 # ---------------------------------------------------------------------------
 
 
-def scan_targets(
-    targets: list[str],
+def scan(
+    targets: list,
     timeout: int,
     retries: int,
     retry_delay: float,
     fortinet_out: str,
     cisco_out: str,
-) -> tuple[list[str], list[str]]:
-    """Scan each target and return (fortinet_hits, cisco_hits)."""
+) -> tuple[list, list]:
     fortinet_seen = load_existing(fortinet_out)
     cisco_seen = load_existing(cisco_out)
 
-    session = build_session(timeout, retries)
-
-    fortinet_hits: list[str] = []
-    cisco_hits: list[str] = []
-
+    fortinet_hits = []
+    cisco_hits = []
     total = len(targets)
+
     for idx, raw in enumerate(targets, 1):
         raw = raw.strip()
         if not raw or raw.startswith("#"):
@@ -236,16 +255,15 @@ def scan_targets(
 
         logger.info("[%d/%d] Scanning %s", idx, total, base_url)
 
-        if check_fortinet(base_url, session, timeout, retries, retry_delay):
-            append_result(fortinet_out, base_url, fortinet_seen)
+        if check_fortinet(base_url, timeout, retries, retry_delay):
+            record_hit(fortinet_out, base_url, fortinet_seen)
             fortinet_hits.append(base_url)
-            continue  # per spec: only check Cisco if not Fortinet
+            continue  # per spec: skip Cisco check if already Fortinet
 
-        if check_cisco(base_url, session, timeout, retries, retry_delay):
-            append_result(cisco_out, base_url, cisco_seen)
+        if check_cisco(base_url, timeout, retries, retry_delay):
+            record_hit(cisco_out, base_url, cisco_seen)
             cisco_hits.append(base_url)
 
-    session.close()
     return fortinet_hits, cisco_hits
 
 
@@ -254,7 +272,7 @@ def scan_targets(
 # ---------------------------------------------------------------------------
 
 
-def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+def parse_args(argv=None):
     parser = argparse.ArgumentParser(
         description="Detect Fortinet and Cisco SSL VPN portals",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -263,13 +281,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "targets",
         nargs="*",
         metavar="TARGET",
-        help="IP addresses or domains to scan (overrides --input if both supplied)",
+        help="IP addresses or domains to scan",
     )
     parser.add_argument(
-        "-i",
-        "--input",
+        "-i", "--input",
         metavar="FILE",
-        help="Path to a file containing one target per line",
+        help="File containing one target per line",
     )
     parser.add_argument(
         "--timeout",
@@ -283,14 +300,14 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         type=int,
         default=DEFAULT_RETRIES,
         metavar="N",
-        help="Number of retry attempts per failed request",
+        help="Retry attempts per failed request",
     )
     parser.add_argument(
         "--retry-delay",
         type=float,
         default=DEFAULT_RETRY_DELAY,
         metavar="SECONDS",
-        help="Delay in seconds between retry attempts",
+        help="Delay in seconds between retries",
     )
     parser.add_argument(
         "--fortinet-out",
@@ -305,37 +322,34 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Output file for detected Cisco portals",
     )
     parser.add_argument(
-        "-v",
-        "--verbose",
+        "-v", "--verbose",
         action="store_true",
         help="Enable debug-level logging",
     )
     return parser.parse_args(argv)
 
 
-def collect_targets(args: argparse.Namespace) -> list[str]:
-    """Return the list of targets from CLI positional args and/or --input file."""
-    targets: list[str] = list(args.targets)
+def collect_targets(args) -> list:
+    targets = list(args.targets)
 
     if args.input:
-        input_path = Path(args.input)
-        if not input_path.exists():
+        p = Path(args.input)
+        if not p.exists():
             logger.error("Input file not found: %s", args.input)
             sys.exit(1)
-        file_targets = [
+        targets.extend(
             line.strip()
-            for line in input_path.read_text().splitlines()
+            for line in p.read_text().splitlines()
             if line.strip() and not line.strip().startswith("#")
-        ]
-        targets.extend(file_targets)
+        )
 
     if not targets:
         logger.error("No targets supplied. Use positional arguments or --input FILE.")
         sys.exit(1)
 
     # Deduplicate while preserving order
-    seen: set[str] = set()
-    unique: list[str] = []
+    seen: set = set()
+    unique = []
     for t in targets:
         if t not in seen:
             seen.add(t)
@@ -343,7 +357,7 @@ def collect_targets(args: argparse.Namespace) -> list[str]:
     return unique
 
 
-def main(argv: list[str] | None = None) -> None:
+def main(argv=None):
     args = parse_args(argv)
 
     if args.verbose:
@@ -357,7 +371,7 @@ def main(argv: list[str] | None = None) -> None:
         args.retries,
     )
 
-    fortinet_hits, cisco_hits = scan_targets(
+    fortinet_hits, cisco_hits = scan(
         targets=targets,
         timeout=args.timeout,
         retries=args.retries,
@@ -366,13 +380,13 @@ def main(argv: list[str] | None = None) -> None:
         cisco_out=args.cisco_out,
     )
 
-    print(f"\nScan complete.")
+    print("\nScan complete.")
     print(f"  Fortinet SSL VPN portals found : {len(fortinet_hits)}")
     print(f"  Cisco SSL VPN portals found    : {len(cisco_hits)}")
     if fortinet_hits:
-        print(f"  Results written to             : {args.fortinet_out}")
+        print(f"  Fortinet results written to    : {args.fortinet_out}")
     if cisco_hits:
-        print(f"  Results written to             : {args.cisco_out}")
+        print(f"  Cisco results written to       : {args.cisco_out}")
 
 
 if __name__ == "__main__":
