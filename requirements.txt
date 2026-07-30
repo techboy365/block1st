@@ -1,0 +1,23 @@
+# ProMailer Pro — Dependencies
+# Install with: pip install -r requirements.txt
+
+# GUI (modern dark-themed)
+customtkinter>=5.2.0
+Pillow>=10.0.0
+
+# Proxy support
+PySocks>=1.7.1
+
+# Name/data generation for placeholders
+Faker>=22.0.0
+
+# Exchange / OWA support (optional)
+exchangelib>=5.0.0
+
+# PDF generation (optional)
+pdfkit>=1.0.0
+pypdf>=3.0.0
+
+# Utilities
+colorlog>=6.8.0
+urllib3>=2.0.0
