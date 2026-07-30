@@ -1,0 +1,72 @@
+{
+  "_comment": "ProMailer Pro sample configuration. Copy this to config.json and edit.",
+
+  "recipient_list_file": "recipients.txt",
+  "links_file": "links.txt",
+
+  "sender_name": "Support Team",
+  "subject": "Important update for %FIRSTNAME%",
+  "message_body_file": "body.html",
+  "message_body": "<h2>Hello %FIRSTNAME%,</h2><p>This is a message for %EMAIL%.</p>",
+  "message_body_type": "html",
+
+  "smtp_servers": [
+    {
+      "smtp_server": "smtp.example.com",
+      "port": 587,
+      "username": "sender@example.com",
+      "password": "your_password",
+      "from_email": "noreply@example.com",
+      "enabled": true
+    },
+    {
+      "smtp_server": "mail2.example.com",
+      "port": 465,
+      "username": "sender2@example.com",
+      "password": "your_password2",
+      "from_email": "info@example.com",
+      "enabled": true
+    }
+  ],
+
+  "smtp_rotation": "weighted",
+
+  "use_sock": false,
+  "proxy_rotation": "round_robin",
+  "socks5_proxies": [
+    {
+      "host": "proxy.example.com",
+      "port": 1080,
+      "type": "socks5",
+      "auth": { "user": "proxyuser", "pass": "proxypass" }
+    }
+  ],
+
+  "num_threads": 100,
+  "max_retries": 3,
+  "max_errors_before_stop": 200,
+  "connection_timeout": 15,
+  "max_reuse": 300,
+  "max_age": 600,
+  "max_conns_per_server": 15,
+
+  "html2pdf": false,
+  "html2pdf_file": "template.html",
+  "html2pdf_attachment_name": "document_%RANDOMENUM%.pdf",
+  "wkhtmltopdf_path": "",
+
+  "verify_email": false,
+  "test_email": "test@yourdomain.com",
+
+  "use_exchange": false,
+  "exchange": {
+    "owas": [
+      {
+        "server": "mail.company.com",
+        "username": "user@company.com",
+        "password": "password"
+      }
+    ],
+    "sending_delay": 0.05
+  }
+}
