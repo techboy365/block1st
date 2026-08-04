@@ -3,918 +3,795 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rydex Car Rental – Affordable, reliable car rental with 24/7 airport pickup. Quality vehicles, transparent pricing, no hidden fees." />
+  <meta name="description" content="Rydex Car Rental – Affordable, reliable car rental with 24/7 airport pickup. Transparent pricing, quality vehicles, no hidden fees." />
   <meta property="og:title" content="Rydex Car Rental – Drive With Confidence" />
-  <meta property="og:description" content="Quality cars, unbeatable prices. Book online and save." />
   <meta property="og:type" content="website" />
   <title itemprop="name">Rydex Car Rental – Drive With Confidence</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <style>
-/* ═══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    TOKENS
-═══════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════════ */
 :root {
   --red:       #D90429;
-  --red-dark:  #B0001A;
-  --red-pale:  #FFF2F3;
-  --red-ring:  rgba(217,4,41,.15);
+  --red-dk:    #A8001D;
+  --red-lt:    #FF3352;
+  --red-pale:  #FFF0F2;
+  --red-ring:  rgba(217,4,41,.14);
 
-  --ink:       #111827;
-  --ink-2:     #374151;
-  --muted:     #6B7280;
-  --faint:     #F9FAFB;
-  --border:    #E5E7EB;
+  --ink:       #0F1117;
+  --ink2:      #2D3748;
+  --muted:     #64748B;
+  --pale:      #F8F9FA;
+  --warm:      #FDF5F6;
+  --border:    #E4E7EC;
 
-  --radius:    12px;
-  --radius-lg: 20px;
-  --shadow:    0 4px 20px rgba(0,0,0,.08);
-  --shadow-lg: 0 12px 48px rgba(0,0,0,.11);
-  --shadow-r:  0 4px 20px rgba(217,4,41,.28);
-  --trans:     .22s ease;
+  --r:   10px;
+  --rl:  16px;
+  --sh:  0 2px 12px rgba(0,0,0,.07);
+  --shl: 0 8px 32px rgba(0,0,0,.11);
+  --shr: 0 4px 18px rgba(217,4,41,.26);
+  --t:   .2s ease;
 }
 
-/* ─── RESET ─────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: #fff; line-height: 1.6; overflow-x: hidden; }
-a { color: inherit; text-decoration: none; }
-img, svg { display: block; }
-ul { list-style: none; }
-button { cursor: pointer; font: inherit; border: none; background: none; }
-input, select { font: inherit; border: none; outline: none; background: none; }
-.container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-section { padding: 96px 0; }
+/* ─── RESET ──────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+ul{list-style:none}
+button{cursor:pointer;font:inherit;border:none;background:none}
+input,select{font:inherit;border:none;outline:none;background:none}
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 22px}
 
-/* ═══════════════════════════════════════════════════════════════
-   HEADER
-═══════════════════════════════════════════════════════════════ */
-.site-header {
-  position: sticky; top: 0; z-index: 900;
-  background: #fff; border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 0 var(--border);
+/* ═══════════════════════════════════════════════════════════
+   HEADER  — white, minimal
+═══════════════════════════════════════════════════════════ */
+.hdr{
+  position:sticky;top:0;z-index:900;
+  background:#fff;border-bottom:1px solid var(--border);
 }
-.header-inner {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  height: 66px; gap: 24px;
+.hdr-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:62px;gap:20px;
 }
 
 /* Logo */
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-mark {
-  width: 38px; height: 38px; border-radius: 10px;
-  background: var(--red);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.logo{display:flex;align-items:center;gap:9px}
+.logo-mark{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.logo-mark svg { width: 20px; height: 20px; }
-.logo-word {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.3rem; font-weight: 900; color: var(--red); letter-spacing: -.5px; line-height: 1;
-}
-.logo-sub { font-size: .56rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+.logo-mark svg{width:19px;height:19px}
+.logo-name{font-size:1.25rem;font-weight:900;color:var(--red);letter-spacing:-.4px;line-height:1}
+.logo-sub{font-size:.55rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px}
 
 /* Nav */
-.main-nav ul { display: flex; align-items: center; gap: 2px; }
-.main-nav a {
-  font-size: .85rem; font-weight: 600; color: var(--ink-2);
-  padding: 7px 13px; border-radius: 8px;
-  transition: color var(--trans), background var(--trans);
+.nav ul{display:flex;align-items:center;gap:2px}
+.nav a{
+  font-size:.87rem;font-weight:600;color:var(--ink2);
+  padding:7px 12px;border-radius:8px;
+  transition:color var(--t),background var(--t);
 }
-.main-nav a:hover { color: var(--red); background: var(--red-pale); }
+.nav a:hover{color:var(--red);background:var(--red-pale)}
 
-.header-right { display: flex; align-items: center; gap: 10px; }
-.btn-call {
-  display: flex; align-items: center; gap: 7px;
-  font-size: .82rem; font-weight: 700; color: var(--muted);
-  transition: color var(--trans);
+.hdr-right{display:flex;align-items:center;gap:10px}
+.btn-phone{
+  font-size:.82rem;font-weight:700;color:var(--muted);
+  display:flex;align-items:center;gap:6px;
+  transition:color var(--t);
 }
-.btn-call:hover { color: var(--ink); }
-.btn-call svg { color: var(--red); }
-.btn-reserve {
-  padding: 9px 20px; background: var(--red); color: #fff;
-  font-size: .85rem; font-weight: 700; border-radius: 9px;
-  box-shadow: var(--shadow-r);
-  transition: background var(--trans), transform var(--trans);
+.btn-phone svg{color:var(--red)}
+.btn-phone:hover{color:var(--ink)}
+.btn-res{
+  padding:8px 18px;background:var(--red);color:#fff;
+  font-size:.85rem;font-weight:700;border-radius:8px;
+  box-shadow:var(--shr);
+  transition:background var(--t),transform var(--t);
 }
-.btn-reserve:hover { background: var(--red-dark); transform: translateY(-1px); }
+.btn-res:hover{background:var(--red-dk);transform:translateY(-1px)}
 
-.hamburger { display: none; flex-direction: column; gap: 5px; padding: 6px; }
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform var(--trans), opacity var(--trans); }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.burger{display:none;flex-direction:column;gap:5px;padding:5px}
+.burger span{display:block;width:21px;height:2px;background:var(--ink);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ═══════════════════════════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════════════════════════ */
-.hero { padding: 80px 0 0; background: #fff; }
-.hero-text { text-align: center; max-width: 720px; margin: 0 auto 52px; }
-.hero-kicker {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px;
-  color: var(--red); background: var(--red-pale); border: 1px solid var(--red-ring);
-  padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
+/* ═══════════════════════════════════════════════════════════
+   HERO  — deep red background, not white
+═══════════════════════════════════════════════════════════ */
+.hero{
+  background:linear-gradient(135deg, #8B0000 0%, var(--red) 55%, #ff3352 100%);
+  padding:56px 0 0;
+  position:relative;overflow:hidden;
 }
-.hero-kicker span { width: 6px; height: 6px; border-radius: 50%; background: var(--red); animation: blink 1.8s ease-in-out infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events:none;
+}
+.hero-body{
+  position:relative;z-index:1;
+  text-align:center;max-width:680px;margin:0 auto 40px;color:#fff;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;
+  color:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  padding:5px 15px;border-radius:100px;margin-bottom:20px;
+}
+.hero-kicker span{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-body h1{
+  font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;line-height:1.1;
+  margin-bottom:14px;letter-spacing:-.5px;
+}
+.hero-body p{font-size:1rem;color:rgba(255,255,255,.78);line-height:1.65;max-width:500px;margin:0 auto 24px}
 
-.hero-text h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  font-weight: 900; line-height: 1.1; color: var(--ink); margin-bottom: 18px;
+.trust-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.tpill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.78rem;font-weight:600;color:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  padding:6px 14px;border-radius:100px;
 }
-.hero-text h1 em { font-style: normal; color: var(--red); }
-.hero-text p { font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 520px; margin: 0 auto; }
+.tpill svg{width:13px;height:13px;flex-shrink:0}
 
-/* Trust pills */
-.trust-row {
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px;
+/* Booking bar — white card on red hero */
+.booking-wrap{
+  position:relative;z-index:1;
+  background:#fff;margin-top:44px;
+  border-top:none;
 }
-.trust-pill {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: .8rem; font-weight: 700; color: var(--ink-2);
-  background: var(--faint); border: 1px solid var(--border);
-  padding: 7px 16px; border-radius: 100px;
+.btabs{display:flex;border-bottom:1px solid var(--border)}
+.btab{
+  padding:12px 24px;font-size:.84rem;font-weight:700;
+  color:var(--muted);border-bottom:3px solid transparent;
+  transition:color var(--t),border-color var(--t);
 }
-.trust-pill svg { width: 15px; height: 15px; color: var(--red); flex-shrink: 0; }
+.btab.active{color:var(--red);border-bottom-color:var(--red)}
+.btab:hover:not(.active){color:var(--ink)}
+.tab-body{display:none;padding:18px 24px}
+.tab-body.active{display:block}
+.bfields{
+  display:grid;
+  grid-template-columns:1.4fr 1.4fr .85fr 1fr .72fr 1fr .72fr auto;
+  gap:10px;align-items:end;
+}
+.bf{display:flex;flex-direction:column;gap:4px}
+.bf label{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+.bf input,.bf select{
+  height:40px;padding:0 10px;
+  background:var(--pale);border:1.5px solid var(--border);
+  border-radius:8px;font-size:.87rem;color:var(--ink);
+  transition:border-color var(--t),box-shadow var(--t);
+  width:100%;appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23D90429' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;
+}
+.bf input{background-image:none;padding-right:10px}
+.bf input:focus,.bf select:focus{border-color:var(--red);box-shadow:0 0 0 3px var(--red-ring);background:#fff}
+.bsrch{
+  height:40px;padding:0 22px;
+  background:var(--red);color:#fff;
+  font-size:.87rem;font-weight:800;border-radius:8px;
+  box-shadow:var(--shr);white-space:nowrap;
+  display:flex;align-items:center;gap:7px;
+  transition:background var(--t),transform var(--t);
+}
+.bsrch:hover{background:var(--red-dk);transform:translateY(-1px)}
+.mfields{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
 
-/* Booking form card */
-.booking-wrap {
-  background: var(--faint); border-top: 1px solid var(--border); margin-top: 64px;
+/* Stats row */
+.stats-row{
+  display:flex;justify-content:space-around;flex-wrap:wrap;
+  background:var(--warm);border-top:1px solid var(--border);
+  padding:28px 0;gap:0;
 }
-.booking-card { background: #fff; border-bottom: 1px solid var(--border); }
-.btabs { display: flex; border-bottom: 1px solid var(--border); }
-.btab {
-  padding: 14px 28px; font-size: .85rem; font-weight: 700;
-  color: var(--muted); border-bottom: 3px solid transparent;
-  transition: color var(--trans), border-color var(--trans);
-}
-.btab.active { color: var(--red); border-bottom-color: var(--red); }
-.btab:hover:not(.active) { color: var(--ink); }
-.tab-body { display: none; padding: 22px 28px; }
-.tab-body.active { display: block; }
-.bfields {
-  display: grid;
-  grid-template-columns: 1.4fr 1.4fr .85fr 1fr .75fr 1fr .75fr auto;
-  gap: 12px; align-items: end;
-}
-.bfield { display: flex; flex-direction: column; gap: 4px; }
-.bfield label { font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .9px; color: var(--muted); }
-.bfield input,
-.bfield select {
-  height: 42px; padding: 0 12px;
-  background: var(--faint); border: 1.5px solid var(--border);
-  border-radius: 8px; font-size: .875rem; color: var(--ink);
-  transition: border-color var(--trans), box-shadow var(--trans);
-  width: 100%; appearance: none; -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23D90429' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 11px center; padding-right: 30px;
-}
-.bfield input { background-image: none; padding-right: 12px; }
-.bfield input:focus, .bfield select:focus {
-  border-color: var(--red); box-shadow: 0 0 0 3px var(--red-ring); background: #fff;
-}
-.bsearch {
-  height: 42px; padding: 0 24px;
-  background: var(--red); color: #fff;
-  font-size: .88rem; font-weight: 800; border-radius: 8px;
-  box-shadow: var(--shadow-r); white-space: nowrap;
-  display: flex; align-items: center; gap: 8px;
-  transition: background var(--trans), transform var(--trans);
-}
-.bsearch:hover { background: var(--red-dark); transform: translateY(-1px); }
-.mfields { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; }
+.stat{text-align:center;padding:0 28px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.snum{font-size:2rem;font-weight:900;color:var(--red);line-height:1}
+.slabel{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:3px}
 
-/* ═══════════════════════════════════════════════════════════════
-   STATS
-═══════════════════════════════════════════════════════════════ */
-.stats-row {
-  display: flex; justify-content: space-around; flex-wrap: wrap;
-  padding: 40px 0; border-bottom: 1px solid var(--border);
-  gap: 0;
-}
-.snum {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.2rem; font-weight: 900; color: var(--red); line-height: 1;
-}
-.slabel { font-size: .73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin-top: 4px; }
-.stat { text-align: center; padding: 0 32px; border-right: 1px solid var(--border); }
-.stat:last-child { border-right: none; }
-
-/* ═══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    FLEET
-═══════════════════════════════════════════════════════════════ */
-.fleet-section { background: var(--faint); }
-.sh { text-align: center; margin-bottom: 48px; }
-.sh .eyebrow { display: inline-block; font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: var(--red); margin-bottom: 10px; }
-.sh h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 800; color: var(--ink); }
-.sh h2 em { font-style: normal; color: var(--red); }
-.sh p { font-size: .95rem; color: var(--muted); margin-top: 10px; }
+═══════════════════════════════════════════════════════════ */
+.fleet-section{padding:64px 0;background:#fff}
+.sh{text-align:center;margin-bottom:36px}
+.sh .ey{display:inline-block;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin-bottom:8px}
+.sh h2{font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:var(--ink)}
+.sh h2 em{font-style:normal;color:var(--red)}
+.sh p{font-size:.92rem;color:var(--muted);margin-top:8px}
 
-.filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
-.fbtn {
-  padding: 7px 18px; border-radius: 100px;
-  font-size: .82rem; font-weight: 700; color: var(--ink-2);
-  background: #fff; border: 1.5px solid var(--border);
-  transition: all var(--trans);
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-bottom:32px}
+.fbtn{
+  padding:6px 16px;border-radius:100px;
+  font-size:.81rem;font-weight:700;color:var(--ink2);
+  background:#fff;border:1.5px solid var(--border);
+  transition:all var(--t);
 }
-.fbtn.active, .fbtn:hover { background: var(--red); border-color: var(--red); color: #fff; box-shadow: var(--shadow-r); }
+.fbtn.active,.fbtn:hover{background:var(--red);border-color:var(--red);color:#fff;box-shadow:var(--shr)}
 
-.fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.car-card {
-  background: #fff; border-radius: var(--radius-lg); overflow: hidden;
-  border: 1.5px solid var(--border);
-  transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.car-card{
+  background:#fff;border-radius:var(--rl);
+  border:1.5px solid var(--border);overflow:hidden;
+  transition:transform var(--t),box-shadow var(--t),border-color var(--t);
 }
-.car-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: #fcc; }
-.car-card.hidden { display: none; }
-
-.car-img { background: var(--red-pale); padding: 24px 20px 12px; position: relative; }
-.car-tag {
-  position: absolute; top: 12px; left: 12px;
-  font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .8px;
-  background: var(--ink); color: #fff; padding: 3px 10px; border-radius: 100px;
+.car-card:hover{transform:translateY(-4px);box-shadow:var(--shl);border-color:#f5b8be}
+.car-card.hidden{display:none}
+.car-img{background:var(--warm);padding:20px 18px 10px;position:relative}
+.car-tag{
+  position:absolute;top:10px;left:10px;
+  font-size:.61rem;font-weight:800;text-transform:uppercase;letter-spacing:.7px;
+  background:var(--ink);color:#fff;padding:3px 9px;border-radius:100px;
 }
-.car-tag.pop { background: var(--red); }
-.car-img svg { width: 100%; height: auto; filter: drop-shadow(0 4px 12px rgba(0,0,0,.1)); }
-
-.car-body { padding: 16px 18px 20px; }
-.car-name { font-size: .95rem; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
-.car-name span { font-weight: 500; color: var(--muted); font-size: .85rem; }
-.specs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
-.specs span { font-size: .74rem; font-weight: 700; color: var(--ink-2); }
-.tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
-.tags li { font-size: .71rem; font-weight: 600; color: var(--muted); background: var(--faint); border: 1px solid var(--border); padding: 3px 8px; border-radius: 5px; }
-.car-foot { display: flex; align-items: center; justify-content: space-between; }
-.price { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--red); }
-.price span { font-size: .72rem; font-weight: 500; color: var(--muted); }
-.btn-book {
-  padding: 8px 18px; background: var(--red); color: #fff;
-  font-size: .8rem; font-weight: 800; border-radius: 8px;
-  box-shadow: var(--shadow-r);
-  transition: background var(--trans), transform var(--trans);
+.car-tag.pop{background:var(--red)}
+.car-img svg{width:100%;height:auto;filter:drop-shadow(0 3px 10px rgba(0,0,0,.1))}
+.car-body{padding:14px 16px 18px}
+.car-name{font-size:.93rem;font-weight:800;color:var(--ink);margin-bottom:6px}
+.car-name span{font-weight:500;color:var(--muted);font-size:.83rem}
+.specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.specs span{font-size:.73rem;font-weight:700;color:var(--ink2)}
+.ctags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px}
+.ctags li{font-size:.7rem;font-weight:600;color:var(--muted);background:var(--pale);border:1px solid var(--border);padding:2px 8px;border-radius:4px}
+.car-foot{display:flex;align-items:center;justify-content:space-between}
+.price{font-size:1.05rem;font-weight:900;color:var(--red)}
+.price span{font-size:.7rem;font-weight:500;color:var(--muted)}
+.btn-bk{
+  padding:7px 16px;background:var(--red);color:#fff;
+  font-size:.79rem;font-weight:800;border-radius:7px;
+  box-shadow:var(--shr);
+  transition:background var(--t),transform var(--t);
 }
-.btn-book:hover { background: var(--red-dark); transform: translateY(-1px); }
+.btn-bk:hover{background:var(--red-dk);transform:translateY(-1px)}
 
-/* ═══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
+   SOCIAL STRIP  — mid-page, icon-based, dark background
+═══════════════════════════════════════════════════════════ */
+.social-strip{
+  background:var(--ink);
+  padding:44px 0;
+}
+.ss-inner{
+  display:flex;align-items:center;justify-content:center;
+  gap:40px;flex-wrap:wrap;
+}
+.ss-text{color:#fff;margin-right:16px}
+.ss-text strong{font-size:1.05rem;font-weight:800;display:block;margin-bottom:3px}
+.ss-text span{font-size:.82rem;color:rgba(255,255,255,.5)}
+
+.ss-icons{display:flex;gap:14px;align-items:center}
+
+.soc-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 22px;border-radius:100px;
+  font-size:.85rem;font-weight:800;color:#fff;
+  transition:transform var(--t),box-shadow var(--t),filter var(--t);
+  white-space:nowrap;
+}
+.soc-btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.soc-btn svg{width:20px;height:20px;flex-shrink:0}
+
+.soc-wa{background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,.4)}
+.soc-ig{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);box-shadow:0 4px 16px rgba(188,24,136,.35)}
+.soc-fb{background:#1877F2;box-shadow:0 4px 16px rgba(24,119,242,.4)}
+
+/* ═══════════════════════════════════════════════════════════
    REVIEWS
-═══════════════════════════════════════════════════════════════ */
-.reviews-section { background: #fff; }
-.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.review-card {
-  background: var(--faint); border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg); padding: 28px;
-  transition: box-shadow var(--trans), border-color var(--trans);
+═══════════════════════════════════════════════════════════ */
+.reviews-section{padding:64px 0;background:var(--warm)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rv{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--rl);padding:24px;
+  transition:box-shadow var(--t),border-color var(--t);
 }
-.review-card:hover { box-shadow: var(--shadow); border-color: #fcc; }
-.r-stars { color: #F59E0B; font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
-.r-text { font-size: .9rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
-.r-author { display: flex; align-items: center; gap: 12px; }
-.r-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--red); color: #fff;
-  font-size: .75rem; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.rv:hover{box-shadow:var(--sh);border-color:#f5b8be}
+.rv-stars{color:#F59E0B;font-size:.95rem;letter-spacing:2px;margin-bottom:12px}
+.rv-text{font-size:.88rem;color:var(--ink2);line-height:1.7;margin-bottom:18px;font-style:italic}
+.rv-auth{display:flex;align-items:center;gap:10px}
+.rv-av{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--red);color:#fff;
+  font-size:.73rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.r-name { font-size: .88rem; font-weight: 700; color: var(--ink); }
-.r-meta { font-size: .74rem; color: var(--muted); }
+.rv-name{font-size:.87rem;font-weight:700;color:var(--ink)}
+.rv-meta{font-size:.72rem;color:var(--muted)}
 
-/* ═══════════════════════════════════════════════════════════════
-   CONNECT — Social as real POC
-═══════════════════════════════════════════════════════════════ */
-.connect-section { background: var(--faint); padding: 96px 0; }
-.connect-intro { text-align: center; margin-bottom: 48px; }
-.connect-intro h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.3rem); font-weight: 800; color: var(--ink); margin-bottom: 12px;
+/* ═══════════════════════════════════════════════════════════
+   FOOTER  — dark
+═══════════════════════════════════════════════════════════ */
+.site-footer{background:var(--ink)}
+.ft-main{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:40px;padding:48px 22px 36px;
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
-.connect-intro p { font-size: .97rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.7; }
-
-.poc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-
-.poc-card {
-  border-radius: var(--radius-lg); overflow: hidden;
-  border: 1.5px solid var(--border);
-  background: #fff;
-  display: flex; flex-direction: column;
-  transition: transform var(--trans), box-shadow var(--trans);
+.ft-brand p{font-size:.85rem;color:rgba(255,255,255,.38);line-height:1.7;max-width:240px;margin-top:12px}
+.ft-brand .logo-name{color:#ff6b7a;-webkit-text-fill-color:#ff6b7a}
+.ft-brand .logo-sub{color:rgba(255,255,255,.3)}
+.ft-col h4{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;color:rgba(255,255,255,.9);margin-bottom:14px}
+.ft-col ul{display:flex;flex-direction:column;gap:9px}
+.ft-col a{font-size:.87rem;color:rgba(255,255,255,.38);transition:color var(--t)}
+.ft-col a:hover{color:#fff}
+.ft-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:10px;padding:16px 22px;
 }
-.poc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.ft-bottom p,.ft-legal a{font-size:.77rem;color:rgba(255,255,255,.28)}
+.ft-legal a{margin:0 4px;transition:color var(--t)}
+.ft-legal a:hover{color:rgba(255,255,255,.7)}
 
-.poc-top {
-  padding: 32px 28px 28px;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
-  flex: 1;
+/* ═══════════════════════════════════════════════════════════
+   FLOATING WHATSAPP
+═══════════════════════════════════════════════════════════ */
+.float-wa{
+  position:fixed;bottom:24px;right:24px;z-index:800;
+  display:flex;align-items:center;gap:9px;
+  background:#25D366;color:#fff;
+  padding:11px 18px 11px 14px;border-radius:100px;
+  font-size:.83rem;font-weight:800;
+  box-shadow:0 5px 20px rgba(37,211,102,.5);
+  transition:transform var(--t),box-shadow var(--t);
 }
-.poc-icon-wrap {
-  width: 56px; height: 56px; border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-}
-.poc-icon-wrap svg { width: 28px; height: 28px; }
-.poc-wa   .poc-icon-wrap { background: #E7FDF0; }
-.poc-ig   .poc-icon-wrap { background: #FFF0F7; }
-.poc-fb   .poc-icon-wrap { background: #EFF5FF; }
-.poc-wa   .poc-icon-wrap svg { color: #128C7E; }
-.poc-ig   .poc-icon-wrap svg { color: #C13584; }
-.poc-fb   .poc-icon-wrap svg { color: #1877F2; }
+.float-wa svg{width:20px;height:20px;flex-shrink:0}
+.float-wa:hover{transform:translateY(-2px);box-shadow:0 7px 28px rgba(37,211,102,.6)}
+.float-wa-txt{white-space:nowrap}
 
-.poc-top h3 { font-size: 1.05rem; font-weight: 800; color: var(--ink); }
-.poc-top p  { font-size: .875rem; color: var(--muted); line-height: 1.65; }
-
-.poc-handle {
-  font-size: .78rem; font-weight: 700; color: var(--muted);
-  display: flex; align-items: center; gap: 5px; margin-top: auto;
+/* ═══════════════════════════════════════════════════════════
+   SCROLL TOP
+═══════════════════════════════════════════════════════════ */
+.scroll-top{
+  position:fixed;bottom:24px;left:24px;z-index:800;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--pale);border:1.5px solid var(--border);
+  color:var(--ink);font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--sh);opacity:0;pointer-events:none;
+  transform:translateY(6px);transition:opacity var(--t),transform var(--t),background var(--t),color var(--t);
+  cursor:pointer;
 }
+.scroll-top.vis{opacity:1;pointer-events:all;transform:translateY(0)}
+.scroll-top:hover{background:var(--red);border-color:var(--red);color:#fff}
 
-.poc-btn {
-  display: block; padding: 15px 28px;
-  font-size: .9rem; font-weight: 800; text-align: center; color: #fff;
-  transition: filter var(--trans), transform var(--trans);
-  letter-spacing: .2px;
-}
-.poc-btn:hover { filter: brightness(1.1); }
-.poc-wa .poc-btn { background: #25D366; }
-.poc-ig .poc-btn { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.poc-fb .poc-btn { background: #1877F2; }
+/* ═══════════════════════════════════════════════════════════
+   FLATPICKR
+═══════════════════════════════════════════════════════════ */
+.flatpickr-calendar{border-radius:var(--r)!important;box-shadow:var(--shl)!important;border:1px solid var(--border)!important}
+.flatpickr-day.selected,.flatpickr-day.selected:hover{background:var(--red)!important;border-color:var(--red)!important}
+.flatpickr-day:hover{background:var(--red-pale)!important}
 
-/* ═══════════════════════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════════════════════ */
-.site-footer { background: var(--ink); }
-.footer-main {
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 48px; padding: 56px 24px 44px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.fb-logo { margin-bottom: 14px; }
-.fb-logo .logo-word { color: #ff6b7a; -webkit-text-fill-color: #ff6b7a; }
-.fb-logo .logo-sub  { color: rgba(255,255,255,.35); }
-.footer-brand p { font-size: .875rem; color: rgba(255,255,255,.4); line-height: 1.75; max-width: 260px; }
-.footer-col h4 {
-  font-size: .73rem; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 1.5px; color: rgba(255,255,255,.9); margin-bottom: 16px;
-}
-.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-.footer-col a { font-size: .875rem; color: rgba(255,255,255,.4); transition: color var(--trans); }
-.footer-col a:hover { color: #fff; }
-.footer-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 10px; padding: 18px 24px;
-}
-.footer-bottom p    { font-size: .78rem; color: rgba(255,255,255,.28); }
-.footer-legal a     { color: rgba(255,255,255,.28); margin: 0 4px; transition: color var(--trans); }
-.footer-legal a:hover { color: rgba(255,255,255,.7); }
-
-/* ═══════════════════════════════════════════════════════════════
-   FLOATING WHATSAPP  (single, purposeful)
-═══════════════════════════════════════════════════════════════ */
-.float-wa {
-  position: fixed; bottom: 28px; right: 28px; z-index: 800;
-  display: flex; align-items: center; gap: 10px;
-  background: #25D366; color: #fff;
-  padding: 12px 20px 12px 16px; border-radius: 100px;
-  font-size: .85rem; font-weight: 800;
-  box-shadow: 0 6px 24px rgba(37,211,102,.5);
-  transition: transform var(--trans), box-shadow var(--trans);
-  text-decoration: none;
-}
-.float-wa svg { width: 22px; height: 22px; flex-shrink: 0; }
-.float-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,.6); }
-.float-wa-text { white-space: nowrap; }
-
-/* ═══════════════════════════════════════════════════════════════
-   SCROLL-TO-TOP
-═══════════════════════════════════════════════════════════════ */
-.scroll-top {
-  position: fixed; bottom: 28px; left: 28px; z-index: 800;
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--faint); border: 1.5px solid var(--border);
-  color: var(--ink); font-size: 1rem;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: var(--shadow); opacity: 0; pointer-events: none;
-  transform: translateY(6px); transition: opacity var(--trans), transform var(--trans); cursor: pointer;
-}
-.scroll-top.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
-.scroll-top:hover { background: var(--red); border-color: var(--red); color: #fff; }
-
-/* ═══════════════════════════════════════════════════════════════
-   FLATPICKR OVERRIDE
-═══════════════════════════════════════════════════════════════ */
-.flatpickr-calendar { border-radius: var(--radius) !important; box-shadow: var(--shadow-lg) !important; border: 1px solid var(--border) !important; }
-.flatpickr-day.selected, .flatpickr-day.selected:hover { background: var(--red) !important; border-color: var(--red) !important; }
-.flatpickr-day:hover { background: var(--red-pale) !important; }
-
-/* ═══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    REVEAL
-═══════════════════════════════════════════════════════════════ */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+═══════════════════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
 
-/* ═══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════════════════ */
+#bModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:2000;
+  align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
+.modal-box{
+  background:#fff;border-radius:18px;padding:34px;
+  max-width:400px;width:100%;position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.18);border-top:4px solid var(--red);
+}
+.modal-close{
+  position:absolute;top:12px;right:12px;
+  width:28px;height:28px;border-radius:50%;
+  background:var(--pale);font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);cursor:pointer;border:none;
+}
+.modal-box h3{font-size:1.25rem;font-weight:800;color:var(--ink);margin-bottom:7px}
+.modal-box p{font-size:.87rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.modal-actions{display:flex;flex-direction:column;gap:9px}
+.mbtn{
+  padding:12px;font-size:.88rem;font-weight:800;border-radius:9px;
+  text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:filter var(--t),transform var(--t);
+}
+.mbtn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.mbtn-red{background:var(--red);color:#fff;box-shadow:var(--shr)}
+.mbtn-wa{background:#25D366;color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.4)}
+
+/* ═══════════════════════════════════════════════════════════
    RESPONSIVE
-═══════════════════════════════════════════════════════════════ */
-@media (max-width: 1024px) {
-  .bfields { grid-template-columns: 1fr 1fr 1fr; }
-  .fleet-grid { grid-template-columns: repeat(2, 1fr); }
-  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
-  .poc-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .stats-row { gap: 16px; }
-  .stat { padding: 0 20px; }
+═══════════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .bfields{grid-template-columns:1fr 1fr 1fr}
+  .fleet-grid{grid-template-columns:repeat(2,1fr)}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
+  .ft-main{grid-template-columns:1fr 1fr;gap:28px}
 }
-@media (max-width: 768px) {
-  section { padding: 64px 0; }
-  .main-nav {
-    position: fixed; top: 0; right: 0; height: 100vh; width: 260px;
-    background: #fff; border-left: 1px solid var(--border);
-    flex-direction: column; align-items: flex-start;
-    padding: 80px 24px 32px;
-    transform: translateX(100%); transition: transform .3s ease;
-    z-index: 999; box-shadow: -8px 0 30px rgba(0,0,0,.08);
+@media(max-width:768px){
+  .nav{
+    position:fixed;top:0;right:0;height:100vh;width:250px;
+    background:#fff;border-left:1px solid var(--border);
+    flex-direction:column;align-items:flex-start;
+    padding:72px 20px 28px;
+    transform:translateX(100%);transition:transform .28s ease;
+    z-index:999;box-shadow:-6px 0 24px rgba(0,0,0,.08);
   }
-  .main-nav.open { transform: translateX(0); }
-  .main-nav ul { flex-direction: column; gap: 2px; width: 100%; }
-  .main-nav a { display: block; font-size: 1rem; padding: 11px 14px; }
-  .hamburger { display: flex; }
-  .btn-call, .btn-reserve { display: none; }
-  .bfields { grid-template-columns: 1fr 1fr; }
-  .fleet-grid { grid-template-columns: 1fr; }
-  .reviews-grid { grid-template-columns: 1fr; }
-  .poc-grid { grid-template-columns: 1fr; }
-  .footer-main { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px; }
-  .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 28px 0; }
-  .stat { border-right: none; padding: 12px; border: 1px solid var(--border); border-radius: 10px; }
-  .mfields { grid-template-columns: 1fr; }
-  .float-wa-text { display: none; }
-  .float-wa { padding: 14px; }
+  .nav.open{transform:translateX(0)}
+  .nav ul{flex-direction:column;gap:2px;width:100%}
+  .nav a{display:block;font-size:.97rem;padding:10px 12px}
+  .burger{display:flex}
+  .btn-phone,.btn-res{display:none}
+  .hero{padding:44px 0 0}
+  .bfields{grid-template-columns:1fr 1fr}
+  .tab-body{padding:14px 16px}
+  .fleet-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .ft-main{grid-template-columns:1fr;gap:24px;padding:36px 22px}
+  .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+  .stat{border-right:none;background:var(--warm);padding:16px}
+  .ss-inner{flex-direction:column;gap:20px;text-align:center}
+  .ss-text{margin-right:0}
+  .ss-icons{flex-wrap:wrap;justify-content:center}
+  .mfields{grid-template-columns:1fr}
+  .float-wa-txt{display:none}
+  .float-wa{padding:13px}
 }
-@media (max-width: 480px) {
-  .hero-text h1 { font-size: 2.1rem; }
-  .bfields { grid-template-columns: 1fr; }
-  .trust-row { gap: 8px; }
+@media(max-width:480px){
+  .hero-body h1{font-size:2rem}
+  .bfields{grid-template-columns:1fr}
+  .trust-row{gap:6px}
 }
   </style>
 </head>
 <body>
 
-  <!-- ═══ HEADER ═════════════════════════════════════════════ -->
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Rydex Car Rental">
-        <div class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 17H5a2 2 0 01-2-2V9a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-        </div>
-        <div><div class="logo-word">Rydex</div><div class="logo-sub">Car Rental</div></div>
+<!-- ═══ HEADER ══════════════════════════════════════════════ -->
+<header class="hdr" id="hdr">
+  <div class="container hdr-inner">
+    <a href="#" class="logo" aria-label="Rydex Car Rental">
+      <div class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 17H5a2 2 0 01-2-2V9a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+      </div>
+      <div><div class="logo-name">Rydex</div><div class="logo-sub">Car Rental</div></div>
+    </a>
+
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#booking">Book</a></li>
+        <li><a href="#fleet">Fleet</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#connect">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hdr-right">
+      <a href="tel:+15550001234" class="btn-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+        +1 (555) 000-1234
       </a>
-
-      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-        <ul>
-          <li><a href="#booking">Book</a></li>
-          <li><a href="#fleet">Fleet</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#connect">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-right">
-        <a href="tel:+15550001234" class="btn-call">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
-          +1 (555) 000-1234
-        </a>
-        <a href="#booking" class="btn-reserve">Reserve a Car</a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-      </div>
+      <a href="#booking" class="btn-res">Reserve Now</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ═══ HERO ════════════════════════════════════════════════ -->
-  <section class="hero" id="top">
-    <div class="container">
-      <div class="hero-text">
-        <div class="hero-kicker"><span></span>Book Online &amp; Save Up To 30%</div>
-        <h1>Your Journey.<br>Our <em>Best Price.</em></h1>
-        <p>Reliable cars, transparent pricing, and seamless pickup — at the airport, your hotel, or downtown.</p>
-        <div class="trust-row">
-          <div class="trust-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-            No Hidden Fees
-          </div>
-          <div class="trust-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Airport Open 24 / 7
-          </div>
-          <div class="trust-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            4.9 ★ — 300+ Reviews
-          </div>
-          <div class="trust-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            12,000+ Customers
-          </div>
+<!-- ═══ HERO ════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-body">
+      <div class="hero-kicker"><span></span>Book Online &amp; Save Up to 30%</div>
+      <h1>Your Journey.<br>Our Best Price.</h1>
+      <p>Reliable cars, transparent pricing, seamless 24/7 airport pickup. Zero hidden fees — guaranteed.</p>
+      <div class="trust-row">
+        <div class="tpill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          No Hidden Fees
         </div>
-      </div>
-    </div>
-
-    <!-- Booking form anchored to bottom of hero -->
-    <div class="booking-wrap" id="booking">
-      <div class="container">
-        <div class="booking-card">
-          <div class="btabs" role="tablist">
-            <button class="btab active" data-tab="new" role="tab" aria-selected="true">New Reservation</button>
-            <button class="btab" data-tab="modify" role="tab" aria-selected="false">View / Modify</button>
-          </div>
-          <div class="tab-body active" id="tab-new" role="tabpanel">
-            <div class="bfields">
-              <div class="bfield">
-                <label for="pickupLoc">Pick-up Location</label>
-                <select id="pickupLoc">
-                  <option value="">Select location</option>
-                  <option>International Airport (24/7)</option>
-                  <option>Downtown Office</option>
-                  <option>Hotel Delivery</option>
-                </select>
-              </div>
-              <div class="bfield">
-                <label for="returnLoc">Return Location</label>
-                <select id="returnLoc">
-                  <option value="">Select location</option>
-                  <option>International Airport (24/7)</option>
-                  <option>Downtown Office</option>
-                  <option>Hotel Collection</option>
-                </select>
-              </div>
-              <div class="bfield">
-                <label for="driverAge">Driver Age</label>
-                <select id="driverAge">
-                  <option>25 – 74 years</option>
-                  <option>21 – 24 years</option>
-                  <option>75+ years</option>
-                </select>
-              </div>
-              <div class="bfield">
-                <label for="pickupDate">Pick-up Date</label>
-                <input type="text" id="pickupDate" placeholder="Select date" readonly />
-              </div>
-              <div class="bfield">
-                <label for="pickupTime">Time</label>
-                <select id="pickupTime"><option value="">--:--</option></select>
-              </div>
-              <div class="bfield">
-                <label for="returnDate">Return Date</label>
-                <input type="text" id="returnDate" placeholder="Select date" readonly />
-              </div>
-              <div class="bfield">
-                <label for="returnTime">Time</label>
-                <select id="returnTime"><option value="">--:--</option></select>
-              </div>
-              <button class="bsearch" onclick="handleSearch()">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                Search
-              </button>
-            </div>
-          </div>
-          <div class="tab-body" id="tab-modify" role="tabpanel">
-            <div class="mfields">
-              <div class="bfield">
-                <label>Reservation Number</label>
-                <input type="text" placeholder="RYD-00123" />
-              </div>
-              <div class="bfield">
-                <label>Email Address</label>
-                <input type="email" placeholder="your@email.com" />
-              </div>
-              <button class="bsearch" onclick="alert('Coming soon!')">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                Find
-              </button>
-            </div>
-          </div>
+        <div class="tpill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Open 24 / 7
         </div>
-
-        <!-- Stats row inside booking-wrap -->
-        <div class="stats-row" aria-label="Quick stats">
-          <div class="stat"><div class="snum" data-target="500">0+</div><div class="slabel">Vehicles</div></div>
-          <div class="stat"><div class="snum" data-target="12000">0+</div><div class="slabel">Happy Customers</div></div>
-          <div class="stat"><div class="snum" data-target="15">0+</div><div class="slabel">Years of Service</div></div>
-          <div class="stat"><div class="snum" data-target="4.9">0</div><div class="slabel">Average Rating</div></div>
+        <div class="tpill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Rated 4.9 ★
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FLEET ═══════════════════════════════════════════════ -->
-  <section class="fleet-section" id="fleet">
-    <div class="container">
-      <div class="sh">
-        <p class="eyebrow">Our Vehicles</p>
-        <h2>Find Your <em>Perfect Ride</em></h2>
-        <p>From city runarounds to family MPVs — filtered for you.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filter by category">
-        <button class="fbtn active" data-filter="all">All</button>
-        <button class="fbtn" data-filter="economy">Economy</button>
-        <button class="fbtn" data-filter="suv">SUV</button>
-        <button class="fbtn" data-filter="family">Family</button>
-        <button class="fbtn" data-filter="luxury">Luxury</button>
-      </div>
-      <div class="fleet-grid" id="fleetGrid">
-
-        <div class="car-card reveal" data-category="economy">
-          <div class="car-img">
-            <div class="car-tag">Economy</div>
-            <svg viewBox="0 0 400 160" fill="none"><path d="M50 115 Q65 65 145 50 Q230 38 300 55 L330 115 Q270 130 200 130 Q120 130 50 115Z" fill="#fcc"/><path d="M50 115 L330 115 L338 128 L43 128Z" fill="#f9a8a8"/><ellipse cx="118" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="118" cy="128" rx="14" ry="14" fill="#D90429" opacity=".7"/><ellipse cx="118" cy="128" rx="6" ry="6" fill="#fff"/><ellipse cx="268" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="268" cy="128" rx="14" ry="14" fill="#D90429" opacity=".7"/><ellipse cx="268" cy="128" rx="6" ry="6" fill="#fff"/><path d="M95 58 L102 95 L200 95 L210 50 Q155 42 95 58Z" fill="#b3d4f5" opacity=".85"/><path d="M215 48 Q270 40 305 55 L300 95 L206 95Z" fill="#b3d4f5" opacity=".85"/><circle cx="44" cy="112" r="7" fill="#FFB800"/><circle cx="336" cy="112" r="7" fill="#D90429"/></svg>
-          </div>
-          <div class="car-body">
-            <div class="car-name">Toyota Yaris <span>or similar</span></div>
-            <div class="specs"><span>1,200 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
-            <ul class="tags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>Bluetooth</li></ul>
-            <div class="car-foot">
-              <div class="price">From $29<span>/day</span></div>
-              <button class="btn-book" onclick="openModal()">Book Now</button>
-            </div>
-          </div>
+        <div class="tpill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          12,000+ Customers
         </div>
-
-        <div class="car-card reveal" data-category="economy">
-          <div class="car-img">
-            <div class="car-tag">Economy</div>
-            <svg viewBox="0 0 400 160" fill="none"><path d="M45 112 Q62 58 148 45 Q235 33 308 52 L335 112 Q272 128 200 128 Q118 128 45 112Z" fill="#fcc"/><path d="M45 112 L335 112 L342 126 L38 126Z" fill="#f9a8a8"/><ellipse cx="115" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="115" cy="126" rx="14" ry="14" fill="#D90429" opacity=".7"/><ellipse cx="115" cy="126" rx="6" ry="6" fill="#fff"/><ellipse cx="270" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="270" cy="126" rx="14" ry="14" fill="#D90429" opacity=".7"/><ellipse cx="270" cy="126" rx="6" ry="6" fill="#fff"/><path d="M92 53 L100 92 L202 92 L214 46 Q156 38 92 53Z" fill="#b3d4f5" opacity=".85"/><path d="M218 44 Q275 36 308 52 L302 92 L208 92Z" fill="#b3d4f5" opacity=".85"/><circle cx="40" cy="110" r="7" fill="#FFB800"/><circle cx="340" cy="110" r="7" fill="#D90429"/></svg>
-          </div>
-          <div class="car-body">
-            <div class="car-name">Honda Fit <span>or similar</span></div>
-            <div class="specs"><span>1,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
-            <ul class="tags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>USB Charger</li></ul>
-            <div class="car-foot">
-              <div class="price">From $32<span>/day</span></div>
-              <button class="btn-book" onclick="openModal()">Book Now</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="car-card reveal" data-category="family">
-          <div class="car-img">
-            <div class="car-tag pop">Family</div>
-            <svg viewBox="0 0 400 160" fill="none"><path d="M35 112 Q48 55 138 42 Q240 28 318 50 L348 112 Q280 132 200 132 Q115 132 35 112Z" fill="#fcc"/><path d="M35 112 L348 112 L355 130 L28 130Z" fill="#f9a8a8"/><ellipse cx="112" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="112" cy="130" rx="15" ry="15" fill="#D90429" opacity=".7"/><ellipse cx="112" cy="130" rx="6" ry="6" fill="#fff"/><ellipse cx="276" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="276" cy="130" rx="15" ry="15" fill="#D90429" opacity=".7"/><ellipse cx="276" cy="130" rx="6" ry="6" fill="#fff"/><path d="M88 50 L96 95 L205 95 L218 44 Q158 34 88 50Z" fill="#b3d4f5" opacity=".85"/><path d="M222 42 Q282 32 318 50 L310 95 L210 95Z" fill="#b3d4f5" opacity=".85"/><circle cx="30" cy="110" r="7" fill="#FFB800"/><circle cx="353" cy="110" r="7" fill="#D90429"/></svg>
-          </div>
-          <div class="car-body">
-            <div class="car-name">Mazda Premacy <span>or similar</span></div>
-            <div class="specs"><span>2,000 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>7 Seats</span></div>
-            <ul class="tags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>CD Player</li></ul>
-            <div class="car-foot">
-              <div class="price">From $48<span>/day</span></div>
-              <button class="btn-book" onclick="openModal()">Book Now</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="car-card reveal" data-category="suv">
-          <div class="car-img">
-            <div class="car-tag pop">SUV</div>
-            <svg viewBox="0 0 400 160" fill="none"><path d="M30 108 Q40 48 130 35 Q238 22 322 45 L355 108 Q285 128 200 128 Q110 128 30 108Z" fill="#fcc"/><path d="M30 108 L355 108 L362 128 L22 128Z" fill="#f9a8a8"/><ellipse cx="106" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="106" cy="128" rx="16" ry="16" fill="#D90429" opacity=".7"/><ellipse cx="106" cy="128" rx="7" ry="7" fill="#fff"/><ellipse cx="284" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="284" cy="128" rx="16" ry="16" fill="#D90429" opacity=".7"/><ellipse cx="284" cy="128" rx="7" ry="7" fill="#fff"/><path d="M82 42 L90 94 L205 94 L220 36 Q158 24 82 42Z" fill="#b3d4f5" opacity=".85"/><path d="M225 34 Q290 22 322 45 L315 94 L212 94Z" fill="#b3d4f5" opacity=".85"/><circle cx="24" cy="106" r="7" fill="#FFB800"/><circle cx="360" cy="106" r="7" fill="#D90429"/></svg>
-          </div>
-          <div class="car-body">
-            <div class="car-name">Toyota RAV4 <span>or similar</span></div>
-            <div class="specs"><span>2,500 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
-            <ul class="tags"><li>Automatic</li><li>Climate Control</li><li>Unlimited Miles</li><li>4WD</li></ul>
-            <div class="car-foot">
-              <div class="price">From $62<span>/day</span></div>
-              <button class="btn-book" onclick="openModal()">Book Now</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="car-card reveal" data-category="family">
-          <div class="car-img">
-            <div class="car-tag">Family XL</div>
-            <svg viewBox="0 0 400 160" fill="none"><path d="M25 110 Q38 46 130 32 Q238 18 325 44 L358 110 Q288 132 200 132 Q108 132 25 110Z" fill="#fcc"/><path d="M25 110 L358 110 L365 130 L18 130Z" fill="#f9a8a8"/><ellipse cx="104" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="104" cy="130" rx="15" ry="15" fill="#D90429" opacity=".7"/><ellipse cx="104" cy="130" rx="6" ry="6" fill="#fff"/><ellipse cx="280" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="280" cy="130" rx="15" ry="15" fill="#D90429" opacity=".7"/><ellipse cx="280" cy="130" rx="6" ry="6" fill="#fff"/><path d="M82 40 L90 95 L202 95 L218 34 Q155 22 82 40Z" fill="#b3d4f5" opacity=".85"/><path d="M222 32 Q288 20 325 44 L318 95 L215 95Z" fill="#b3d4f5" opacity=".85"/></svg>
-          </div>
-          <div class="car-body">
-            <div class="car-name">Chrysler Voyager <span>or similar</span></div>
-            <div class="specs"><span>3,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>8 Seats</span></div>
-            <ul class="tags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>Cruise Control</li></ul>
-            <div class="car-foot">
-              <div class="price">From $74<span>/day</span></div>
-              <button class="btn-book" onclick="openModal()">Book Now</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="car-card reveal" data-category="luxury">
-          <div class="car-img">
-            <div class="car-tag pop">Luxury</div>
-            <svg viewBox="0 0 400 160" fill="none"><path d="M48 112 Q58 55 145 42 Q228 30 315 55 L338 112 Q278 128 200 128 Q118 128 48 112Z" fill="#fcc"/><path d="M48 112 L338 112 L345 128 L42 128Z" fill="#f9a8a8"/><ellipse cx="118" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="118" cy="128" rx="14" ry="14" fill="#D90429" opacity=".7"/><ellipse cx="118" cy="128" rx="6" ry="6" fill="#fff"/><ellipse cx="272" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="272" cy="128" rx="14" ry="14" fill="#D90429" opacity=".7"/><ellipse cx="272" cy="128" rx="6" ry="6" fill="#fff"/><path d="M95 50 L102 92 L200 92 L212 44 Q154 36 95 50Z" fill="#b3d4f5" opacity=".85"/><path d="M216 42 Q272 34 315 55 L308 92 L208 92Z" fill="#b3d4f5" opacity=".85"/><circle cx="44" cy="110" r="7" fill="#FFB800"/><circle cx="342" cy="110" r="7" fill="#D90429"/></svg>
-          </div>
-          <div class="car-body">
-            <div class="car-name">BMW 5 Series <span>or similar</span></div>
-            <div class="specs"><span>2,000 cc</span><span>·</span><span>4 Doors</span><span>·</span><span>5 Seats</span></div>
-            <ul class="tags"><li>Automatic</li><li>Climate Control</li><li>Sunroof</li><li>Heated Seats</li></ul>
-            <div class="car-foot">
-              <div class="price">From $98<span>/day</span></div>
-              <button class="btn-book" onclick="openModal()">Book Now</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ REVIEWS ═════════════════════════════════════════════ -->
-  <section class="reviews-section" id="reviews">
-    <div class="container">
-      <div class="sh">
-        <p class="eyebrow">Customer Reviews</p>
-        <h2>What Clients <em>Say</em></h2>
-        <p>⭐⭐⭐⭐⭐ &nbsp; 4.9 / 5 from 300+ verified customers</p>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="r-stars">★★★★★</div>
-          <p class="r-text">"Car was ready at the airport when I landed — process was smooth and effortless. Highly recommend Rydex to anyone visiting."</p>
-          <div class="r-author"><div class="r-avatar">JM</div><div><div class="r-name">James Mitchell</div><div class="r-meta">Airport pickup · Economy</div></div></div>
-        </div>
-        <div class="review-card reveal">
-          <div class="r-stars">★★★★★</div>
-          <p class="r-text">"Unbeatable prices compared to the big airport desks. Staff were super friendly and nothing was too much trouble. Will book again."</p>
-          <div class="r-author"><div class="r-avatar">SR</div><div><div class="r-name">Sofia Rodriguez</div><div class="r-meta">Hotel delivery · SUV</div></div></div>
-        </div>
-        <div class="review-card reveal">
-          <div class="r-stars">★★★★★</div>
-          <p class="r-text">"Easy WhatsApp communication, fast replies, clean cars. I've booked three times and it gets better every time. Outstanding service."</p>
-          <div class="r-author"><div class="r-avatar">TK</div><div><div class="r-name">Thomas Klein</div><div class="r-meta">Repeat customer · 3× bookings</div></div></div>
-        </div>
-        <div class="review-card reveal">
-          <div class="r-stars">★★★★★</div>
-          <p class="r-text">"Needed an extra day due to a flight delay — Rydex were incredibly flexible and even delivered the car to my hotel. Truly outstanding."</p>
-          <div class="r-author"><div class="r-avatar">NP</div><div><div class="r-name">Nina Petrov</div><div class="r-meta">2-week rental · Family MPV</div></div></div>
-        </div>
-        <div class="review-card reveal">
-          <div class="r-stars">★★★★★</div>
-          <p class="r-text">"Totally transparent — what they quoted is exactly what we paid. The RAV4 was immaculate. Zero stress from start to finish."</p>
-          <div class="r-author"><div class="r-avatar">AO</div><div><div class="r-name">Amara Okonkwo</div><div class="r-meta">Airport pickup · SUV</div></div></div>
-        </div>
-        <div class="review-card reveal">
-          <div class="r-stars">★★★★★</div>
-          <p class="r-text">"Two-week holiday, excellent communication, seamless pickup and drop-off. Left completely happy. Book Rydex — you won't regret it."</p>
-          <div class="r-author"><div class="r-avatar">WB</div><div><div class="r-name">William Barnes</div><div class="r-meta">Downtown office · Luxury</div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CONNECT — Social as Point of Contact ════════════════ -->
-  <section class="connect-section" id="connect">
-    <div class="container">
-      <div class="connect-intro">
-        <h2>Let's Stay Connected</h2>
-        <p>Have a question? Want to see our cars in action? Reach us directly on the channel that works best for you.</p>
-      </div>
-      <div class="poc-grid">
-
-        <div class="poc-card poc-wa reveal"
-             itemscope itemtype="https://schema.org/ContactPoint">
-          <div class="poc-top">
-            <div class="poc-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </div>
-            <h3>Chat on WhatsApp</h3>
-            <p>Our team is available 24/7 on WhatsApp. Ask about availability, pricing, or send a quick booking request — we reply fast.</p>
-            <span class="poc-handle" itemprop="telephone">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              +1 (555) 000-1234
-            </span>
-          </div>
-          <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
-             class="poc-btn" aria-label="Send a WhatsApp message to Rydex Car Rental"
-             itemprop="url">Message Us on WhatsApp →</a>
-        </div>
-
-        <div class="poc-card poc-ig reveal"
-             itemscope itemtype="https://schema.org/SocialMediaPosting">
-          <div class="poc-top">
-            <div class="poc-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </div>
-            <h3>Follow on Instagram</h3>
-            <p>See our full fleet up close, behind-the-scenes moments, customer stories, and exclusive promotions in your feed.</p>
-            <span class="poc-handle" itemprop="url">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg>
-              @rydexcarrental
-            </span>
-          </div>
-          <a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
-             class="poc-btn" aria-label="Follow Rydex Car Rental on Instagram"
-             itemprop="url">See Our Fleet on Instagram →</a>
-        </div>
-
-        <div class="poc-card poc-fb reveal"
-             itemscope itemtype="https://schema.org/SocialMediaPosting">
-          <div class="poc-top">
-            <div class="poc-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-            </div>
-            <h3>Join Us on Facebook</h3>
-            <p>Follow our page for special deals, seasonal promotions, travel tips, and direct messaging — all in one place.</p>
-            <span class="poc-handle" itemprop="url">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-              /rydexcarrental
-            </span>
-          </div>
-          <a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
-             class="poc-btn" aria-label="Follow Rydex Car Rental on Facebook"
-             itemprop="url">Follow Us on Facebook →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FOOTER ══════════════════════════════════════════════ -->
-  <footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
-    <div class="container footer-main">
-      <div class="footer-brand">
-        <a href="#" class="logo fb-logo" aria-label="Rydex Car Rental" itemprop="name">
-          <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 17H5a2 2 0 01-2-2V9a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
-          <div><div class="logo-word">Rydex</div><div class="logo-sub">Car Rental</div></div>
-        </a>
-        <p itemprop="description" style="margin-top:14px;">Your trusted partner on every road. Affordable, reliable, and always there when you need us.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Reservations</h4>
-        <ul>
-          <li><a href="#booking">New Reservation</a></li>
-          <li><a href="#booking">Modify Reservation</a></li>
-          <li><a href="#fleet">Browse Fleet</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Information</h4>
-        <ul>
-          <li><a href="#">Airport Pick-up</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-          <li><a href="#">FAQs</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Get in Touch</h4>
-        <ul>
-          <li><a href="tel:+15550001234" itemprop="telephone">+1 (555) 000-1234</a></li>
-          <li><a href="mailto:info@rydexrentals.com" itemprop="email">info@rydexrentals.com</a></li>
-          <li><a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" itemprop="sameAs">WhatsApp</a></li>
-          <li><a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Instagram</a></li>
-          <li><a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>© 2026 Rydex Car Rental. All Rights Reserved.</p>
-      <p class="footer-legal"><a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </div>
-  </footer>
-
-  <!-- ═══ FLOATING WHATSAPP (single, purposeful) ═══════════════ -->
-  <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
-     class="float-wa" aria-label="Chat with Rydex on WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    <span class="float-wa-text">Chat with Us</span>
-  </a>
-
-  <!-- ═══ MODAL ════════════════════════════════════════════════ -->
-  <div id="bModal" role="dialog" aria-modal="true" aria-label="Book this vehicle"
-       style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:2000;
-              align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px);">
-    <div style="background:#fff;border-radius:20px;padding:36px;max-width:420px;width:100%;
-                position:relative;box-shadow:0 20px 60px rgba(0,0,0,.16);border-top:4px solid var(--red);">
-      <button onclick="closeModal()" aria-label="Close"
-              style="position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;
-                     background:var(--faint);font-size:1.2rem;display:flex;align-items:center;
-                     justify-content:center;color:var(--muted);cursor:pointer;border:none;">✕</button>
-      <h3 style="font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);margin-bottom:8px;">Reserve This Car</h3>
-      <p style="font-size:.88rem;color:var(--muted);margin-bottom:22px;line-height:1.65;">
-        Use the booking form to select your dates, or get in touch directly — we're always available.
-      </p>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="#booking" onclick="closeModal()"
-           style="padding:13px;background:var(--red);color:#fff;font-weight:800;font-size:.9rem;
-                  border-radius:9px;text-align:center;box-shadow:var(--shadow-r);">
-          Go to Booking Form
-        </a>
-        <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
-           style="padding:13px;background:#25D366;color:#fff;font-weight:800;font-size:.9rem;
-                  border-radius:9px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Book via WhatsApp
-        </a>
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Booking form -->
+  <div class="booking-wrap" id="booking">
+    <div class="container">
+      <div style="background:#fff;border-radius:0;border-top:none">
+        <div class="btabs" role="tablist">
+          <button class="btab active" data-tab="new" role="tab" aria-selected="true">New Reservation</button>
+          <button class="btab" data-tab="mod" role="tab" aria-selected="false">View / Modify</button>
+        </div>
+        <div class="tab-body active" id="tab-new">
+          <div class="bfields">
+            <div class="bf"><label for="ploc">Pick-up Location</label>
+              <select id="ploc"><option value="">Select location</option><option>Airport (24/7)</option><option>Downtown Office</option><option>Hotel Delivery</option></select></div>
+            <div class="bf"><label for="rloc">Return Location</label>
+              <select id="rloc"><option value="">Select location</option><option>Airport (24/7)</option><option>Downtown Office</option><option>Hotel Collection</option></select></div>
+            <div class="bf"><label for="dage">Driver Age</label>
+              <select id="dage"><option>25 – 74 yrs</option><option>21 – 24 yrs</option><option>75+ yrs</option></select></div>
+            <div class="bf"><label for="pd">Pick-up Date</label><input type="text" id="pd" placeholder="Select date" readonly /></div>
+            <div class="bf"><label for="pt">Time</label><select id="pt"><option value="">--:--</option></select></div>
+            <div class="bf"><label for="rd">Return Date</label><input type="text" id="rd" placeholder="Select date" readonly /></div>
+            <div class="bf"><label for="rt">Time</label><select id="rt"><option value="">--:--</option></select></div>
+            <button class="bsrch" onclick="handleSearch()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Search
+            </button>
+          </div>
+        </div>
+        <div class="tab-body" id="tab-mod">
+          <div class="mfields">
+            <div class="bf"><label>Reservation No.</label><input type="text" placeholder="RYD-00123" /></div>
+            <div class="bf"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
+            <button class="bsrch" onclick="alert('Coming soon!')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Find
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row" aria-label="Quick stats">
+        <div class="stat"><div class="snum" data-target="500">0+</div><div class="slabel">Vehicles</div></div>
+        <div class="stat"><div class="snum" data-target="12000">0+</div><div class="slabel">Happy Customers</div></div>
+        <div class="stat"><div class="snum" data-target="15">0+</div><div class="slabel">Years of Service</div></div>
+        <div class="stat"><div class="snum" data-target="4.9">0</div><div class="slabel">Avg. Rating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLEET ════════════════════════════════════════════════ -->
+<section class="fleet-section" id="fleet">
+  <div class="container">
+    <div class="sh">
+      <p class="ey">Our Vehicles</p>
+      <h2>Find Your <em>Perfect Ride</em></h2>
+      <p>Quality cars for every journey.</p>
+    </div>
+    <div class="filters" role="group">
+      <button class="fbtn active" data-filter="all">All</button>
+      <button class="fbtn" data-filter="economy">Economy</button>
+      <button class="fbtn" data-filter="suv">SUV</button>
+      <button class="fbtn" data-filter="family">Family</button>
+      <button class="fbtn" data-filter="luxury">Luxury</button>
+    </div>
+    <div class="fleet-grid" id="fleetGrid">
+
+      <div class="car-card reveal" data-category="economy">
+        <div class="car-img"><div class="car-tag">Economy</div>
+          <svg viewBox="0 0 400 160" fill="none"><path d="M50 115 Q65 65 145 50 Q230 38 300 55 L330 115 Q270 130 200 130 Q120 130 50 115Z" fill="#fdd"/><path d="M50 115 L330 115 L338 128 L43 128Z" fill="#fbb"/><ellipse cx="118" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="118" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="118" cy="128" rx="6" ry="6" fill="#fff"/><ellipse cx="268" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="268" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="268" cy="128" rx="6" ry="6" fill="#fff"/><path d="M95 58 L102 95 L200 95 L210 50 Q155 42 95 58Z" fill="#b3d4f5" opacity=".8"/><path d="M215 48 Q270 40 305 55 L300 95 L206 95Z" fill="#b3d4f5" opacity=".8"/><circle cx="44" cy="112" r="7" fill="#FFB800"/><circle cx="336" cy="112" r="7" fill="#D90429"/></svg>
+        </div>
+        <div class="car-body">
+          <div class="car-name">Toyota Yaris <span>or similar</span></div>
+          <div class="specs"><span>1,200 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
+          <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>Bluetooth</li></ul>
+          <div class="car-foot"><div class="price">From $29<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+        </div>
+      </div>
+
+      <div class="car-card reveal" data-category="economy">
+        <div class="car-img"><div class="car-tag">Economy</div>
+          <svg viewBox="0 0 400 160" fill="none"><path d="M45 112 Q62 58 148 45 Q235 33 308 52 L335 112 Q272 128 200 128 Q118 128 45 112Z" fill="#fdd"/><path d="M45 112 L335 112 L342 126 L38 126Z" fill="#fbb"/><ellipse cx="115" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="115" cy="126" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="115" cy="126" rx="6" ry="6" fill="#fff"/><ellipse cx="270" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="270" cy="126" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="270" cy="126" rx="6" ry="6" fill="#fff"/><path d="M92 53 L100 92 L202 92 L214 46 Q156 38 92 53Z" fill="#b3d4f5" opacity=".8"/><path d="M218 44 Q275 36 308 52 L302 92 L208 92Z" fill="#b3d4f5" opacity=".8"/><circle cx="40" cy="110" r="7" fill="#FFB800"/><circle cx="340" cy="110" r="7" fill="#D90429"/></svg>
+        </div>
+        <div class="car-body">
+          <div class="car-name">Honda Fit <span>or similar</span></div>
+          <div class="specs"><span>1,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
+          <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>USB Charger</li></ul>
+          <div class="car-foot"><div class="price">From $32<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+        </div>
+      </div>
+
+      <div class="car-card reveal" data-category="family">
+        <div class="car-img"><div class="car-tag pop">Family</div>
+          <svg viewBox="0 0 400 160" fill="none"><path d="M35 112 Q48 55 138 42 Q240 28 318 50 L348 112 Q280 132 200 132 Q115 132 35 112Z" fill="#fdd"/><path d="M35 112 L348 112 L355 130 L28 130Z" fill="#fbb"/><ellipse cx="112" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="112" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="112" cy="130" rx="6" ry="6" fill="#fff"/><ellipse cx="276" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="276" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="276" cy="130" rx="6" ry="6" fill="#fff"/><path d="M88 50 L96 95 L205 95 L218 44 Q158 34 88 50Z" fill="#b3d4f5" opacity=".8"/><path d="M222 42 Q282 32 318 50 L310 95 L210 95Z" fill="#b3d4f5" opacity=".8"/><circle cx="30" cy="110" r="7" fill="#FFB800"/><circle cx="353" cy="110" r="7" fill="#D90429"/></svg>
+        </div>
+        <div class="car-body">
+          <div class="car-name">Mazda Premacy <span>or similar</span></div>
+          <div class="specs"><span>2,000 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>7 Seats</span></div>
+          <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>CD Player</li></ul>
+          <div class="car-foot"><div class="price">From $48<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+        </div>
+      </div>
+
+      <div class="car-card reveal" data-category="suv">
+        <div class="car-img"><div class="car-tag pop">SUV</div>
+          <svg viewBox="0 0 400 160" fill="none"><path d="M30 108 Q40 48 130 35 Q238 22 322 45 L355 108 Q285 128 200 128 Q110 128 30 108Z" fill="#fdd"/><path d="M30 108 L355 108 L362 128 L22 128Z" fill="#fbb"/><ellipse cx="106" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="106" cy="128" rx="16" ry="16" fill="#D90429" opacity=".6"/><ellipse cx="106" cy="128" rx="7" ry="7" fill="#fff"/><ellipse cx="284" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="284" cy="128" rx="16" ry="16" fill="#D90429" opacity=".6"/><ellipse cx="284" cy="128" rx="7" ry="7" fill="#fff"/><path d="M82 42 L90 94 L205 94 L220 36 Q158 24 82 42Z" fill="#b3d4f5" opacity=".8"/><path d="M225 34 Q290 22 322 45 L315 94 L212 94Z" fill="#b3d4f5" opacity=".8"/><circle cx="24" cy="106" r="7" fill="#FFB800"/><circle cx="360" cy="106" r="7" fill="#D90429"/></svg>
+        </div>
+        <div class="car-body">
+          <div class="car-name">Toyota RAV4 <span>or similar</span></div>
+          <div class="specs"><span>2,500 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
+          <ul class="ctags"><li>Automatic</li><li>Climate Control</li><li>Unlimited Miles</li><li>4WD</li></ul>
+          <div class="car-foot"><div class="price">From $62<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+        </div>
+      </div>
+
+      <div class="car-card reveal" data-category="family">
+        <div class="car-img"><div class="car-tag">Family XL</div>
+          <svg viewBox="0 0 400 160" fill="none"><path d="M25 110 Q38 46 130 32 Q238 18 325 44 L358 110 Q288 132 200 132 Q108 132 25 110Z" fill="#fdd"/><path d="M25 110 L358 110 L365 130 L18 130Z" fill="#fbb"/><ellipse cx="104" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="104" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="104" cy="130" rx="6" ry="6" fill="#fff"/><ellipse cx="280" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="280" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="280" cy="130" rx="6" ry="6" fill="#fff"/><path d="M82 40 L90 95 L202 95 L218 34 Q155 22 82 40Z" fill="#b3d4f5" opacity=".8"/><path d="M222 32 Q288 20 325 44 L318 95 L215 95Z" fill="#b3d4f5" opacity=".8"/></svg>
+        </div>
+        <div class="car-body">
+          <div class="car-name">Chrysler Voyager <span>or similar</span></div>
+          <div class="specs"><span>3,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>8 Seats</span></div>
+          <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>Cruise Control</li></ul>
+          <div class="car-foot"><div class="price">From $74<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+        </div>
+      </div>
+
+      <div class="car-card reveal" data-category="luxury">
+        <div class="car-img"><div class="car-tag pop">Luxury</div>
+          <svg viewBox="0 0 400 160" fill="none"><path d="M48 112 Q58 55 145 42 Q228 30 315 55 L338 112 Q278 128 200 128 Q118 128 48 112Z" fill="#fdd"/><path d="M48 112 L338 112 L345 128 L42 128Z" fill="#fbb"/><ellipse cx="118" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="118" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="118" cy="128" rx="6" ry="6" fill="#fff"/><ellipse cx="272" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="272" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="272" cy="128" rx="6" ry="6" fill="#fff"/><path d="M95 50 L102 92 L200 92 L212 44 Q154 36 95 50Z" fill="#b3d4f5" opacity=".8"/><path d="M216 42 Q272 34 315 55 L308 92 L208 92Z" fill="#b3d4f5" opacity=".8"/><circle cx="44" cy="110" r="7" fill="#FFB800"/><circle cx="342" cy="110" r="7" fill="#D90429"/></svg>
+        </div>
+        <div class="car-body">
+          <div class="car-name">BMW 5 Series <span>or similar</span></div>
+          <div class="specs"><span>2,000 cc</span><span>·</span><span>4 Doors</span><span>·</span><span>5 Seats</span></div>
+          <ul class="ctags"><li>Automatic</li><li>Climate Control</li><li>Sunroof</li><li>Heated Seats</li></ul>
+          <div class="car-foot"><div class="price">From $98<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL STRIP — middle of page ══════════════════════ -->
+<div class="social-strip" id="connect" aria-label="Social media and contact">
+  <div class="container ss-inner">
+    <div class="ss-text">
+      <strong>Get in Touch</strong>
+      <span>We're one tap away</span>
+    </div>
+    <div class="ss-icons">
+      <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
+         class="soc-btn soc-wa"
+         aria-label="Chat with Rydex on WhatsApp" title="WhatsApp" itemprop="sameAs">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+         class="soc-btn soc-ig"
+         aria-label="Follow Rydex on Instagram" title="Instagram" itemprop="sameAs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+      <a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+         class="soc-btn soc-fb"
+         aria-label="Follow Rydex on Facebook" title="Facebook" itemprop="sameAs">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        Facebook
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ REVIEWS ══════════════════════════════════════════════ -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="sh">
+      <p class="ey">Customer Reviews</p>
+      <h2>What Clients <em>Say</em></h2>
+      <p>⭐⭐⭐⭐⭐ &nbsp;4.9 / 5 from 300+ verified customers</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="rv reveal">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Car was ready at the airport the moment I landed — smooth and effortless. Highly recommend Rydex to anyone."</p>
+        <div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James Mitchell</div><div class="rv-meta">Airport pickup · Economy</div></div></div>
+      </div>
+      <div class="rv reveal">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Unbeatable prices vs the big airport desks. Super friendly staff, nothing was too much trouble. Will definitely book again."</p>
+        <div class="rv-auth"><div class="rv-av">SR</div><div><div class="rv-name">Sofia Rodriguez</div><div class="rv-meta">Hotel delivery · SUV</div></div></div>
+      </div>
+      <div class="rv reveal">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Easy WhatsApp comms, fast replies, clean cars. I've booked three times now and it just gets better every time."</p>
+        <div class="rv-auth"><div class="rv-av">TK</div><div><div class="rv-name">Thomas Klein</div><div class="rv-meta">3× repeat customer</div></div></div>
+      </div>
+      <div class="rv reveal">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Flight delayed — needed an extra day. Rydex were totally flexible and even delivered to my hotel. Truly outstanding."</p>
+        <div class="rv-auth"><div class="rv-av">NP</div><div><div class="rv-name">Nina Petrov</div><div class="rv-meta">2-week stay · Family MPV</div></div></div>
+      </div>
+      <div class="rv reveal">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Quoted price = actual price. Not a cent more. The RAV4 was immaculate and the pickup was quick. Zero stress."</p>
+        <div class="rv-auth"><div class="rv-av">AO</div><div><div class="rv-name">Amara Okonkwo</div><div class="rv-meta">Airport · SUV</div></div></div>
+      </div>
+      <div class="rv reveal">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Two weeks, seamless pickup and drop-off, excellent communication throughout. Left completely happy. Book with confidence!"</p>
+        <div class="rv-auth"><div class="rv-av">WB</div><div><div class="rv-name">William Barnes</div><div class="rv-meta">Downtown office · Luxury</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
+  <div class="container ft-main">
+    <div class="ft-brand">
+      <a href="#" class="logo" aria-label="Rydex Car Rental" itemprop="name">
+        <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 17H5a2 2 0 01-2-2V9a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+        <div class="ft-brand"><div class="logo-name">Rydex</div><div class="logo-sub">Car Rental</div></div>
+      </a>
+      <p itemprop="description">Affordable, reliable rentals — always there when you need us.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Reservations</h4>
+      <ul>
+        <li><a href="#booking">New Reservation</a></li>
+        <li><a href="#booking">Modify Booking</a></li>
+        <li><a href="#fleet">Browse Fleet</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">Airport Pick-up</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+15550001234" itemprop="telephone">+1 (555) 000-1234</a></li>
+        <li><a href="mailto:info@rydexrentals.com" itemprop="email">info@rydexrentals.com</a></li>
+        <li><a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" itemprop="sameAs">WhatsApp</a></li>
+        <li><a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Instagram</a></li>
+        <li><a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container ft-bottom">
+    <p>© 2026 Rydex Car Rental. All Rights Reserved.</p>
+    <p class="ft-legal"><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+  </div>
+</footer>
+
+<!-- ═══ FLOATING WHATSAPP ═══════════════════════════════════ -->
+<a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
+   class="float-wa" aria-label="WhatsApp Rydex Car Rental">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="float-wa-txt">Chat with Us</span>
+</a>
+
+<!-- ═══ MODAL ════════════════════════════════════════════════ -->
+<div id="bModal" role="dialog" aria-modal="true" aria-label="Book this vehicle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <h3>Reserve This Car</h3>
+    <p>Use the booking form above, or reach us instantly on WhatsApp.</p>
+    <div class="modal-actions">
+      <a href="#booking" onclick="closeModal()" class="mbtn mbtn-red">Go to Booking Form</a>
+      <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" class="mbtn mbtn-wa">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book via WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
