@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rydex Car Rental – Drive With Confidence</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Flatpickr for date pickers -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+
+  <!-- ─── HEADER ──────────────────────────────────────────────────── -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <span class="logo-rx">Rydex</span>
+        <span class="logo-sub">Car Rental</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#fleet">Our Fleet</a></li>
+          <li><a href="#why">Why Rydex</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+15550001234" class="btn-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+          +1 (555) 000-1234
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── HERO / BOOKING ──────────────────────────────────────────── -->
+  <section class="hero" id="booking">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="hero-tagline">Exclusive Online Offers</p>
+        <h1>Great Prices <span class="accent">All Year</span> Round</h1>
+        <p class="hero-sub">Affordable, reliable car rentals — wherever the road takes you.</p>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="booking-card" id="bookingCard">
+        <div class="booking-tabs">
+          <button class="tab active" data-tab="new">New Reservation</button>
+          <button class="tab" data-tab="manage">View / Modify</button>
+        </div>
+
+        <div class="tab-pane active" id="tab-new">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Pick-up Location</label>
+              <select id="pickupLocation">
+                <option value="">Select pick-up location</option>
+                <option value="airport">International Airport (Open 24/7)</option>
+                <option value="downtown">Downtown Office</option>
+                <option value="hotel">Hotel Delivery</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Return Location</label>
+              <select id="returnLocation">
+                <option value="">Select return location</option>
+                <option value="airport">International Airport (Open 24/7)</option>
+                <option value="downtown">Downtown Office</option>
+                <option value="hotel">Hotel Collection</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Driver Age</label>
+              <select id="driverAge">
+                <option value="25-74">Age 25 – 74</option>
+                <option value="21-24">Age 21 – 24</option>
+                <option value="75+">Age 75+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Pick-up Date</label>
+              <input type="text" id="pickupDate" class="date-input" placeholder="Select date" readonly />
+            </div>
+            <div class="form-group">
+              <label>Pick-up Time</label>
+              <select id="pickupTime">
+                <option value="">-- : --</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Return Date</label>
+              <input type="text" id="returnDate" class="date-input" placeholder="Select date" readonly />
+            </div>
+            <div class="form-group">
+              <label>Return Time</label>
+              <select id="returnTime">
+                <option value="">-- : --</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-search" onclick="handleSearch()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            Search Available Cars
+          </button>
+        </div>
+
+        <div class="tab-pane" id="tab-manage">
+          <div class="form-grid form-grid-2">
+            <div class="form-group">
+              <label>Reservation Number</label>
+              <input type="text" placeholder="e.g. RYD-00123" />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="your@email.com" />
+            </div>
+          </div>
+          <button class="btn-search" onclick="alert('Reservation lookup coming soon!')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            Find Reservation
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY RYDEX ───────────────────────────────────────────────── -->
+  <section class="features-section" id="why">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Why Choose Us</p>
+        <h2>Why Rydex Car Rental?</h2>
+        <p class="section-sub">We put the driver first — every time.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 17H5a2 2 0 01-2-2V7a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <h3>Huge Variety</h3>
+          <p>From city compacts to family SUVs — our diverse fleet has the perfect car for every trip.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
+          </div>
+          <h3>Outstanding Value</h3>
+          <p>Transparent pricing with no hidden fees — just great value and peace of mind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Quality Vehicles</h3>
+          <p>All vehicles are regularly serviced and fully insured so you drive away with confidence.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3>Competitive Prices</h3>
+          <p>We beat the big brands — book directly with us and save more on every rental.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>All-Inclusive Rates</h3>
+          <p>Insurance, unlimited mileage, and airport delivery included — no surprise add-ons.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Our friendly team is always available — by phone, WhatsApp, or email — day or night.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FLEET ────────────────────────────────────────────────────── -->
+  <section class="fleet-section" id="fleet">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Our Vehicles</p>
+        <h2>Our Fleet</h2>
+        <p class="section-sub">Choose the right car for your journey.</p>
+      </div>
+      <div class="fleet-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="economy">Economy</button>
+        <button class="filter-btn" data-filter="suv">SUV</button>
+        <button class="filter-btn" data-filter="family">Family</button>
+        <button class="filter-btn" data-filter="luxury">Luxury</button>
+      </div>
+      <div class="fleet-grid" id="fleetGrid">
+
+        <!-- Car 1 -->
+        <div class="car-card" data-category="economy">
+          <div class="car-badge">Group A</div>
+          <div class="car-img-wrap">
+            <div class="car-img-placeholder economy-car">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M30 55 Q40 30 80 25 Q120 20 150 30 L165 55 Q140 62 100 62 Q60 62 30 55Z" fill="#e0e0e0"/><path d="M30 55 L165 55 L170 62 L25 62Z" fill="#bdbdbd"/><ellipse cx="60" cy="62" rx="12" ry="12" fill="#555"/><ellipse cx="60" cy="62" rx="7" ry="7" fill="#999"/><ellipse cx="135" cy="62" rx="12" ry="12" fill="#555"/><ellipse cx="135" cy="62" rx="7" ry="7" fill="#999"/><rect x="50" y="31" width="38" height="20" rx="3" fill="#b3d4f5"/><rect x="93" y="28" width="45" height="23" rx="3" fill="#b3d4f5"/><circle cx="25" cy="54" r="5" fill="#FFD700"/><circle cx="170" cy="54" r="5" fill="#FF6B6B"/></svg>
+            </div>
+          </div>
+          <div class="car-info">
+            <h3 class="car-name">Toyota Yaris <span>or similar</span></h3>
+            <div class="car-specs">
+              <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5"/></svg> 1,200 cc</span>
+              <span><svg viewBox="0 0 16 16"><path d="M2 3h12v10H2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> 5 Doors</span>
+              <span><svg viewBox="0 0 16 16"><path d="M8 2a3 3 0 100 6 3 3 0 000-6zM3 14a5 5 0 0110 0" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> 5 Seats</span>
+            </div>
+            <ul class="car-features">
+              <li>Automatic</li>
+              <li>Air Conditioning</li>
+              <li>Unlimited Mileage</li>
+              <li>USB Charger</li>
+              <li>Bluetooth</li>
+            </ul>
+            <button class="btn-book" onclick="openBooking()">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Car 2 -->
+        <div class="car-card" data-category="economy">
+          <div class="car-badge">Group B</div>
+          <div class="car-img-wrap">
+            <div class="car-img-placeholder economy-car">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M28 55 Q42 28 85 23 Q125 18 155 30 L168 55 Q140 63 98 63 Q58 63 28 55Z" fill="#c8e6c9"/><path d="M28 55 L168 55 L172 63 L23 63Z" fill="#a5d6a7"/><ellipse cx="62" cy="63" rx="12" ry="12" fill="#555"/><ellipse cx="62" cy="63" rx="7" ry="7" fill="#999"/><ellipse cx="138" cy="63" rx="12" ry="12" fill="#555"/><ellipse cx="138" cy="63" rx="7" ry="7" fill="#999"/><rect x="48" y="30" width="40" height="21" rx="3" fill="#b3d4f5"/><rect x="93" y="27" width="47" height="24" rx="3" fill="#b3d4f5"/><circle cx="23" cy="54" r="5" fill="#FFD700"/><circle cx="173" cy="54" r="5" fill="#FF6B6B"/></svg>
+            </div>
+          </div>
+          <div class="car-info">
+            <h3 class="car-name">Honda Fit <span>or similar</span></h3>
+            <div class="car-specs">
+              <span>1,300 cc</span>
+              <span>5 Doors</span>
+              <span>5 Seats</span>
+            </div>
+            <ul class="car-features">
+              <li>Automatic</li>
+              <li>Air Conditioning</li>
+              <li>Unlimited Mileage</li>
+              <li>USB Charger</li>
+              <li>Electric Windows</li>
+            </ul>
+            <button class="btn-book" onclick="openBooking()">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Car 3 -->
+        <div class="car-card" data-category="family">
+          <div class="car-badge">Group C</div>
+          <div class="car-img-wrap">
+            <div class="car-img-placeholder family-car">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M20 55 Q28 28 72 22 Q125 15 160 28 L175 55 Q145 65 100 65 Q55 65 20 55Z" fill="#ffe082"/><path d="M20 55 L175 55 L180 65 L15 65Z" fill="#ffd54f"/><ellipse cx="58" cy="65" rx="13" ry="13" fill="#555"/><ellipse cx="58" cy="65" rx="8" ry="8" fill="#999"/><ellipse cx="142" cy="65" rx="13" ry="13" fill="#555"/><ellipse cx="142" cy="65" rx="8" ry="8" fill="#999"/><rect x="40" y="28" width="45" height="23" rx="3" fill="#b3d4f5"/><rect x="90" y="24" width="55" height="27" rx="3" fill="#b3d4f5"/><circle cx="15" cy="54" r="5" fill="#FFD700"/><circle cx="180" cy="54" r="5" fill="#FF6B6B"/></svg>
+            </div>
+          </div>
+          <div class="car-info">
+            <h3 class="car-name">Mazda Premacy <span>or similar</span></h3>
+            <div class="car-specs">
+              <span>2,000 cc</span>
+              <span>5 Doors</span>
+              <span>7 Seats</span>
+            </div>
+            <ul class="car-features">
+              <li>Automatic</li>
+              <li>Air Conditioning</li>
+              <li>Unlimited Mileage</li>
+              <li>CD Player</li>
+              <li>USB Charger</li>
+            </ul>
+            <button class="btn-book" onclick="openBooking()">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Car 4 -->
+        <div class="car-card" data-category="suv">
+          <div class="car-badge">Group D</div>
+          <div class="car-img-wrap">
+            <div class="car-img-placeholder suv-car">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M18 52 Q22 22 68 18 Q125 12 162 26 L178 52 Q148 62 100 62 Q52 62 18 52Z" fill="#b0bec5"/><path d="M18 52 L178 52 L183 62 L13 62Z" fill="#90a4ae"/><ellipse cx="55" cy="62" rx="14" ry="14" fill="#444"/><ellipse cx="55" cy="62" rx="8" ry="8" fill="#888"/><ellipse cx="145" cy="62" rx="14" ry="14" fill="#444"/><ellipse cx="145" cy="62" rx="8" ry="8" fill="#888"/><rect x="35" y="22" width="50" height="26" rx="3" fill="#b3d4f5"/><rect x="90" y="19" width="60" height="29" rx="3" fill="#b3d4f5"/><circle cx="13" cy="51" r="5" fill="#FFD700"/><circle cx="183" cy="51" r="5" fill="#FF6B6B"/></svg>
+            </div>
+          </div>
+          <div class="car-info">
+            <h3 class="car-name">Toyota RAV4 <span>or similar</span></h3>
+            <div class="car-specs">
+              <span>2,500 cc</span>
+              <span>5 Doors</span>
+              <span>5 Seats</span>
+            </div>
+            <ul class="car-features">
+              <li>Automatic</li>
+              <li>Climate Control</li>
+              <li>Unlimited Mileage</li>
+              <li>4WD Available</li>
+              <li>Cruise Control</li>
+            </ul>
+            <button class="btn-book" onclick="openBooking()">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Car 5 -->
+        <div class="car-card" data-category="family">
+          <div class="car-badge">Group E</div>
+          <div class="car-img-wrap">
+            <div class="car-img-placeholder family-car">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M15 54 Q22 20 70 15 Q130 8 165 25 L180 54 Q150 64 100 64 Q50 64 15 54Z" fill="#ce93d8"/><path d="M15 54 L180 54 L185 64 L10 64Z" fill="#ba68c8"/><ellipse cx="53" cy="64" rx="13" ry="13" fill="#444"/><ellipse cx="53" cy="64" rx="8" ry="8" fill="#888"/><ellipse cx="148" cy="64" rx="13" ry="13" fill="#444"/><ellipse cx="148" cy="64" rx="8" ry="8" fill="#888"/><rect x="35" y="20" width="48" height="30" rx="3" fill="#b3d4f5"/><rect x="88" y="16" width="65" height="34" rx="3" fill="#b3d4f5"/></svg>
+            </div>
+          </div>
+          <div class="car-info">
+            <h3 class="car-name">Chrysler Voyager <span>or similar</span></h3>
+            <div class="car-specs">
+              <span>3,300 cc</span>
+              <span>5 Doors</span>
+              <span>8 Seats</span>
+            </div>
+            <ul class="car-features">
+              <li>Automatic</li>
+              <li>Air Conditioning</li>
+              <li>Unlimited Mileage</li>
+              <li>Cruise Control</li>
+              <li>Electric Sliding Doors</li>
+            </ul>
+            <button class="btn-book" onclick="openBooking()">Book Now</button>
+          </div>
+        </div>
+
+        <!-- Car 6 -->
+        <div class="car-card" data-category="luxury">
+          <div class="car-badge best">Group F</div>
+          <div class="car-img-wrap">
+            <div class="car-img-placeholder luxury-car">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M25 53 Q35 26 78 21 Q120 16 158 28 L170 53 Q142 61 100 61 Q58 61 25 53Z" fill="#1a237e" opacity="0.85"/><path d="M25 53 L170 53 L174 61 L21 61Z" fill="#283593"/><ellipse cx="60" cy="61" rx="12" ry="12" fill="#333"/><ellipse cx="60" cy="61" rx="7" ry="7" fill="#666"/><ellipse cx="140" cy="61" rx="12" ry="12" fill="#333"/><ellipse cx="140" cy="61" rx="7" ry="7" fill="#666"/><rect x="48" y="27" width="42" height="22" rx="3" fill="#b3d4f5" opacity="0.9"/><rect x="95" y="23" width="50" height="26" rx="3" fill="#b3d4f5" opacity="0.9"/><circle cx="21" cy="52" r="5" fill="#FFD700"/><circle cx="174" cy="52" r="5" fill="#FF6B6B"/></svg>
+            </div>
+          </div>
+          <div class="car-info">
+            <h3 class="car-name">BMW 5 Series <span>or similar</span></h3>
+            <div class="car-specs">
+              <span>2,000 cc</span>
+              <span>4 Doors</span>
+              <span>5 Seats</span>
+            </div>
+            <ul class="car-features">
+              <li>Automatic</li>
+              <li>Climate Control</li>
+              <li>Unlimited Mileage</li>
+              <li>Sunroof</li>
+              <li>Heated Seats</li>
+            </ul>
+            <button class="btn-book" onclick="openBooking()">Book Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─────────────────────────────────────────────── -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Customer Reviews</p>
+        <h2>What Our Clients Say</h2>
+        <div class="stars-row">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span class="rating-score">4.9 / 5 based on 300+ reviews</span>
+        </div>
+      </div>
+      <div class="testimonials-track-wrap">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p>Excellent service from start to finish. The car was ready at the airport and the whole pickup process was smooth and quick. Highly recommend Rydex!</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">JM</div>
+              <div>
+                <strong>James Mitchell</strong>
+                <span>★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p>Best car rental experience I've ever had. Unbeatable prices compared to the big airport companies. The staff were super friendly and helpful.</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">SR</div>
+              <div>
+                <strong>Sofia Rodriguez</strong>
+                <span>★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p>I needed the car for an extra day due to a flight delay and Rydex was incredibly accommodating. They even delivered the car to my hotel. Outstanding!</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">NP</div>
+              <div>
+                <strong>Nina Petrov</strong>
+                <span>★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p>Easy WhatsApp communication, fast responses, clean cars in great condition. I've booked with them three times now and will keep coming back.</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">TK</div>
+              <div>
+                <strong>Thomas Klein</strong>
+                <span>★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p>Transparent pricing with zero hidden charges. What they quoted us is what we paid. The SUV was in perfect condition for our family road trip.</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">AO</div>
+              <div>
+                <strong>Amara Okonkwo</strong>
+                <span>★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p>Used Rydex for a 2-week holiday. Communication was excellent, both collection and drop-off were seamless. We left completely satisfied. Rent with confidence!</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">WB</div>
+              <div>
+                <strong>William Barnes</strong>
+                <span>★★★★★</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="slider-btn prev" id="sliderPrev" aria-label="Previous">&#8592;</button>
+        <button class="slider-btn next" id="sliderNext" aria-label="Next">&#8594;</button>
+      </div>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </section>
+
+  <!-- ─── INFO STRIP ────────────────────────────────────────────────── -->
+  <section class="info-strip">
+    <div class="container info-strip-inner">
+      <div class="info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+        <div>
+          <strong>Pick-up & Drop-off</strong>
+          <span>Airport · Downtown · Hotel</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div>
+          <strong>Airport Open 24/7</strong>
+          <span>Downtown: Mon–Sat 8am–6pm</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+        <div>
+          <strong>Call or WhatsApp</strong>
+          <span>+1 (555) 000-1234</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div>
+          <strong>Email Us</strong>
+          <span>info@rydexrentals.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DISCOVER SECTION ─────────────────────────────────────────── -->
+  <section class="discover-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Explore</p>
+        <h2>Discover More</h2>
+        <p class="section-sub">We serve multiple locations to get you on the road, fast.</p>
+      </div>
+      <div class="discover-grid">
+        <div class="discover-card airport-card">
+          <div class="discover-card-overlay"></div>
+          <div class="discover-card-content">
+            <h3>Airport Pick-up</h3>
+            <p>Land and drive. Our team meets you at the arrivals hall with your car ready to go — no waiting, no hassle.</p>
+            <a href="#booking" class="btn-secondary">Book Airport Pick-up</a>
+          </div>
+        </div>
+        <div class="discover-card downtown-card">
+          <div class="discover-card-overlay"></div>
+          <div class="discover-card-content">
+            <h3>Downtown Office</h3>
+            <p>Visit our centrally located office to browse the full fleet, ask questions, and pick up your keys in person.</p>
+            <a href="#booking" class="btn-secondary">Get Directions</a>
+          </div>
+        </div>
+        <div class="discover-card delivery-card">
+          <div class="discover-card-overlay"></div>
+          <div class="discover-card-content">
+            <h3>Hotel Delivery</h3>
+            <p>We deliver directly to your hotel at no extra charge — perfect for those days when you want to hit the road right from your door.</p>
+            <a href="#booking" class="btn-secondary">Request Delivery</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo logo-light">
+          <span class="logo-rx">Rydex</span>
+          <span class="logo-sub">Car Rental</span>
+        </a>
+        <p>Your trusted partner on every road. Affordable, reliable, and always there when you need us.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Reservations</h4>
+          <ul>
+            <li><a href="#booking">Make a New Reservation</a></li>
+            <li><a href="#booking">View / Modify Reservation</a></li>
+            <li><a href="#fleet">Browse Our Fleet</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="#">Airport Pick-up</a></li>
+            <li><a href="#">Rental Terms & Conditions</a></li>
+            <li><a href="#">Insurance Information</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+15550001234">+1 (555) 000-1234</a></li>
+            <li><a href="mailto:info@rydexrentals.com">info@rydexrentals.com</a></li>
+            <li><a href="#">WhatsApp Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Rydex Car Rental. All Rights Reserved.</p>
+        <p class="footer-legal"><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── BOOKING MODAL ─────────────────────────────────────────────── -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-label="Quick Booking">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <h3>Reserve This Vehicle</h3>
+      <p>Scroll up to complete your dates and search for available cars, or call us directly.</p>
+      <div class="modal-actions">
+        <a href="#booking" class="btn-primary" onclick="closeModal()">Go to Booking Form</a>
+        <a href="tel:+15550001234" class="btn-secondary-outline">Call +1 (555) 000-1234</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
