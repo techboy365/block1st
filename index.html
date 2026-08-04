@@ -1,36 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/LocalBusiness">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rydex Car Rental – Drive With Confidence</title>
+  <meta name="description" content="Rydex Car Rental – Affordable, reliable car rental with 24/7 airport pickup. Great prices, quality vehicles, and all-inclusive rates. Book online now." />
+  <meta name="keywords" content="car rental, Rydex, affordable car hire, airport car rental, SUV rental, family car rental" />
+  <meta property="og:title" content="Rydex Car Rental – Drive With Confidence" />
+  <meta property="og:description" content="Affordable, reliable car rentals — wherever the road takes you. Book online and save." />
+  <meta property="og:type" content="website" />
+  <title itemprop="name">Rydex Car Rental – Drive With Confidence</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Flatpickr for date pickers -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
   <style>
-/* ─── DESIGN TOKENS ──────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Ocean Sunset palette
+   Electric Blue · Vibrant Coral · Warm Gold · Deep Navy
+══════════════════════════════════════════════════════════════════════ */
 :root {
-  --brand:        #e63946;
-  --brand-dark:   #c1121f;
-  --brand-light:  #ff6b7a;
-  --dark:         #0d1117;
-  --dark-2:       #161b22;
-  --dark-3:       #21262d;
-  --mid:          #30363d;
-  --text:         #c9d1d9;
-  --text-muted:   #8b949e;
-  --surface:      #ffffff;
-  --surface-2:    #f6f8fa;
-  --border:       #e1e4e8;
-  --radius:       12px;
-  --radius-lg:    20px;
-  --shadow-sm:    0 1px 4px rgba(0,0,0,.08);
-  --shadow:       0 4px 20px rgba(0,0,0,.1);
-  --shadow-lg:    0 12px 48px rgba(0,0,0,.15);
-  --trans:        .25s ease;
+  /* Brand */
+  --blue:          #1D6EFF;
+  --blue-dark:     #1054D4;
+  --blue-light:    #6AABFF;
+  --blue-glow:     rgba(29,110,255,.28);
+  --coral:         #FF5C2B;
+  --coral-dark:    #E04418;
+  --gold:          #FFB800;
+  --gold-light:    #FFD460;
+
+  /* Backgrounds */
+  --dark:          #060C1C;
+  --dark-2:        #0C1630;
+  --dark-3:        #162040;
+  --mid:           #243258;
+
+  /* Surfaces */
+  --text:          #C8D6F0;
+  --text-muted:    #6B80A8;
+  --surface:       #FFFFFF;
+  --surface-2:     #EEF5FF;
+  --border:        #D6E4FF;
+
+  /* Radii / shadows */
+  --radius:        12px;
+  --radius-lg:     20px;
+  --shadow-sm:     0 2px 8px rgba(29,110,255,.08);
+  --shadow:        0 6px 24px rgba(29,110,255,.14);
+  --shadow-lg:     0 16px 56px rgba(29,110,255,.18);
+  --shadow-glow:   0 0 40px rgba(29,110,255,.35);
+  --trans:         .25s ease;
 }
 
 /* ─── RESET ───────────────────────────────────────────────────────── */
@@ -38,7 +60,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  color: #1c1c1e;
+  color: #0f1a2e;
   background: #fff;
   line-height: 1.6;
   overflow-x: hidden;
@@ -47,34 +69,26 @@ a { color: inherit; text-decoration: none; }
 img, svg { display: block; }
 ul { list-style: none; }
 button { cursor: pointer; font: inherit; border: none; background: none; }
-input, select {
-  font: inherit;
-  border: none;
-  outline: none;
-  background: none;
-}
+input, select { font: inherit; border: none; outline: none; background: none; }
 
 /* ─── CONTAINER ───────────────────────────────────────────────────── */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-/* ─── HEADER ──────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════════════════════════════════ */
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 16px 0;
+  padding: 18px 0;
   transition: background var(--trans), box-shadow var(--trans), padding var(--trans);
 }
 .site-header.scrolled {
-  background: rgba(13, 17, 23, 0.97);
-  backdrop-filter: blur(12px);
-  padding: 10px 0;
-  box-shadow: 0 2px 20px rgba(0,0,0,.3);
+  background: rgba(6,12,28,.97);
+  backdrop-filter: blur(14px);
+  padding: 12px 0;
+  box-shadow: 0 2px 28px rgba(0,0,0,.45);
 }
 .header-inner {
   display: flex;
@@ -84,989 +98,983 @@ input, select {
 }
 
 /* Logo */
-.logo {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  user-select: none;
-}
+.logo { display: flex; flex-direction: column; line-height: 1; user-select: none; }
 .logo-rx {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.7rem;
-  font-weight: 800;
-  color: var(--brand);
-  letter-spacing: -0.5px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--blue-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
 }
 .logo-sub {
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: rgba(255,255,255,.55);
+  font-size: .58rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.5);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   margin-top: -2px;
 }
-.logo-light .logo-sub { color: rgba(255,255,255,.55); }
 
 /* Nav */
-.main-nav ul {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.main-nav ul { display: flex; align-items: center; gap: 6px; }
 .main-nav a {
   font-size: .875rem;
   font-weight: 500;
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.72);
   padding: 8px 14px;
   border-radius: 8px;
   transition: color var(--trans), background var(--trans);
 }
-.main-nav a:hover {
-  color: #fff;
-  background: rgba(255,255,255,.08);
-}
+.main-nav a:hover { color: #fff; background: rgba(255,255,255,.08); }
 
-/* Header actions */
-.header-actions { display: flex; align-items: center; gap: 12px; }
-.btn-phone {
+/* Header social icons */
+.header-socials {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: .8rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--brand);
-  padding: 9px 18px;
+}
+.header-social-link {
+  width: 34px; height: 34px;
   border-radius: 8px;
-  transition: background var(--trans), transform var(--trans);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform var(--trans), background var(--trans);
+  color: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.header-social-link:hover { transform: translateY(-2px); }
+.header-social-link.fb:hover  { background: #1877F2; color: #fff; border-color: #1877F2; }
+.header-social-link.ig:hover  { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; border-color: transparent; }
+.header-social-link.wa:hover  { background: #25D366; color: #fff; border-color: #25D366; }
+.header-social-link svg { width: 16px; height: 16px; }
+
+/* Phone button */
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.btn-phone {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .8rem; font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+  padding: 10px 20px; border-radius: 9px;
+  box-shadow: 0 4px 14px rgba(255,92,43,.4);
+  transition: transform var(--trans), box-shadow var(--trans);
   white-space: nowrap;
 }
-.btn-phone:hover { background: var(--brand-dark); transform: translateY(-1px); }
+.btn-phone:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,92,43,.5); }
 
 /* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 6px;
-}
+.hamburger { display: none; flex-direction: column; gap: 5px; padding: 6px; }
 .hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
+  display: block; width: 22px; height: 2px;
+  background: #fff; border-radius: 2px;
   transition: transform var(--trans), opacity var(--trans);
 }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ─── HERO ────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
+  display: flex; align-items: center;
   padding: 120px 0 80px;
   overflow: hidden;
 }
 .hero-bg {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background:
     url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80')
     center/cover no-repeat;
 }
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(13,17,23,.88) 0%,
-    rgba(13,17,23,.6) 60%,
-    rgba(230,57,70,.25) 100%
-  );
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg,
+      rgba(6,12,28,.94)  0%,
+      rgba(6,18,48,.80)  50%,
+      rgba(14,40,100,.55) 100%);
 }
+/* Glowing orbs */
+.hero-orb-1 {
+  position: absolute;
+  top: 15%; left: 5%;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29,110,255,.22) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-orb-2 {
+  position: absolute;
+  bottom: 10%; right: 5%;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,92,43,.18) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite reverse;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-20px); }
+}
+
 .hero-content {
-  position: relative;
-  z-index: 1;
+  position: relative; z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: 1fr 430px;
+  gap: 64px; align-items: center;
 }
 .hero-text { color: #fff; }
 .hero-tagline {
-  display: inline-block;
-  font-size: .75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--brand-light);
-  background: rgba(230,57,70,.15);
-  border: 1px solid rgba(230,57,70,.3);
-  padding: 6px 16px;
-  border-radius: 100px;
-  margin-bottom: 20px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: var(--gold-light);
+  background: rgba(255,184,0,.1);
+  border: 1px solid rgba(255,184,0,.3);
+  padding: 7px 18px; border-radius: 100px;
+  margin-bottom: 22px;
+}
+.hero-tagline::before {
+  content: '';
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .5; transform: scale(0.7); }
 }
 .hero-text h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 20px;
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 22px;
 }
-.hero-text h1 .accent { color: var(--brand); }
+.hero-text h1 .accent-blue  { color: var(--blue-light); }
+.hero-text h1 .accent-coral { color: var(--coral); }
 .hero-sub {
   font-size: 1.05rem;
-  color: rgba(255,255,255,.7);
-  max-width: 440px;
-  line-height: 1.7;
+  color: rgba(255,255,255,.68);
+  max-width: 440px; line-height: 1.75;
+  margin-bottom: 32px;
 }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-hero-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 30px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff; font-weight: 700; font-size: .95rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 22px var(--blue-glow);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px var(--blue-glow); }
+.btn-hero-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 28px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  color: #fff; font-weight: 600; font-size: .95rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  transition: background var(--trans), border-color var(--trans);
+}
+.btn-hero-secondary:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); }
 
 /* Booking card */
 .booking-card {
-  background: #fff;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(16px);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 24px 72px rgba(0,0,0,.35), 0 0 0 1px rgba(29,110,255,.12);
   overflow: hidden;
 }
-.booking-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--border);
-}
+.booking-tabs { display: flex; border-bottom: 1px solid var(--border); }
 .booking-tabs .tab {
-  flex: 1;
-  padding: 16px;
-  font-size: .85rem;
-  font-weight: 600;
+  flex: 1; padding: 16px;
+  font-size: .85rem; font-weight: 700;
   color: var(--text-muted);
   background: var(--surface-2);
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   transition: color var(--trans), border-color var(--trans), background var(--trans);
 }
 .booking-tabs .tab.active {
-  color: var(--brand);
-  border-bottom-color: var(--brand);
-  background: #fff;
+  color: var(--blue); border-bottom-color: var(--blue); background: #fff;
 }
-.booking-tabs .tab:hover:not(.active) { color: #1c1c1e; background: var(--border); }
+.booking-tabs .tab:hover:not(.active) { color: #0f1a2e; background: var(--border); }
 
-.tab-pane { display: none; padding: 24px; }
+.tab-pane { display: none; padding: 22px; }
 .tab-pane.active { display: block; }
 
 .form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 16px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-bottom: 14px;
 }
 .form-grid-2 { grid-template-columns: 1fr; }
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+.form-group { display: flex; flex-direction: column; gap: 5px; }
 .form-group label {
-  font-size: .73rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .6px;
-  color: #555;
+  font-size: .7rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .7px; color: #446;
 }
 .form-group input,
 .form-group select {
   padding: 11px 14px;
   background: var(--surface-2);
   border: 1.5px solid var(--border);
-  border-radius: 8px;
-  font-size: .9rem;
-  color: #1c1c1e;
+  border-radius: 9px;
+  font-size: .9rem; color: #0f1a2e;
   transition: border-color var(--trans), box-shadow var(--trans);
-  width: 100%;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
+  width: 100%; appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231D6EFF' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
 }
-.form-group input {
-  background-image: none;
-  padding-right: 14px;
+.form-group input { background-image: none; padding-right: 14px; }
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(29,110,255,.14);
 }
-.form-group input:focus,
-.form-group select:focus {
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(230,57,70,.12);
-}
-
 .btn-search {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
   padding: 15px;
-  background: var(--brand);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
+  background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+  color: #fff; font-size: 1rem; font-weight: 800;
   border-radius: 10px;
-  transition: background var(--trans), transform var(--trans), box-shadow var(--trans);
-  box-shadow: 0 4px 14px rgba(230,57,70,.4);
+  box-shadow: 0 5px 18px rgba(255,92,43,.45);
+  transition: transform var(--trans), box-shadow var(--trans);
 }
-.btn-search:hover {
-  background: var(--brand-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(230,57,70,.45);
-}
-.btn-search svg { flex-shrink: 0; }
+.btn-search:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,92,43,.55); }
 
-/* ─── SECTION HEADERS ────────────────────────────────────────────── */
-.section-header {
-  text-align: center;
-  margin-bottom: 56px;
+/* ═══════════════════════════════════════════════════════════════════
+   STATS BAR
+══════════════════════════════════════════════════════════════════════ */
+.stats-bar {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-3) 100%);
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
 }
+.stats-bar::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231D6EFF' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.stats-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  text-align: center;
+}
+.stat-item {
+  padding: 12px 24px;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.6rem; font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, var(--blue-light), var(--gold-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-size: .78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SECTION HEADERS
+══════════════════════════════════════════════════════════════════════ */
+.section-header { text-align: center; margin-bottom: 56px; }
 .section-eyebrow {
   display: inline-block;
-  font-size: .73rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--brand);
-  margin-bottom: 12px;
+  font-size: .7rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: var(--coral);
+  background: rgba(255,92,43,.08);
+  border: 1px solid rgba(255,92,43,.2);
+  padding: 5px 16px; border-radius: 100px;
+  margin-bottom: 14px;
 }
 .section-header h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.2;
-  color: #0d1117;
-  margin-bottom: 12px;
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem); font-weight: 800;
+  line-height: 1.2; color: #060c1c; margin-bottom: 12px;
 }
-.section-sub {
-  font-size: 1rem;
-  color: #555;
-  max-width: 540px;
-  margin: 0 auto;
-}
+.section-header h2 .hl { color: var(--blue); }
+.section-sub { font-size: .97rem; color: #4a5870; max-width: 520px; margin: 0 auto; line-height: 1.7; }
 
-/* ─── FEATURES ────────────────────────────────────────────────────── */
-.features-section {
+/* ═══════════════════════════════════════════════════════════════════
+   HOW IT WORKS
+══════════════════════════════════════════════════════════════════════ */
+.how-section {
   padding: 96px 0;
-  background: var(--surface-2);
+  background: linear-gradient(180deg, #fff 0%, var(--surface-2) 100%);
 }
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  position: relative;
 }
-.feature-card {
-  background: #fff;
-  padding: 32px 28px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 36px; left: calc(16.67% + 16px); right: calc(16.67% + 16px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--coral));
+  z-index: 0;
+}
+.step-card {
+  position: relative; z-index: 1;
+  background: #fff; border-radius: var(--radius-lg);
+  padding: 36px 28px 32px;
+  border: 1.5px solid var(--border);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
   transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
 }
-.feature-card:hover {
-  transform: translateY(-4px);
+.step-card:hover {
+  transform: translateY(-6px);
   box-shadow: var(--shadow);
-  border-color: rgba(230,57,70,.25);
+  border-color: var(--blue);
+}
+.step-num {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff; font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 6px 20px var(--blue-glow);
+}
+.step-card h3 { font-size: 1.05rem; font-weight: 800; color: #060c1c; margin-bottom: 10px; }
+.step-card p  { font-size: .88rem; color: #4a5870; line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   WHY RYDEX
+══════════════════════════════════════════════════════════════════════ */
+.features-section {
+  padding: 96px 0;
+  background: var(--dark);
+  position: relative; overflow: hidden;
+}
+.features-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(29,110,255,.14) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 50%, rgba(255,92,43,.09) 0%, transparent 55%);
+}
+.features-section .section-header h2 { color: #fff; }
+.features-section .section-sub { color: rgba(255,255,255,.55); }
+.features-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+.feature-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.09);
+  padding: 32px 26px; border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+  transition: transform var(--trans), background var(--trans), border-color var(--trans), box-shadow var(--trans);
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(29,110,255,.4);
+  box-shadow: 0 8px 32px rgba(29,110,255,.15);
 }
 .feature-icon {
-  width: 52px;
-  height: 52px;
-  background: rgba(230,57,70,.08);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 54px; height: 54px;
+  background: linear-gradient(135deg, rgba(29,110,255,.2), rgba(29,110,255,.08));
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
   margin-bottom: 20px;
+  border: 1px solid rgba(29,110,255,.25);
 }
-.feature-icon svg {
-  width: 26px;
-  height: 26px;
-  stroke: var(--brand);
-}
-.feature-card h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #0d1117;
-}
-.feature-card p {
-  font-size: .9rem;
-  color: #555;
-  line-height: 1.65;
-}
+.feature-icon svg { width: 26px; height: 26px; stroke: var(--blue-light); }
+.feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+.feature-card p  { font-size: .88rem; color: rgba(255,255,255,.55); line-height: 1.65; }
 
-/* ─── FLEET ───────────────────────────────────────────────────────── */
-.fleet-section {
-  padding: 96px 0;
-  background: #fff;
-}
+/* ═══════════════════════════════════════════════════════════════════
+   FLEET
+══════════════════════════════════════════════════════════════════════ */
+.fleet-section { padding: 96px 0; background: #fff; }
 .fleet-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 48px;
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 52px;
 }
 .filter-btn {
-  padding: 9px 22px;
-  border-radius: 100px;
-  font-size: .85rem;
-  font-weight: 600;
-  color: #555;
+  padding: 9px 22px; border-radius: 100px;
+  font-size: .85rem; font-weight: 700; color: #4a5870;
   border: 1.5px solid var(--border);
   transition: all var(--trans);
 }
 .filter-btn:hover,
 .filter-btn.active {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: #fff;
-  box-shadow: 0 3px 12px rgba(230,57,70,.3);
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  border-color: var(--blue); color: #fff;
+  box-shadow: 0 4px 14px var(--blue-glow);
 }
 
-.fleet-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
+.fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .car-card {
   position: relative;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: #fff;
-  overflow: hidden;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg); background: #fff; overflow: hidden;
   transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
 }
 .car-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-7px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(230,57,70,.2);
+  border-color: var(--blue);
 }
 .car-card.hidden { display: none; }
 
 .car-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  font-size: .7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: var(--dark);
-  color: rgba(255,255,255,.8);
-  padding: 4px 12px;
-  border-radius: 100px;
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  background: var(--dark); color: rgba(255,255,255,.8);
+  padding: 4px 12px; border-radius: 100px;
 }
 .car-badge.best {
-  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  background: linear-gradient(135deg, var(--gold), var(--coral));
   color: #fff;
 }
 
 .car-img-wrap {
-  background: var(--surface-2);
+  background: linear-gradient(180deg, var(--surface-2), #e8f0ff);
   padding: 24px;
 }
 .car-img-placeholder {
-  width: 100%;
-  aspect-ratio: 5 / 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%; aspect-ratio: 5/2;
+  display: flex; align-items: center; justify-content: center;
 }
 .car-img-placeholder svg {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,.15));
+  width: 100%; height: auto;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.15));
 }
 
 .car-info { padding: 20px 20px 24px; }
-.car-name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0d1117;
-  margin-bottom: 12px;
-}
-.car-name span { font-weight: 400; color: #888; font-size: .875rem; }
-.car-specs {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
+.car-name { font-size: 1rem; font-weight: 800; color: #060c1c; margin-bottom: 12px; }
+.car-name span { font-weight: 400; color: #7a8fab; font-size: .875rem; }
+.car-specs { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
 .car-specs span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: .78rem;
-  font-weight: 600;
-  color: #555;
+  display: flex; align-items: center; gap: 5px;
+  font-size: .77rem; font-weight: 700; color: #4a5870;
 }
 .car-specs svg { width: 13px; height: 13px; }
 .car-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 18px;
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px;
 }
 .car-features li {
-  font-size: .74rem;
-  font-weight: 500;
+  font-size: .73rem; font-weight: 600;
   padding: 4px 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  color: #333;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 6px; color: #2a3856;
 }
 .btn-book {
-  width: 100%;
-  padding: 12px;
+  width: 100%; padding: 12px;
   background: transparent;
-  border: 2px solid var(--brand);
-  color: var(--brand);
-  font-weight: 700;
-  font-size: .9rem;
+  border: 2px solid var(--blue); color: var(--blue);
+  font-weight: 800; font-size: .9rem;
   border-radius: 10px;
-  transition: background var(--trans), color var(--trans), transform var(--trans);
+  transition: background var(--trans), color var(--trans), transform var(--trans), box-shadow var(--trans);
 }
 .btn-book:hover {
-  background: var(--brand);
-  color: #fff;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff; transform: translateY(-1px);
+  box-shadow: 0 5px 18px var(--blue-glow);
+  border-color: transparent;
 }
 
-/* ─── TESTIMONIALS ────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════════════════════════════════ */
 .testimonials-section {
   padding: 96px 0;
-  background: var(--dark);
+  background: linear-gradient(160deg, var(--dark-2) 0%, var(--dark-3) 100%);
   overflow: hidden;
+  position: relative;
+}
+.testimonials-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--coral), var(--gold));
 }
 .testimonials-section .section-header h2 { color: #fff; }
 .stars-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  margin-top: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 10px;
 }
-.star { color: #fbbf24; font-size: 1.2rem; }
-.rating-score {
-  font-size: .85rem;
-  font-weight: 500;
-  color: rgba(255,255,255,.55);
-  margin-left: 8px;
-}
+.star { color: var(--gold); font-size: 1.25rem; }
+.rating-score { font-size: .85rem; font-weight: 600; color: rgba(255,255,255,.5); margin-left: 10px; }
 
-.testimonials-track-wrap {
-  position: relative;
-  overflow: hidden;
-}
-.testimonials-track {
-  display: flex;
-  gap: 24px;
-  transition: transform .45s cubic-bezier(.4,0,.2,1);
-}
+.testimonials-track-wrap { position: relative; overflow: hidden; }
+.testimonials-track { display: flex; gap: 24px; transition: transform .45s cubic-bezier(.4,0,.2,1); }
 .testimonial-card {
   flex: 0 0 calc(33.333% - 16px);
-  background: var(--dark-3);
-  border: 1px solid var(--mid);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.1);
   border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  position: relative;
+  padding: 32px 28px; position: relative;
+  transition: background var(--trans);
 }
+.testimonial-card:hover { background: rgba(255,255,255,.09); }
+
 .quote-icon {
-  font-family: Georgia, serif;
-  font-size: 5rem;
-  line-height: 0.5;
-  color: var(--brand);
-  margin-bottom: 16px;
-  opacity: .6;
+  font-family: Georgia, serif; font-size: 5rem; line-height: .5;
+  color: var(--gold); margin-bottom: 16px; opacity: .6;
 }
 .testimonial-card p {
-  font-size: .92rem;
-  color: rgba(255,255,255,.75);
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size: .9rem; color: rgba(255,255,255,.78);
+  line-height: 1.75; margin-bottom: 24px;
 }
-.reviewer {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+.reviewer { display: flex; align-items: center; gap: 14px; }
 .reviewer-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-  color: #fff;
-  font-size: .8rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--coral));
+  color: #fff; font-size: .78rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  box-shadow: 0 3px 12px rgba(29,110,255,.35);
 }
 .reviewer strong { display: block; font-size: .9rem; color: #fff; }
-.reviewer span { font-size: .8rem; color: #fbbf24; letter-spacing: 1px; }
+.reviewer span { font-size: .8rem; color: var(--gold); letter-spacing: 1px; }
 
 .slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.1);
-  color: #fff;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--trans);
-  z-index: 5;
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,.1); color: #fff; font-size: 1.3rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--trans); z-index: 5;
+  border: 1px solid rgba(255,255,255,.15);
 }
-.slider-btn:hover { background: var(--brand); }
-.slider-btn.prev { left: -10px; }
-.slider-btn.next { right: -10px; }
+.slider-btn:hover { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); border-color: transparent; }
+.slider-btn.prev { left: -14px; }
+.slider-btn.next { right: -14px; }
 
-.slider-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 36px;
-}
+.slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 40px; }
 .slider-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.25);
-  transition: background var(--trans), transform var(--trans);
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.2); transition: background var(--trans), transform var(--trans), width var(--trans);
   cursor: pointer;
 }
-.slider-dot.active {
-  background: var(--brand);
-  transform: scale(1.3);
-}
+.slider-dot.active { background: var(--blue); transform: scale(1.2); width: 24px; border-radius: 4px; }
 
-/* ─── INFO STRIP ──────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   INFO STRIP
+══════════════════════════════════════════════════════════════════════ */
 .info-strip {
-  background: var(--brand);
-  padding: 40px 0;
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, #3a8bff 100%);
+  padding: 44px 0; position: relative; overflow: hidden;
+}
+.info-strip::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Cpath d='M20 20.5V18H0v5h5v5H0v5h20v-9.5zm-2 4.5H8v-2h10v2zm-5-7.5V15H3v5h10v-2.5zM20 20v2.5h5v5h-5V30h20v-5h-5v-5H20z'/%3E%3C/g%3E%3C/svg%3E");
 }
 .info-strip-inner {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: #fff;
-}
-.info-item svg {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  opacity: .85;
-}
-.info-item strong { display: block; font-size: .9rem; font-weight: 700; }
-.info-item span { font-size: .82rem; opacity: .8; }
-
-/* ─── DISCOVER ────────────────────────────────────────────────────── */
-.discover-section {
-  padding: 96px 0;
-  background: var(--surface-2);
-}
-.discover-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.discover-card {
   position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  min-height: 340px;
-  display: flex;
-  align-items: flex-end;
-  background-size: cover;
-  background-position: center;
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between;
 }
-.airport-card {
-  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80');
+.info-item { display: flex; align-items: center; gap: 14px; color: #fff; }
+.info-item svg { width: 30px; height: 30px; flex-shrink: 0; opacity: .9; }
+.info-item strong { display: block; font-size: .92rem; font-weight: 800; }
+.info-item span   { font-size: .82rem; opacity: .8; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DISCOVER
+══════════════════════════════════════════════════════════════════════ */
+.discover-section { padding: 96px 0; background: var(--surface-2); }
+.discover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.discover-card {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  min-height: 360px; display: flex; align-items: flex-end;
+  background-size: cover; background-position: center;
 }
-.downtown-card {
-  background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80');
-}
-.delivery-card {
-  background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80');
-}
+.airport-card  { background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80'); }
+.downtown-card { background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80'); }
+.delivery-card { background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80'); }
 .discover-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(13,17,23,.85) 0%, rgba(13,17,23,.1) 60%);
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(6,12,28,.88) 0%, rgba(6,12,28,.08) 55%);
   transition: background var(--trans);
 }
 .discover-card:hover .discover-card-overlay {
-  background: linear-gradient(to top, rgba(13,17,23,.92) 0%, rgba(13,17,23,.3) 70%);
+  background: linear-gradient(to top, rgba(6,12,28,.94) 0%, rgba(14,40,100,.25) 70%);
 }
-.discover-card-content {
-  position: relative;
-  z-index: 1;
-  padding: 28px;
-  color: #fff;
-}
+.discover-card-content { position: relative; z-index: 1; padding: 28px; color: #fff; }
 .discover-card-content h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif; font-size: 1.25rem; font-weight: 800; margin-bottom: 10px;
 }
 .discover-card-content p {
-  font-size: .875rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,.8);
-  margin-bottom: 18px;
+  font-size: .875rem; line-height: 1.65; color: rgba(255,255,255,.78); margin-bottom: 18px;
 }
 .btn-secondary {
-  display: inline-block;
-  padding: 10px 20px;
-  background: rgba(255,255,255,.15);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  font-size: .83rem;
-  font-weight: 600;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.25);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px;
+  background: rgba(29,110,255,.2); backdrop-filter: blur(8px);
+  color: #fff; font-size: .83rem; font-weight: 700;
+  border-radius: 9px;
+  border: 1px solid rgba(29,110,255,.35);
   transition: background var(--trans), border-color var(--trans);
 }
 .btn-secondary:hover {
-  background: var(--brand);
-  border-color: var(--brand);
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  border-color: var(--blue);
 }
 
-/* ─── FOOTER ──────────────────────────────────────────────────────── */
-.site-footer {
-  background: var(--dark);
-}
-.footer-inner {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 48px;
-  padding: 64px 24px 48px;
-  border-bottom: 1px solid var(--mid);
-}
-.footer-brand .logo { margin-bottom: 14px; }
-.footer-brand p {
-  font-size: .875rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 20px;
-  max-width: 280px;
-}
-.social-links { display: flex; gap: 12px; }
-.social-links a {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  background: var(--mid);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  transition: background var(--trans), color var(--trans);
-}
-.social-links a:hover { background: var(--brand); color: #fff; }
-.social-links svg { width: 18px; height: 18px; }
-
-.footer-col h4 {
-  font-size: .8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #fff;
-  margin-bottom: 18px;
-}
-.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-.footer-col a {
-  font-size: .875rem;
-  color: var(--text-muted);
-  transition: color var(--trans);
-}
-.footer-col a:hover { color: var(--brand-light); }
-
-.footer-bottom {
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════════════════════ */
+.site-footer { background: var(--dark); }
+.footer-top-bar {
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue));
   padding: 20px 24px;
 }
-.footer-bottom .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+.footer-top-bar .container {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
 }
-.footer-bottom p { font-size: .8rem; color: var(--text-muted); }
-.footer-legal a { color: var(--text-muted); margin: 0 4px; transition: color var(--trans); }
+.footer-top-bar p { font-size: .875rem; color: rgba(255,255,255,.85); font-weight: 500; }
+.footer-cta-row { display: flex; gap: 10px; }
+.footer-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 9px;
+  font-size: .82rem; font-weight: 700; color: #fff;
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.footer-cta-btn.phone { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); }
+.footer-cta-btn.phone:hover { background: rgba(255,255,255,.22); transform: translateY(-1px); }
+.footer-cta-btn.book { background: var(--coral); box-shadow: 0 4px 12px rgba(255,92,43,.4); }
+.footer-cta-btn.book:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,92,43,.5); }
+
+.footer-inner {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px; padding: 60px 24px 48px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p {
+  font-size: .875rem; color: var(--text-muted);
+  line-height: 1.75; margin-bottom: 24px; max-width: 280px;
+}
+
+/* Social icons — footer */
+.social-links { display: flex; gap: 10px; }
+.social-link {
+  width: 42px; height: 42px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.6);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: background var(--trans), color var(--trans), transform var(--trans), box-shadow var(--trans);
+}
+.social-link:hover { transform: translateY(-3px); }
+.social-link.facebook:hover {
+  background: #1877F2; color: #fff; border-color: #1877F2;
+  box-shadow: 0 4px 14px rgba(24,119,242,.4);
+}
+.social-link.instagram:hover {
+  background: linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  color: #fff; border-color: transparent;
+  box-shadow: 0 4px 14px rgba(220,39,67,.35);
+}
+.social-link.whatsapp:hover {
+  background: #25D366; color: #fff; border-color: #25D366;
+  box-shadow: 0 4px 14px rgba(37,211,102,.4);
+}
+.social-link svg { width: 20px; height: 20px; }
+
+.footer-col h4 {
+  font-size: .78rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1.5px; color: #fff; margin-bottom: 18px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 11px; }
+.footer-col a {
+  font-size: .875rem; color: var(--text-muted); transition: color var(--trans);
+  display: flex; align-items: center; gap: 7px;
+}
+.footer-col a::before { content: '›'; color: var(--blue); font-size: 1rem; font-weight: 700; }
+.footer-col a:hover { color: var(--blue-light); }
+
+.footer-bottom { padding: 20px 24px; }
+.footer-bottom .container {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p     { font-size: .8rem; color: var(--text-muted); }
+.footer-legal a      { color: var(--text-muted); margin: 0 4px; transition: color var(--trans); }
 .footer-legal a:hover { color: #fff; }
 
-/* ─── MODAL ───────────────────────────────────────────────────────── */
-.modal-overlay {
+/* ═══════════════════════════════════════════════════════════════════
+   FLOATING SOCIAL BUTTONS
+══════════════════════════════════════════════════════════════════════ */
+.float-socials {
   position: fixed;
-  inset: 0;
-  background: rgba(13,17,23,.7);
-  backdrop-filter: blur(6px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--trans);
+  right: 24px; bottom: 88px;
+  z-index: 900;
+  display: flex; flex-direction: column; gap: 10px;
 }
-.modal-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-.modal-card {
-  background: #fff;
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  max-width: 460px;
-  width: 100%;
+.float-social {
+  width: 50px; height: 50px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700;
+  box-shadow: 0 4px 18px rgba(0,0,0,.25);
+  transition: transform var(--trans), box-shadow var(--trans);
   position: relative;
-  transform: translateY(20px);
-  transition: transform var(--trans);
+}
+.float-social:hover { transform: translateY(-3px) scale(1.05); }
+.float-social.wa  { background: #25D366; box-shadow: 0 4px 16px rgba(37,211,102,.45); }
+.float-social.ig  { background: linear-gradient(135deg,#f09433,#dc2743,#bc1888); box-shadow: 0 4px 16px rgba(188,24,136,.4); }
+.float-social.fb  { background: #1877F2; box-shadow: 0 4px 16px rgba(24,119,242,.45); }
+.float-social svg { width: 22px; height: 22px; }
+.float-social-tip {
+  position: absolute; right: 60px; top: 50%; transform: translateY(-50%);
+  background: rgba(6,12,28,.9); backdrop-filter: blur(8px);
+  color: #fff; font-size: .75rem; font-weight: 600;
+  padding: 5px 12px; border-radius: 8px; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity var(--trans);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.float-social:hover .float-social-tip { opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   MODAL
+══════════════════════════════════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(6,12,28,.75); backdrop-filter: blur(8px);
+  z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 24px;
+  opacity: 0; pointer-events: none; transition: opacity var(--trans);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 40px;
+  max-width: 460px; width: 100%; position: relative;
+  transform: translateY(20px); transition: transform var(--trans);
   box-shadow: var(--shadow-lg);
+  border-top: 4px solid var(--blue);
 }
 .modal-overlay.open .modal-card { transform: translateY(0); }
 .modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-size: 1.4rem;
-  color: #888;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--surface-2);
-  transition: background var(--trans), color var(--trans);
-  line-height: 1;
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 50%; font-size: 1.4rem;
+  color: #888; display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2); transition: background var(--trans), color var(--trans); line-height: 1;
 }
-.modal-close:hover { background: var(--brand); color: #fff; }
+.modal-close:hover { background: var(--coral); color: #fff; }
 .modal-card h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 800;
+  color: var(--dark); margin-bottom: 10px;
 }
-.modal-card p { font-size: .9rem; color: #555; margin-bottom: 24px; line-height: 1.65; }
+.modal-card p { font-size: .9rem; color: #4a5870; margin-bottom: 24px; line-height: 1.65; }
 .modal-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn-primary {
-  flex: 1;
-  padding: 13px;
-  background: var(--brand);
-  color: #fff;
-  font-weight: 700;
-  font-size: .9rem;
-  border-radius: 10px;
-  text-align: center;
-  transition: background var(--trans);
+  flex: 1; padding: 13px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff; font-weight: 800; font-size: .9rem;
+  border-radius: 10px; text-align: center;
+  box-shadow: 0 4px 14px var(--blue-glow);
+  transition: transform var(--trans), box-shadow var(--trans);
 }
-.btn-primary:hover { background: var(--brand-dark); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px var(--blue-glow); }
 .btn-secondary-outline {
-  flex: 1;
-  padding: 13px;
-  border: 2px solid var(--border);
-  color: #333;
-  font-weight: 700;
-  font-size: .9rem;
-  border-radius: 10px;
-  text-align: center;
+  flex: 1; padding: 13px;
+  border: 2px solid var(--border); color: #333;
+  font-weight: 700; font-size: .9rem; border-radius: 10px; text-align: center;
   transition: border-color var(--trans), color var(--trans);
 }
-.btn-secondary-outline:hover { border-color: var(--brand); color: var(--brand); }
+.btn-secondary-outline:hover { border-color: var(--blue); color: var(--blue); }
 
-/* ─── FLATPICKR OVERRIDES ─────────────────────────────────────────── */
-.flatpickr-calendar {
-  border-radius: var(--radius) !important;
-  box-shadow: var(--shadow-lg) !important;
-  border: 1px solid var(--border) !important;
-  font-family: 'Inter', sans-serif !important;
-}
-.flatpickr-day.selected,
-.flatpickr-day.selected:hover {
-  background: var(--brand) !important;
-  border-color: var(--brand) !important;
-}
-.flatpickr-day:hover { background: rgba(230,57,70,.1) !important; }
+/* ═══════════════════════════════════════════════════════════════════
+   FLATPICKR OVERRIDES
+══════════════════════════════════════════════════════════════════════ */
+.flatpickr-calendar { border-radius: var(--radius) !important; box-shadow: var(--shadow-lg) !important; border: 1px solid var(--border) !important; font-family: 'Inter', sans-serif !important; }
+.flatpickr-day.selected, .flatpickr-day.selected:hover { background: var(--blue) !important; border-color: var(--blue) !important; }
+.flatpickr-day:hover { background: rgba(29,110,255,.1) !important; }
 
-/* ─── SCROLL TO TOP ───────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   SCROLL TO TOP
+══════════════════════════════════════════════════════════════════════ */
 .scroll-top {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: var(--brand);
-  color: #fff;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 14px rgba(230,57,70,.45);
-  z-index: 900;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity var(--trans), transform var(--trans);
-  cursor: pointer;
+  position: fixed; bottom: 28px; right: 28px;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff; font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px var(--blue-glow);
+  z-index: 900; opacity: 0; pointer-events: none;
+  transform: translateY(10px); transition: opacity var(--trans), transform var(--trans); cursor: pointer;
 }
-.scroll-top.visible {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateY(0);
-}
+.scroll-top.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
 
-/* ─── REVEAL ANIMATIONS ───────────────────────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ═══════════════════════════════════════════════════════════════════
+   REVEAL ANIMATIONS
+══════════════════════════════════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ─── RESPONSIVE ──────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .hero-content { grid-template-columns: 1fr; max-width: 620px; }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .fleet-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .discover-grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .steps-grid::before { display: none; }
 }
 @media (max-width: 768px) {
   .main-nav {
-    position: fixed;
-    top: 0; right: 0;
-    height: 100vh;
-    width: 260px;
-    background: var(--dark-2);
-    flex-direction: column;
-    align-items: flex-start;
+    position: fixed; top: 0; right: 0; height: 100vh; width: 270px;
+    background: rgba(6,12,28,.98); backdrop-filter: blur(16px);
+    flex-direction: column; align-items: flex-start;
     padding: 80px 24px 32px;
-    transform: translateX(100%);
-    transition: transform .3s ease;
-    z-index: 999;
-    box-shadow: -8px 0 32px rgba(0,0,0,.3);
+    transform: translateX(100%); transition: transform .3s ease;
+    z-index: 999; box-shadow: -8px 0 40px rgba(0,0,0,.4);
   }
   .main-nav.open { transform: translateX(0); }
   .main-nav ul { flex-direction: column; gap: 4px; width: 100%; }
   .main-nav a { display: block; font-size: 1rem; padding: 12px 16px; }
   .hamburger { display: flex; }
   .btn-phone { display: none; }
+  .header-socials { display: none; }
   .hero { padding: 100px 0 60px; }
   .fleet-grid { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px; }
   .info-strip-inner { flex-direction: column; gap: 24px; }
   .form-grid { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .footer-top-bar .container { flex-direction: column; text-align: center; }
 }
 @media (max-width: 480px) {
-  .booking-card { margin: 0 -8px; border-radius: 12px; }
-  .testimonial-card { flex: 0 0 calc(100% - 0px); }
+  .booking-card { margin: 0 -8px; border-radius: 14px; }
+  .testimonial-card { flex: 0 0 100%; }
   .slider-btn.prev { left: 4px; }
   .slider-btn.next { right: 4px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .float-socials { right: 14px; bottom: 80px; }
 }
   </style>
 </head>
 <body>
 
-  <!-- ─── HEADER ──────────────────────────────────────────────────── -->
+  <!-- ═══ HEADER ══════════════════════════════════════════════════ -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="#" class="logo">
+      <a href="#" class="logo" aria-label="Rydex Car Rental home">
         <span class="logo-rx">Rydex</span>
         <span class="logo-sub">Car Rental</span>
       </a>
-      <nav class="main-nav" id="mainNav">
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
         <ul>
           <li><a href="#booking">Book Now</a></li>
           <li><a href="#fleet">Our Fleet</a></li>
+          <li><a href="#how">How It Works</a></li>
           <li><a href="#why">Why Rydex</a></li>
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="header-actions">
-        <a href="tel:+15550001234" class="btn-phone">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+        <!-- Header social icons -->
+        <div class="header-socials" role="navigation" aria-label="Social media links">
+          <a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+             class="header-social-link fb" aria-label="Rydex Car Rental on Facebook" title="Follow us on Facebook"
+             itemprop="sameAs">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+             class="header-social-link ig" aria-label="Rydex Car Rental on Instagram" title="Follow us on Instagram"
+             itemprop="sameAs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
+             class="header-social-link wa" aria-label="Chat with Rydex Car Rental on WhatsApp" title="WhatsApp Us"
+             itemprop="sameAs">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+        <a href="tel:+15550001234" class="btn-phone" aria-label="Call Rydex Car Rental">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
           +1 (555) 000-1234
         </a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ─── HERO / BOOKING ──────────────────────────────────────────── -->
-  <section class="hero" id="booking">
-    <div class="hero-bg">
-      <div class="hero-overlay"></div>
-    </div>
+  <!-- ═══ HERO / BOOKING ══════════════════════════════════════════ -->
+  <section class="hero" id="booking" aria-label="Book a car">
+    <div class="hero-bg" role="img" aria-label="Luxury sports car on an open road"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
     <div class="container hero-content">
       <div class="hero-text">
         <p class="hero-tagline">Exclusive Online Offers</p>
-        <h1>Great Prices <span class="accent">All Year</span> Round</h1>
-        <p class="hero-sub">Affordable, reliable car rentals — wherever the road takes you.</p>
+        <h1>
+          Drive <span class="accent-blue">Smarter,</span><br>
+          Save <span class="accent-coral">Bigger</span> —<br>
+          Every Single Day.
+        </h1>
+        <p class="hero-sub">Rydex puts you in the driver's seat with unbeatable prices, quality vehicles, and 24/7 pickup. No hidden fees — ever.</p>
+        <div class="hero-actions">
+          <a href="#fleet" class="btn-hero-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17H5a2 2 0 01-2-2V7a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            Browse Our Fleet
+          </a>
+          <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
+             class="btn-hero-secondary" aria-label="Contact us on WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
       </div>
 
       <!-- Booking Form -->
       <div class="booking-card" id="bookingCard">
-        <div class="booking-tabs">
-          <button class="tab active" data-tab="new">New Reservation</button>
-          <button class="tab" data-tab="manage">View / Modify</button>
+        <div class="booking-tabs" role="tablist">
+          <button class="tab active" data-tab="new" role="tab" aria-selected="true">New Reservation</button>
+          <button class="tab" data-tab="manage" role="tab" aria-selected="false">View / Modify</button>
         </div>
-
-        <div class="tab-pane active" id="tab-new">
+        <div class="tab-pane active" id="tab-new" role="tabpanel">
           <div class="form-grid">
             <div class="form-group">
-              <label>Pick-up Location</label>
+              <label for="pickupLocation">Pick-up Location</label>
               <select id="pickupLocation">
-                <option value="">Select pick-up location</option>
-                <option value="airport">International Airport (Open 24/7)</option>
+                <option value="">Select location</option>
+                <option value="airport">International Airport (24/7)</option>
                 <option value="downtown">Downtown Office</option>
                 <option value="hotel">Hotel Delivery</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Return Location</label>
+              <label for="returnLocation">Return Location</label>
               <select id="returnLocation">
-                <option value="">Select return location</option>
-                <option value="airport">International Airport (Open 24/7)</option>
+                <option value="">Select location</option>
+                <option value="airport">International Airport (24/7)</option>
                 <option value="downtown">Downtown Office</option>
                 <option value="hotel">Hotel Collection</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Driver Age</label>
+              <label for="driverAge">Driver Age</label>
               <select id="driverAge">
                 <option value="25-74">Age 25 – 74</option>
                 <option value="21-24">Age 21 – 24</option>
@@ -1074,33 +1082,28 @@ input, select {
               </select>
             </div>
             <div class="form-group">
-              <label>Pick-up Date</label>
+              <label for="pickupDate">Pick-up Date</label>
               <input type="text" id="pickupDate" class="date-input" placeholder="Select date" readonly />
             </div>
             <div class="form-group">
-              <label>Pick-up Time</label>
-              <select id="pickupTime">
-                <option value="">-- : --</option>
-              </select>
+              <label for="pickupTime">Pick-up Time</label>
+              <select id="pickupTime"><option value="">-- : --</option></select>
             </div>
             <div class="form-group">
-              <label>Return Date</label>
+              <label for="returnDate">Return Date</label>
               <input type="text" id="returnDate" class="date-input" placeholder="Select date" readonly />
             </div>
             <div class="form-group">
-              <label>Return Time</label>
-              <select id="returnTime">
-                <option value="">-- : --</option>
-              </select>
+              <label for="returnTime">Return Time</label>
+              <select id="returnTime"><option value="">-- : --</option></select>
             </div>
           </div>
           <button class="btn-search" onclick="handleSearch()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             Search Available Cars
           </button>
         </div>
-
-        <div class="tab-pane" id="tab-manage">
+        <div class="tab-pane" id="tab-manage" role="tabpanel">
           <div class="form-grid form-grid-2">
             <div class="form-group">
               <label>Reservation Number</label>
@@ -1112,79 +1115,117 @@ input, select {
             </div>
           </div>
           <button class="btn-search" onclick="alert('Reservation lookup coming soon!')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            Find Reservation
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            Find My Reservation
           </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── WHY RYDEX ───────────────────────────────────────────────── -->
-  <section class="features-section" id="why">
+  <!-- ═══ STATS BAR ═══════════════════════════════════════════════ -->
+  <div class="stats-bar" aria-label="Company statistics">
+    <div class="container stats-inner">
+      <div class="stat-item">
+        <div class="stat-number" data-target="500">0+</div>
+        <div class="stat-label">Vehicles Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="12000">0+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="15">0+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="4.9">0</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HOW IT WORKS ════════════════════════════════════════════ -->
+  <section class="how-section" id="how">
     <div class="container">
       <div class="section-header">
-        <p class="section-eyebrow">Why Choose Us</p>
-        <h2>Why Rydex Car Rental?</h2>
-        <p class="section-sub">We put the driver first — every time.</p>
+        <p class="section-eyebrow">Simple Process</p>
+        <h2>Renting a Car Has <span class="hl">Never Been Easier</span></h2>
+        <p class="section-sub">From booking to keys in hand — we make every step fast, easy, and transparent.</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 17H5a2 2 0 01-2-2V7a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-          </div>
-          <h3>Huge Variety</h3>
-          <p>From city compacts to family SUVs — our diverse fleet has the perfect car for every trip.</p>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-num">1</div>
+          <h3>Choose Your Dates & Location</h3>
+          <p>Use our booking form to select your pick-up and return location, dates, and preferred vehicle category.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
-          </div>
-          <h3>Outstanding Value</h3>
-          <p>Transparent pricing with no hidden fees — just great value and peace of mind.</p>
+        <div class="step-card reveal">
+          <div class="step-num">2</div>
+          <h3>Pick Your Perfect Car</h3>
+          <p>Browse our fleet and choose a vehicle that fits your needs — economy, family, SUV, or luxury.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <h3>Quality Vehicles</h3>
-          <p>All vehicles are regularly serviced and fully insured so you drive away with confidence.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <h3>Competitive Prices</h3>
-          <p>We beat the big brands — book directly with us and save more on every rental.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-          </div>
-          <h3>All-Inclusive Rates</h3>
-          <p>Insurance, unlimited mileage, and airport delivery included — no surprise add-ons.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3>24/7 Support</h3>
-          <p>Our friendly team is always available — by phone, WhatsApp, or email — day or night.</p>
+        <div class="step-card reveal">
+          <div class="step-num">3</div>
+          <h3>Drive Away & Enjoy</h3>
+          <p>We meet you at the airport or your hotel with the car ready. No queues, no stress — just the open road.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── FLEET ────────────────────────────────────────────────────── -->
+  <!-- ═══ WHY RYDEX ════════════════════════════════════════════════ -->
+  <section class="features-section" id="why">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Why Choose Us</p>
+        <h2>Why Rydex?</h2>
+        <p class="section-sub">We put the driver first — every single time.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 17H5a2 2 0 01-2-2V7a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+          <h3>Huge Variety</h3>
+          <p>From city compacts to 8-seat MPVs and luxury sedans — every trip, covered.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg></div>
+          <h3>Outstanding Value</h3>
+          <p>Transparent pricing with zero hidden fees. What you see is exactly what you pay.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Quality Vehicles</h3>
+          <p>Regularly serviced, fully insured cars. Drive away with complete confidence.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Competitive Prices</h3>
+          <p>We beat the big brands every time. Book direct and save more on every rental.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <h3>All-Inclusive Rates</h3>
+          <p>Insurance, unlimited mileage, and delivery included — no surprise add-ons at checkout.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg></div>
+          <h3>24/7 Support</h3>
+          <p>Phone, WhatsApp, or email — our friendly team is always there when you need us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FLEET ════════════════════════════════════════════════════ -->
   <section class="fleet-section" id="fleet">
     <div class="container">
       <div class="section-header">
         <p class="section-eyebrow">Our Vehicles</p>
-        <h2>Our Fleet</h2>
-        <p class="section-sub">Choose the right car for your journey.</p>
+        <h2>Find Your <span class="hl">Perfect Ride</span></h2>
+        <p class="section-sub">A diverse fleet for every journey — filtered just for you.</p>
       </div>
-      <div class="fleet-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
+      <div class="fleet-filters" role="group" aria-label="Filter vehicles by category">
+        <button class="filter-btn active" data-filter="all">All Vehicles</button>
         <button class="filter-btn" data-filter="economy">Economy</button>
         <button class="filter-btn" data-filter="suv">SUV</button>
         <button class="filter-btn" data-filter="family">Family</button>
@@ -1192,158 +1233,92 @@ input, select {
       </div>
       <div class="fleet-grid" id="fleetGrid">
 
-        <!-- Car 1 -->
-        <div class="car-card" data-category="economy">
+        <div class="car-card reveal" data-category="economy">
           <div class="car-badge">Group A</div>
           <div class="car-img-wrap">
-            <div class="car-img-placeholder economy-car">
-              <svg viewBox="0 0 200 80" fill="none"><path d="M30 55 Q40 30 80 25 Q120 20 150 30 L165 55 Q140 62 100 62 Q60 62 30 55Z" fill="#e0e0e0"/><path d="M30 55 L165 55 L170 62 L25 62Z" fill="#bdbdbd"/><ellipse cx="60" cy="62" rx="12" ry="12" fill="#555"/><ellipse cx="60" cy="62" rx="7" ry="7" fill="#999"/><ellipse cx="135" cy="62" rx="12" ry="12" fill="#555"/><ellipse cx="135" cy="62" rx="7" ry="7" fill="#999"/><rect x="50" y="31" width="38" height="20" rx="3" fill="#b3d4f5"/><rect x="93" y="28" width="45" height="23" rx="3" fill="#b3d4f5"/><circle cx="25" cy="54" r="5" fill="#FFD700"/><circle cx="170" cy="54" r="5" fill="#FF6B6B"/></svg>
+            <div class="car-img-placeholder">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M30 55 Q40 30 80 25 Q120 20 150 30 L165 55 Q140 62 100 62 Q60 62 30 55Z" fill="#c8d8f8"/><path d="M30 55 L165 55 L170 62 L25 62Z" fill="#a0b8e8"/><ellipse cx="60" cy="62" rx="12" ry="12" fill="#2a3856"/><ellipse cx="60" cy="62" rx="7" ry="7" fill="#6aabff"/><ellipse cx="135" cy="62" rx="12" ry="12" fill="#2a3856"/><ellipse cx="135" cy="62" rx="7" ry="7" fill="#6aabff"/><rect x="50" y="31" width="38" height="20" rx="3" fill="#b3d4f5" opacity=".9"/><rect x="93" y="28" width="45" height="23" rx="3" fill="#b3d4f5" opacity=".9"/><circle cx="25" cy="54" r="5" fill="#FFB800"/><circle cx="170" cy="54" r="5" fill="#FF5C2B"/></svg>
             </div>
           </div>
           <div class="car-info">
             <h3 class="car-name">Toyota Yaris <span>or similar</span></h3>
-            <div class="car-specs">
-              <span><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5"/></svg> 1,200 cc</span>
-              <span><svg viewBox="0 0 16 16"><path d="M2 3h12v10H2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> 5 Doors</span>
-              <span><svg viewBox="0 0 16 16"><path d="M8 2a3 3 0 100 6 3 3 0 000-6zM3 14a5 5 0 0110 0" fill="none" stroke="currentColor" stroke-width="1.5"/></svg> 5 Seats</span>
-            </div>
-            <ul class="car-features">
-              <li>Automatic</li>
-              <li>Air Conditioning</li>
-              <li>Unlimited Mileage</li>
-              <li>USB Charger</li>
-              <li>Bluetooth</li>
-            </ul>
+            <div class="car-specs"><span>1,200 cc</span><span>5 Doors</span><span>5 Seats</span></div>
+            <ul class="car-features"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>USB Charger</li><li>Bluetooth</li></ul>
             <button class="btn-book" onclick="openBooking()">Book Now</button>
           </div>
         </div>
 
-        <!-- Car 2 -->
-        <div class="car-card" data-category="economy">
+        <div class="car-card reveal" data-category="economy">
           <div class="car-badge">Group B</div>
           <div class="car-img-wrap">
-            <div class="car-img-placeholder economy-car">
-              <svg viewBox="0 0 200 80" fill="none"><path d="M28 55 Q42 28 85 23 Q125 18 155 30 L168 55 Q140 63 98 63 Q58 63 28 55Z" fill="#c8e6c9"/><path d="M28 55 L168 55 L172 63 L23 63Z" fill="#a5d6a7"/><ellipse cx="62" cy="63" rx="12" ry="12" fill="#555"/><ellipse cx="62" cy="63" rx="7" ry="7" fill="#999"/><ellipse cx="138" cy="63" rx="12" ry="12" fill="#555"/><ellipse cx="138" cy="63" rx="7" ry="7" fill="#999"/><rect x="48" y="30" width="40" height="21" rx="3" fill="#b3d4f5"/><rect x="93" y="27" width="47" height="24" rx="3" fill="#b3d4f5"/><circle cx="23" cy="54" r="5" fill="#FFD700"/><circle cx="173" cy="54" r="5" fill="#FF6B6B"/></svg>
+            <div class="car-img-placeholder">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M28 55 Q42 28 85 23 Q125 18 155 30 L168 55 Q140 63 98 63 Q58 63 28 55Z" fill="#c8e8d0"/><path d="M28 55 L168 55 L172 63 L23 63Z" fill="#a0d0b0"/><ellipse cx="62" cy="63" rx="12" ry="12" fill="#1a3028"/><ellipse cx="62" cy="63" rx="7" ry="7" fill="#6aabff"/><ellipse cx="138" cy="63" rx="12" ry="12" fill="#1a3028"/><ellipse cx="138" cy="63" rx="7" ry="7" fill="#6aabff"/><rect x="48" y="30" width="40" height="21" rx="3" fill="#b3d4f5"/><rect x="93" y="27" width="47" height="24" rx="3" fill="#b3d4f5"/><circle cx="23" cy="54" r="5" fill="#FFB800"/><circle cx="173" cy="54" r="5" fill="#FF5C2B"/></svg>
             </div>
           </div>
           <div class="car-info">
             <h3 class="car-name">Honda Fit <span>or similar</span></h3>
-            <div class="car-specs">
-              <span>1,300 cc</span>
-              <span>5 Doors</span>
-              <span>5 Seats</span>
-            </div>
-            <ul class="car-features">
-              <li>Automatic</li>
-              <li>Air Conditioning</li>
-              <li>Unlimited Mileage</li>
-              <li>USB Charger</li>
-              <li>Electric Windows</li>
-            </ul>
+            <div class="car-specs"><span>1,300 cc</span><span>5 Doors</span><span>5 Seats</span></div>
+            <ul class="car-features"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>USB Charger</li><li>Electric Windows</li></ul>
             <button class="btn-book" onclick="openBooking()">Book Now</button>
           </div>
         </div>
 
-        <!-- Car 3 -->
-        <div class="car-card" data-category="family">
+        <div class="car-card reveal" data-category="family">
           <div class="car-badge">Group C</div>
           <div class="car-img-wrap">
-            <div class="car-img-placeholder family-car">
-              <svg viewBox="0 0 200 80" fill="none"><path d="M20 55 Q28 28 72 22 Q125 15 160 28 L175 55 Q145 65 100 65 Q55 65 20 55Z" fill="#ffe082"/><path d="M20 55 L175 55 L180 65 L15 65Z" fill="#ffd54f"/><ellipse cx="58" cy="65" rx="13" ry="13" fill="#555"/><ellipse cx="58" cy="65" rx="8" ry="8" fill="#999"/><ellipse cx="142" cy="65" rx="13" ry="13" fill="#555"/><ellipse cx="142" cy="65" rx="8" ry="8" fill="#999"/><rect x="40" y="28" width="45" height="23" rx="3" fill="#b3d4f5"/><rect x="90" y="24" width="55" height="27" rx="3" fill="#b3d4f5"/><circle cx="15" cy="54" r="5" fill="#FFD700"/><circle cx="180" cy="54" r="5" fill="#FF6B6B"/></svg>
+            <div class="car-img-placeholder">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M20 55 Q28 28 72 22 Q125 15 160 28 L175 55 Q145 65 100 65 Q55 65 20 55Z" fill="#ffe0b2"/><path d="M20 55 L175 55 L180 65 L15 65Z" fill="#ffcc80"/><ellipse cx="58" cy="65" rx="13" ry="13" fill="#2a1a08"/><ellipse cx="58" cy="65" rx="8" ry="8" fill="#ffb800"/><ellipse cx="142" cy="65" rx="13" ry="13" fill="#2a1a08"/><ellipse cx="142" cy="65" rx="8" ry="8" fill="#ffb800"/><rect x="40" y="28" width="45" height="23" rx="3" fill="#b3d4f5"/><rect x="90" y="24" width="55" height="27" rx="3" fill="#b3d4f5"/><circle cx="15" cy="54" r="5" fill="#FFB800"/><circle cx="180" cy="54" r="5" fill="#FF5C2B"/></svg>
             </div>
           </div>
           <div class="car-info">
             <h3 class="car-name">Mazda Premacy <span>or similar</span></h3>
-            <div class="car-specs">
-              <span>2,000 cc</span>
-              <span>5 Doors</span>
-              <span>7 Seats</span>
-            </div>
-            <ul class="car-features">
-              <li>Automatic</li>
-              <li>Air Conditioning</li>
-              <li>Unlimited Mileage</li>
-              <li>CD Player</li>
-              <li>USB Charger</li>
-            </ul>
+            <div class="car-specs"><span>2,000 cc</span><span>5 Doors</span><span>7 Seats</span></div>
+            <ul class="car-features"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>CD Player</li><li>USB Charger</li></ul>
             <button class="btn-book" onclick="openBooking()">Book Now</button>
           </div>
         </div>
 
-        <!-- Car 4 -->
-        <div class="car-card" data-category="suv">
+        <div class="car-card reveal" data-category="suv">
           <div class="car-badge">Group D</div>
           <div class="car-img-wrap">
-            <div class="car-img-placeholder suv-car">
-              <svg viewBox="0 0 200 80" fill="none"><path d="M18 52 Q22 22 68 18 Q125 12 162 26 L178 52 Q148 62 100 62 Q52 62 18 52Z" fill="#b0bec5"/><path d="M18 52 L178 52 L183 62 L13 62Z" fill="#90a4ae"/><ellipse cx="55" cy="62" rx="14" ry="14" fill="#444"/><ellipse cx="55" cy="62" rx="8" ry="8" fill="#888"/><ellipse cx="145" cy="62" rx="14" ry="14" fill="#444"/><ellipse cx="145" cy="62" rx="8" ry="8" fill="#888"/><rect x="35" y="22" width="50" height="26" rx="3" fill="#b3d4f5"/><rect x="90" y="19" width="60" height="29" rx="3" fill="#b3d4f5"/><circle cx="13" cy="51" r="5" fill="#FFD700"/><circle cx="183" cy="51" r="5" fill="#FF6B6B"/></svg>
+            <div class="car-img-placeholder">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M18 52 Q22 22 68 18 Q125 12 162 26 L178 52 Q148 62 100 62 Q52 62 18 52Z" fill="#b0c8e0"/><path d="M18 52 L178 52 L183 62 L13 62Z" fill="#8aaccc"/><ellipse cx="55" cy="62" rx="14" ry="14" fill="#1a2a3a"/><ellipse cx="55" cy="62" rx="8" ry="8" fill="#6aabff"/><ellipse cx="145" cy="62" rx="14" ry="14" fill="#1a2a3a"/><ellipse cx="145" cy="62" rx="8" ry="8" fill="#6aabff"/><rect x="35" y="22" width="50" height="26" rx="3" fill="#b3d4f5"/><rect x="90" y="19" width="60" height="29" rx="3" fill="#b3d4f5"/><circle cx="13" cy="51" r="5" fill="#FFB800"/><circle cx="183" cy="51" r="5" fill="#FF5C2B"/></svg>
             </div>
           </div>
           <div class="car-info">
             <h3 class="car-name">Toyota RAV4 <span>or similar</span></h3>
-            <div class="car-specs">
-              <span>2,500 cc</span>
-              <span>5 Doors</span>
-              <span>5 Seats</span>
-            </div>
-            <ul class="car-features">
-              <li>Automatic</li>
-              <li>Climate Control</li>
-              <li>Unlimited Mileage</li>
-              <li>4WD Available</li>
-              <li>Cruise Control</li>
-            </ul>
+            <div class="car-specs"><span>2,500 cc</span><span>5 Doors</span><span>5 Seats</span></div>
+            <ul class="car-features"><li>Automatic</li><li>Climate Control</li><li>Unlimited Miles</li><li>4WD Available</li><li>Cruise Control</li></ul>
             <button class="btn-book" onclick="openBooking()">Book Now</button>
           </div>
         </div>
 
-        <!-- Car 5 -->
-        <div class="car-card" data-category="family">
+        <div class="car-card reveal" data-category="family">
           <div class="car-badge">Group E</div>
           <div class="car-img-wrap">
-            <div class="car-img-placeholder family-car">
-              <svg viewBox="0 0 200 80" fill="none"><path d="M15 54 Q22 20 70 15 Q130 8 165 25 L180 54 Q150 64 100 64 Q50 64 15 54Z" fill="#ce93d8"/><path d="M15 54 L180 54 L185 64 L10 64Z" fill="#ba68c8"/><ellipse cx="53" cy="64" rx="13" ry="13" fill="#444"/><ellipse cx="53" cy="64" rx="8" ry="8" fill="#888"/><ellipse cx="148" cy="64" rx="13" ry="13" fill="#444"/><ellipse cx="148" cy="64" rx="8" ry="8" fill="#888"/><rect x="35" y="20" width="48" height="30" rx="3" fill="#b3d4f5"/><rect x="88" y="16" width="65" height="34" rx="3" fill="#b3d4f5"/></svg>
+            <div class="car-img-placeholder">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M15 54 Q22 20 70 15 Q130 8 165 25 L180 54 Q150 64 100 64 Q50 64 15 54Z" fill="#d0c0f0"/><path d="M15 54 L180 54 L185 64 L10 64Z" fill="#b8a0e0"/><ellipse cx="53" cy="64" rx="13" ry="13" fill="#1a1028"/><ellipse cx="53" cy="64" rx="8" ry="8" fill="#a078ff"/><ellipse cx="148" cy="64" rx="13" ry="13" fill="#1a1028"/><ellipse cx="148" cy="64" rx="8" ry="8" fill="#a078ff"/><rect x="35" y="20" width="48" height="30" rx="3" fill="#b3d4f5"/><rect x="88" y="16" width="65" height="34" rx="3" fill="#b3d4f5"/></svg>
             </div>
           </div>
           <div class="car-info">
             <h3 class="car-name">Chrysler Voyager <span>or similar</span></h3>
-            <div class="car-specs">
-              <span>3,300 cc</span>
-              <span>5 Doors</span>
-              <span>8 Seats</span>
-            </div>
-            <ul class="car-features">
-              <li>Automatic</li>
-              <li>Air Conditioning</li>
-              <li>Unlimited Mileage</li>
-              <li>Cruise Control</li>
-              <li>Electric Sliding Doors</li>
-            </ul>
+            <div class="car-specs"><span>3,300 cc</span><span>5 Doors</span><span>8 Seats</span></div>
+            <ul class="car-features"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>Cruise Control</li><li>Electric Doors</li></ul>
             <button class="btn-book" onclick="openBooking()">Book Now</button>
           </div>
         </div>
 
-        <!-- Car 6 -->
-        <div class="car-card" data-category="luxury">
-          <div class="car-badge best">Group F</div>
+        <div class="car-card reveal" data-category="luxury">
+          <div class="car-badge best">Group F ★</div>
           <div class="car-img-wrap">
-            <div class="car-img-placeholder luxury-car">
-              <svg viewBox="0 0 200 80" fill="none"><path d="M25 53 Q35 26 78 21 Q120 16 158 28 L170 53 Q142 61 100 61 Q58 61 25 53Z" fill="#1a237e" opacity="0.85"/><path d="M25 53 L170 53 L174 61 L21 61Z" fill="#283593"/><ellipse cx="60" cy="61" rx="12" ry="12" fill="#333"/><ellipse cx="60" cy="61" rx="7" ry="7" fill="#666"/><ellipse cx="140" cy="61" rx="12" ry="12" fill="#333"/><ellipse cx="140" cy="61" rx="7" ry="7" fill="#666"/><rect x="48" y="27" width="42" height="22" rx="3" fill="#b3d4f5" opacity="0.9"/><rect x="95" y="23" width="50" height="26" rx="3" fill="#b3d4f5" opacity="0.9"/><circle cx="21" cy="52" r="5" fill="#FFD700"/><circle cx="174" cy="52" r="5" fill="#FF6B6B"/></svg>
+            <div class="car-img-placeholder">
+              <svg viewBox="0 0 200 80" fill="none"><path d="M25 53 Q35 26 78 21 Q120 16 158 28 L170 53 Q142 61 100 61 Q58 61 25 53Z" fill="#0d2040" opacity=".85"/><path d="M25 53 L170 53 L174 61 L21 61Z" fill="#162840"/><ellipse cx="60" cy="61" rx="12" ry="12" fill="#060c1c"/><ellipse cx="60" cy="61" rx="7" ry="7" fill="#1d6eff"/><ellipse cx="140" cy="61" rx="12" ry="12" fill="#060c1c"/><ellipse cx="140" cy="61" rx="7" ry="7" fill="#1d6eff"/><rect x="48" y="27" width="42" height="22" rx="3" fill="#b3d4f5" opacity=".9"/><rect x="95" y="23" width="50" height="26" rx="3" fill="#b3d4f5" opacity=".9"/><circle cx="21" cy="52" r="5" fill="#FFB800"/><circle cx="174" cy="52" r="5" fill="#FF5C2B"/></svg>
             </div>
           </div>
           <div class="car-info">
             <h3 class="car-name">BMW 5 Series <span>or similar</span></h3>
-            <div class="car-specs">
-              <span>2,000 cc</span>
-              <span>4 Doors</span>
-              <span>5 Seats</span>
-            </div>
-            <ul class="car-features">
-              <li>Automatic</li>
-              <li>Climate Control</li>
-              <li>Unlimited Mileage</li>
-              <li>Sunroof</li>
-              <li>Heated Seats</li>
-            </ul>
+            <div class="car-specs"><span>2,000 cc</span><span>4 Doors</span><span>5 Seats</span></div>
+            <ul class="car-features"><li>Automatic</li><li>Climate Control</li><li>Unlimited Miles</li><li>Sunroof</li><li>Heated Seats</li></ul>
             <button class="btn-book" onclick="openBooking()">Book Now</button>
           </div>
         </div>
@@ -1352,164 +1327,111 @@ input, select {
     </div>
   </section>
 
-  <!-- ─── TESTIMONIALS ─────────────────────────────────────────────── -->
+  <!-- ═══ TESTIMONIALS ════════════════════════════════════════════ -->
   <section class="testimonials-section" id="testimonials">
     <div class="container">
       <div class="section-header">
         <p class="section-eyebrow">Customer Reviews</p>
         <h2>What Our Clients Say</h2>
-        <div class="stars-row">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          <span class="rating-score">4.9 / 5 based on 300+ reviews</span>
+        <div class="stars-row" aria-label="4.9 out of 5 stars">
+          <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="rating-score">4.9 / 5 — 300+ reviews</span>
         </div>
       </div>
       <div class="testimonials-track-wrap">
         <div class="testimonials-track" id="testimonialsTrack">
-
           <div class="testimonial-card">
             <div class="quote-icon">"</div>
-            <p>Excellent service from start to finish. The car was ready at the airport and the whole pickup process was smooth and quick. Highly recommend Rydex!</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar">JM</div>
-              <div>
-                <strong>James Mitchell</strong>
-                <span>★★★★★</span>
-              </div>
-            </div>
+            <p>Excellent service from start to finish. The car was ready at the airport and the whole pickup process was smooth and super quick. Highly recommend Rydex!</p>
+            <div class="reviewer"><div class="reviewer-avatar">JM</div><div><strong>James Mitchell</strong><span>★★★★★</span></div></div>
           </div>
-
           <div class="testimonial-card">
             <div class="quote-icon">"</div>
-            <p>Best car rental experience I've ever had. Unbeatable prices compared to the big airport companies. The staff were super friendly and helpful.</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar">SR</div>
-              <div>
-                <strong>Sofia Rodriguez</strong>
-                <span>★★★★★</span>
-              </div>
-            </div>
+            <p>Best car rental experience I've ever had. Unbeatable prices compared to the big airport companies. Staff were super friendly and helpful throughout.</p>
+            <div class="reviewer"><div class="reviewer-avatar">SR</div><div><strong>Sofia Rodriguez</strong><span>★★★★★</span></div></div>
           </div>
-
           <div class="testimonial-card">
             <div class="quote-icon">"</div>
-            <p>I needed the car for an extra day due to a flight delay and Rydex was incredibly accommodating. They even delivered the car to my hotel. Outstanding!</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar">NP</div>
-              <div>
-                <strong>Nina Petrov</strong>
-                <span>★★★★★</span>
-              </div>
-            </div>
+            <p>I needed the car an extra day due to a flight delay and Rydex was incredibly accommodating. They even delivered the car to my hotel. Outstanding!</p>
+            <div class="reviewer"><div class="reviewer-avatar">NP</div><div><strong>Nina Petrov</strong><span>★★★★★</span></div></div>
           </div>
-
           <div class="testimonial-card">
             <div class="quote-icon">"</div>
-            <p>Easy WhatsApp communication, fast responses, clean cars in great condition. I've booked with them three times now and will keep coming back.</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar">TK</div>
-              <div>
-                <strong>Thomas Klein</strong>
-                <span>★★★★★</span>
-              </div>
-            </div>
+            <p>Easy WhatsApp communication, lightning-fast responses, and clean cars in great condition. I've booked three times now and will keep coming back!</p>
+            <div class="reviewer"><div class="reviewer-avatar">TK</div><div><strong>Thomas Klein</strong><span>★★★★★</span></div></div>
           </div>
-
           <div class="testimonial-card">
             <div class="quote-icon">"</div>
-            <p>Transparent pricing with zero hidden charges. What they quoted us is what we paid. The SUV was in perfect condition for our family road trip.</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar">AO</div>
-              <div>
-                <strong>Amara Okonkwo</strong>
-                <span>★★★★★</span>
-              </div>
-            </div>
+            <p>Completely transparent pricing with zero hidden charges. What they quoted is what we paid. The SUV was perfect for our family road trip.</p>
+            <div class="reviewer"><div class="reviewer-avatar">AO</div><div><strong>Amara Okonkwo</strong><span>★★★★★</span></div></div>
           </div>
-
           <div class="testimonial-card">
             <div class="quote-icon">"</div>
             <p>Used Rydex for a 2-week holiday. Communication was excellent, both collection and drop-off were seamless. We left completely satisfied. Rent with confidence!</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar">WB</div>
-              <div>
-                <strong>William Barnes</strong>
-                <span>★★★★★</span>
-              </div>
-            </div>
+            <div class="reviewer"><div class="reviewer-avatar">WB</div><div><strong>William Barnes</strong><span>★★★★★</span></div></div>
           </div>
-
         </div>
-        <button class="slider-btn prev" id="sliderPrev" aria-label="Previous">&#8592;</button>
-        <button class="slider-btn next" id="sliderNext" aria-label="Next">&#8594;</button>
+        <button class="slider-btn prev" id="sliderPrev" aria-label="Previous review">&#8592;</button>
+        <button class="slider-btn next" id="sliderNext" aria-label="Next review">&#8594;</button>
       </div>
       <div class="slider-dots" id="sliderDots"></div>
     </div>
   </section>
 
-  <!-- ─── INFO STRIP ────────────────────────────────────────────────── -->
-  <section class="info-strip">
+  <!-- ═══ INFO STRIP ═══════════════════════════════════════════════ -->
+  <div class="info-strip" aria-label="Contact and location information">
     <div class="container info-strip-inner">
       <div class="info-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
-        <div>
-          <strong>Pick-up & Drop-off</strong>
-          <span>Airport · Downtown · Hotel</span>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+        <div><strong>Airport · Downtown · Hotel</strong><span>Pick-up & Drop-off Anywhere</span></div>
       </div>
       <div class="info-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <div>
-          <strong>Airport Open 24/7</strong>
-          <span>Downtown: Mon–Sat 8am–6pm</span>
-        </div>
+        <div><strong>Airport Open 24 / 7</strong><span>Downtown: Mon–Sat 8am–6pm</span></div>
       </div>
       <div class="info-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
-        <div>
-          <strong>Call or WhatsApp</strong>
-          <span>+1 (555) 000-1234</span>
-        </div>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div><strong>WhatsApp Anytime</strong><span>+1 (555) 000-1234</span></div>
       </div>
       <div class="info-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <div>
-          <strong>Email Us</strong>
-          <span>info@rydexrentals.com</span>
-        </div>
+        <div><strong>Email Us</strong><span>info@rydexrentals.com</span></div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ─── DISCOVER SECTION ─────────────────────────────────────────── -->
+  <!-- ═══ DISCOVER ════════════════════════════════════════════════ -->
   <section class="discover-section" id="contact">
     <div class="container">
       <div class="section-header">
         <p class="section-eyebrow">Explore</p>
-        <h2>Discover More</h2>
-        <p class="section-sub">We serve multiple locations to get you on the road, fast.</p>
+        <h2>We Come <span class="hl">To You</span></h2>
+        <p class="section-sub">Multiple pick-up options designed around your schedule — not ours.</p>
       </div>
       <div class="discover-grid">
-        <div class="discover-card airport-card">
+        <div class="discover-card airport-card reveal">
           <div class="discover-card-overlay"></div>
           <div class="discover-card-content">
             <h3>Airport Pick-up</h3>
-            <p>Land and drive. Our team meets you at the arrivals hall with your car ready to go — no waiting, no hassle.</p>
+            <p>Land and drive. Our team meets you at arrivals with your car ready — no waiting, no hassle.</p>
             <a href="#booking" class="btn-secondary">Book Airport Pick-up</a>
           </div>
         </div>
-        <div class="discover-card downtown-card">
+        <div class="discover-card downtown-card reveal">
           <div class="discover-card-overlay"></div>
           <div class="discover-card-content">
             <h3>Downtown Office</h3>
-            <p>Visit our centrally located office to browse the full fleet, ask questions, and pick up your keys in person.</p>
+            <p>Visit our central office to browse the full fleet, ask questions, and collect your keys in person.</p>
             <a href="#booking" class="btn-secondary">Get Directions</a>
           </div>
         </div>
-        <div class="discover-card delivery-card">
+        <div class="discover-card delivery-card reveal">
           <div class="discover-card-overlay"></div>
           <div class="discover-card-content">
             <h3>Hotel Delivery</h3>
-            <p>We deliver directly to your hotel at no extra charge — perfect for those days when you want to hit the road right from your door.</p>
+            <p>We deliver directly to your hotel at no extra charge — hit the road right from your front door.</p>
             <a href="#booking" class="btn-secondary">Request Delivery</a>
           </div>
         </div>
@@ -1517,53 +1439,70 @@ input, select {
     </div>
   </section>
 
-  <!-- ─── FOOTER ───────────────────────────────────────────────────── -->
-  <footer class="site-footer">
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
+    <div class="footer-top-bar">
+      <div class="container">
+        <p>🚗 Ready to hit the road? Book online and save up to 30% vs. airport desks.</p>
+        <div class="footer-cta-row">
+          <a href="tel:+15550001234" class="footer-cta-btn phone" itemprop="telephone">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+            Call Us
+          </a>
+          <a href="#booking" class="footer-cta-btn book">Book Now →</a>
+        </div>
+      </div>
+    </div>
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="#" class="logo logo-light">
+        <a href="#" class="logo" aria-label="Rydex Car Rental home" itemprop="name">
           <span class="logo-rx">Rydex</span>
           <span class="logo-sub">Car Rental</span>
         </a>
-        <p>Your trusted partner on every road. Affordable, reliable, and always there when you need us.</p>
-        <div class="social-links">
-          <a href="#" aria-label="Facebook">
+        <p itemprop="description">Your trusted partner on every road. Affordable, reliable, and always there when you need us — day or night.</p>
+        <!-- Footer social icons — SEO tagged -->
+        <nav class="social-links" aria-label="Social media profiles">
+          <a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+             class="social-link facebook" aria-label="Rydex Car Rental on Facebook" title="Facebook"
+             itemprop="sameAs">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           </a>
-          <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+             class="social-link instagram" aria-label="Rydex Car Rental on Instagram" title="Instagram"
+             itemprop="sameAs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="#" aria-label="WhatsApp">
+          <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
+             class="social-link whatsapp" aria-label="Chat with Rydex Car Rental on WhatsApp" title="WhatsApp"
+             itemprop="sameAs">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
-        </div>
+        </nav>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Reservations</h4>
-          <ul>
-            <li><a href="#booking">Make a New Reservation</a></li>
-            <li><a href="#booking">View / Modify Reservation</a></li>
-            <li><a href="#fleet">Browse Our Fleet</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Information</h4>
-          <ul>
-            <li><a href="#">Airport Pick-up</a></li>
-            <li><a href="#">Rental Terms & Conditions</a></li>
-            <li><a href="#">Insurance Information</a></li>
-            <li><a href="#">FAQs</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="tel:+15550001234">+1 (555) 000-1234</a></li>
-            <li><a href="mailto:info@rydexrentals.com">info@rydexrentals.com</a></li>
-            <li><a href="#">WhatsApp Us</a></li>
-          </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Reservations</h4>
+        <ul>
+          <li><a href="#booking">New Reservation</a></li>
+          <li><a href="#booking">Modify Reservation</a></li>
+          <li><a href="#fleet">Browse Fleet</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#">Airport Pick-up Guide</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Insurance Info</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15550001234">+1 (555) 000-1234</a></li>
+          <li><a href="mailto:info@rydexrentals.com">info@rydexrentals.com</a></li>
+          <li><a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1574,15 +1513,34 @@ input, select {
     </div>
   </footer>
 
-  <!-- ─── BOOKING MODAL ─────────────────────────────────────────────── -->
+  <!-- ═══ FLOATING SOCIAL BUTTONS ══════════════════════════════════ -->
+  <nav class="float-socials" aria-label="Quick social contact">
+    <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
+       class="float-social wa" aria-label="Chat on WhatsApp" title="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="float-social-tip">Chat on WhatsApp</span>
+    </a>
+    <a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+       class="float-social ig" aria-label="Follow on Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <span class="float-social-tip">Instagram</span>
+    </a>
+    <a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
+       class="float-social fb" aria-label="Follow on Facebook" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      <span class="float-social-tip">Facebook</span>
+    </a>
+  </nav>
+
+  <!-- ═══ BOOKING MODAL ════════════════════════════════════════════ -->
   <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-label="Quick Booking">
     <div class="modal-card">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close dialog">&times;</button>
       <h3>Reserve This Vehicle</h3>
-      <p>Scroll up to complete your dates and search for available cars, or call us directly.</p>
+      <p>Scroll up to select your dates and search for available cars, or reach us directly — we're always on.</p>
       <div class="modal-actions">
         <a href="#booking" class="btn-primary" onclick="closeModal()">Go to Booking Form</a>
-        <a href="tel:+15550001234" class="btn-secondary-outline">Call +1 (555) 000-1234</a>
+        <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" class="btn-secondary-outline">WhatsApp Us</a>
       </div>
     </div>
   </div>

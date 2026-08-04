@@ -25,9 +25,13 @@ mainNav.querySelectorAll('a').forEach(link => {
 /* ── Booking tabs ───────────────────────────────────────────────── */
 document.querySelectorAll('.booking-tabs .tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.booking-tabs .tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.booking-tabs .tab').forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
     document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
     tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
     document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
   });
 });
@@ -81,14 +85,14 @@ function handleSearch() {
   if (!ret)    { shake('returnLocation'); return; }
   if (!pickDate || !retDate) { alert('Please select pick-up and return dates.'); return; }
 
-  document.getElementById('fleetGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('fleet').scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => {
-    document.querySelectorAll('.car-card').forEach(card => {
+    document.querySelectorAll('.car-card:not(.hidden)').forEach(card => {
       card.style.animation = 'none';
       card.offsetHeight;
       card.style.animation = 'pulse 0.4s ease';
     });
-  }, 600);
+  }, 700);
 }
 
 function shake(id) {
@@ -104,7 +108,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const filter = btn.dataset.filter;
     document.querySelectorAll('.car-card').forEach(card => {
       const show = filter === 'all' || card.dataset.category === filter;
@@ -120,9 +123,9 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 
 /* ── Testimonials slider ────────────────────────────────────────── */
 (function () {
-  const track  = document.getElementById('testimonialsTrack');
-  const cards  = track.querySelectorAll('.testimonial-card');
-  const dotsEl = document.getElementById('sliderDots');
+  const track   = document.getElementById('testimonialsTrack');
+  const cards   = track.querySelectorAll('.testimonial-card');
+  const dotsEl  = document.getElementById('sliderDots');
   const prevBtn = document.getElementById('sliderPrev');
   const nextBtn = document.getElementById('sliderNext');
 
@@ -141,7 +144,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     for (let i = 0; i < count; i++) {
       const d = document.createElement('button');
       d.className = 'slider-dot' + (i === current ? ' active' : '');
-      d.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      d.setAttribute('aria-label', `Go to review ${i + 1}`);
       d.addEventListener('click', () => goTo(i));
       dotsEl.appendChild(d);
     }
@@ -165,9 +168,43 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 
   buildDots();
+  setInterval(() => goTo(current >= maxIdx() ? 0 : current + 1), 5500);
+})();
 
-  // Auto-advance every 5 seconds
-  setInterval(() => goTo(current >= maxIdx() ? 0 : current + 1), 5000);
+/* ── Animated stats counter ─────────────────────────────────────── */
+(function () {
+  const statEls = document.querySelectorAll('.stat-number[data-target]');
+  let animated = false;
+
+  function animateCounters() {
+    if (animated) return;
+    animated = true;
+    statEls.forEach(el => {
+      const target = parseFloat(el.dataset.target);
+      const isDecimal = !Number.isInteger(target);
+      const duration = 1800;
+      const step = 16;
+      let current = 0;
+      const increment = target / (duration / step);
+      const suffix = target >= 100 ? '+' : '';
+
+      const timer = setInterval(() => {
+        current = Math.min(current + increment, target);
+        el.textContent = isDecimal
+          ? current.toFixed(1) + suffix
+          : Math.floor(current).toLocaleString() + suffix;
+        if (current >= target) clearInterval(timer);
+      }, step);
+    });
+  }
+
+  const statsBar = document.querySelector('.stats-bar');
+  if (statsBar) {
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { animateCounters(); obs.disconnect(); }
+    }, { threshold: 0.4 });
+    obs.observe(statsBar);
+  }
 })();
 
 /* ── Modal ──────────────────────────────────────────────────────── */
@@ -197,7 +234,7 @@ scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 's
 
 /* ── Reveal on scroll ───────────────────────────────────────────── */
 const revealEls = document.querySelectorAll(
-  '.feature-card, .car-card, .testimonial-card, .discover-card, .info-item'
+  '.feature-card, .car-card, .discover-card, .info-item, .step-card'
 );
 revealEls.forEach(el => el.classList.add('reveal'));
 
@@ -208,7 +245,7 @@ const revealObserver = new IntersectionObserver(
       revealObserver.unobserve(entry.target);
     }
   }),
-  { threshold: 0.12 }
+  { threshold: 0.1 }
 );
 revealEls.forEach(el => revealObserver.observe(el));
 
@@ -216,7 +253,7 @@ revealEls.forEach(el => revealObserver.observe(el));
 const style = document.createElement('style');
 style.textContent = `
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes shake {
@@ -225,8 +262,8 @@ style.textContent = `
   40%,80% { transform: translateX(6px); }
 }
 @keyframes pulse {
-  0%,100% { transform: scale(1); }
-  50%     { transform: scale(1.02); }
+  0%,100% { box-shadow: 0 0 0 0 rgba(29,110,255,0); }
+  50%     { box-shadow: 0 0 0 8px rgba(29,110,255,.12); }
 }
 `;
 document.head.appendChild(style);
