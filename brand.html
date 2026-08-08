@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rydex Car Rental – Brand Assets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', system-ui, sans-serif; background: #F8F9FA; color: #111827; }
+    .top { background: #D90429; padding: 14px 32px; display: flex; align-items: center; gap: 10px; }
+    .top a { color: rgba(255,255,255,.7); font-size: .85rem; font-weight: 600; text-decoration: none; }
+    .top a:hover { color: #fff; }
+    .top span { color: rgba(255,255,255,.4); }
+    .hero { text-align: center; padding: 56px 24px 40px; }
+    .hero h1 { font-size: 2rem; font-weight: 900; color: #111827; margin-bottom: 8px; }
+    .hero h1 em { font-style: normal; color: #D90429; }
+    .hero p { font-size: .97rem; color: #6B7280; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 860px; margin: 0 auto; padding: 0 24px 64px; }
+    .card { background: #fff; border-radius: 16px; border: 1.5px solid #E4E7EC; overflow: hidden; }
+    .card-preview { display: flex; align-items: center; justify-content: center; padding: 40px 32px; min-height: 220px; }
+    .card-preview img { max-width: 100%; max-height: 160px; object-fit: contain; }
+    .card-preview.dark { background: #0F1117; }
+    .card-info { padding: 18px 20px; border-top: 1px solid #E4E7EC; }
+    .card-info h3 { font-size: .97rem; font-weight: 800; color: #111827; margin-bottom: 4px; }
+    .card-info p { font-size: .8rem; color: #6B7280; margin-bottom: 14px; }
+    .btn-dl {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; background: #D90429; color: #fff;
+      font-size: .85rem; font-weight: 700; border-radius: 8px; text-decoration: none;
+      box-shadow: 0 3px 12px rgba(217,4,41,.3);
+      transition: background .2s, transform .2s;
+    }
+    .btn-dl:hover { background: #A8001D; transform: translateY(-1px); }
+    .btn-dl svg { width: 16px; height: 16px; }
+    .note { text-align: center; font-size: .8rem; color: #9CA3AF; padding: 0 24px 40px; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a href="index.html">← Back to Rydex Car Rental</a>
+  </div>
+
+  <div class="hero">
+    <h1>Rydex <em>Brand Assets</em></h1>
+    <p>Download the official Rydex Car Rental logo in both light and dark versions.</p>
+  </div>
+
+  <div class="grid">
+    <!-- Light Logo -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="rydex-logo.png" alt="Rydex Car Rental logo — light version" />
+      </div>
+      <div class="card-info">
+        <h3>Logo — Light Version</h3>
+        <p>For use on white or light backgrounds · PNG format</p>
+        <a href="rydex-logo.png" download="rydex-logo-light.png" class="btn-dl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PNG
+        </a>
+      </div>
+    </div>
+
+    <!-- Dark Logo -->
+    <div class="card">
+      <div class="card-preview dark">
+        <img src="rydex-logo-dark.png" alt="Rydex Car Rental logo — dark version" />
+      </div>
+      <div class="card-info">
+        <h3>Logo — Dark Version</h3>
+        <p>For use on dark or coloured backgrounds · PNG format</p>
+        <a href="rydex-logo-dark.png" download="rydex-logo-dark.png" class="btn-dl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PNG
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">These assets are the exclusive property of Rydex Car Rental. Please do not alter or redistribute without permission.</p>
+</body>
+</html>
