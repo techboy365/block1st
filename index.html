@@ -1,46 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/LocalBusiness">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rydex Car Rental – Affordable, reliable car rental with 24/7 airport pickup. Transparent pricing, quality vehicles, no hidden fees." />
-  <meta property="og:title" content="Rydex Car Rental – Drive With Confidence" />
-  <meta property="og:type" content="website" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Rydex Car Rental – Affordable, reliable car rental with 24/7 airport pickup. Transparent pricing, quality vehicles, no hidden fees."/>
+  <meta property="og:title" content="Rydex Car Rental – Drive With Confidence"/>
+  <meta property="og:type" content="website"/>
   <title itemprop="name">Rydex Car Rental – Drive With Confidence</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <style>
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    TOKENS
-═══════════════════════════════════════════════════════════ */
-:root {
-  --red:       #D90429;
-  --red-dk:    #A8001D;
-  --red-lt:    #FF3352;
-  --red-pale:  #FFF0F2;
-  --red-ring:  rgba(217,4,41,.14);
-
-  --ink:       #0F1117;
-  --ink2:      #2D3748;
-  --muted:     #64748B;
-  --pale:      #F8F9FA;
-  --warm:      #FDF5F6;
-  --border:    #E4E7EC;
-
-  --r:   10px;
-  --rl:  16px;
-  --sh:  0 2px 12px rgba(0,0,0,.07);
-  --shl: 0 8px 32px rgba(0,0,0,.11);
-  --shr: 0 4px 18px rgba(217,4,41,.26);
-  --t:   .2s ease;
+════════════════════════════════════════════ */
+:root{
+  --red:#D90429; --red-dk:#A8001D; --red-lt:#FF3352;
+  --ink:#0A0C12; --ink2:#1E2535; --muted:#64748B;
+  --pale:#F8F9FA; --warm:#FDF5F6; --border:#E4E7EC;
+  --white:#FFFFFF;
+  --r:10px; --rl:16px;
+  --sh:0 2px 14px rgba(0,0,0,.08);
+  --shl:0 10px 40px rgba(0,0,0,.13);
+  --shr:0 4px 18px rgba(217,4,41,.28);
+  --t:.22s ease;
 }
-
-/* ─── RESET ──────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;overflow-x:hidden}
@@ -49,141 +37,229 @@ img,svg{display:block}
 ul{list-style:none}
 button{cursor:pointer;font:inherit;border:none;background:none}
 input,select{font:inherit;border:none;outline:none;background:none}
-.container{width:100%;max-width:1140px;margin:0 auto;padding:0 22px}
+.container{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
 
-/* ═══════════════════════════════════════════════════════════
-   HEADER  — white, minimal
-═══════════════════════════════════════════════════════════ */
-.hdr{
-  position:sticky;top:0;z-index:900;
-  background:#fff;border-bottom:1px solid var(--border);
-}
-.hdr-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  height:62px;gap:20px;
-}
-
-/* Logo */
+/* ════════════════════════════════════════════
+   HEADER
+════════════════════════════════════════════ */
+.hdr{position:sticky;top:0;z-index:900;background:var(--ink2);border-bottom:1px solid rgba(255,255,255,.07)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;height:62px;gap:20px}
 .logo{display:flex;align-items:center;gap:9px}
-.logo-mark{
-  width:36px;height:36px;border-radius:9px;
-  background:var(--red);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
+.logo-mark{width:36px;height:36px;border-radius:9px;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .logo-mark svg{width:19px;height:19px}
-.logo-name{font-size:1.25rem;font-weight:900;color:var(--red);letter-spacing:-.4px;line-height:1}
-.logo-sub{font-size:.55rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px}
-
-/* Nav */
+.logo-name{font-size:1.25rem;font-weight:900;color:#fff;letter-spacing:-.4px;line-height:1}
+.logo-sub{font-size:.55rem;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1.4px}
 .nav ul{display:flex;align-items:center;gap:2px}
-.nav a{
-  font-size:.87rem;font-weight:600;color:var(--ink2);
-  padding:7px 12px;border-radius:8px;
-  transition:color var(--t),background var(--t);
-}
-.nav a:hover{color:var(--red);background:var(--red-pale)}
-
+.nav a{font-size:.87rem;font-weight:600;color:rgba(255,255,255,.6);padding:7px 12px;border-radius:8px;transition:color var(--t),background var(--t)}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
 .hdr-right{display:flex;align-items:center;gap:10px}
-.btn-phone{
-  font-size:.82rem;font-weight:700;color:var(--muted);
-  display:flex;align-items:center;gap:6px;
-  transition:color var(--t);
-}
-.btn-phone svg{color:var(--red)}
-.btn-phone:hover{color:var(--ink)}
-.btn-res{
-  padding:8px 18px;background:var(--red);color:#fff;
-  font-size:.85rem;font-weight:700;border-radius:8px;
-  box-shadow:var(--shr);
-  transition:background var(--t),transform var(--t);
-}
+.btn-phone{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:6px;transition:color var(--t)}
+.btn-phone svg{color:var(--red-lt)}
+.btn-phone:hover{color:#fff}
+.btn-res{padding:8px 18px;background:var(--red);color:#fff;font-size:.85rem;font-weight:700;border-radius:8px;box-shadow:var(--shr);transition:background var(--t),transform var(--t)}
 .btn-res:hover{background:var(--red-dk);transform:translateY(-1px)}
-
 .burger{display:none;flex-direction:column;gap:5px;padding:5px}
-.burger span{display:block;width:21px;height:2px;background:var(--ink);border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.burger span{display:block;width:21px;height:2px;background:#fff;border-radius:2px;transition:transform var(--t),opacity var(--t)}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ═══════════════════════════════════════════════════════════
-   HERO  — deep red background, not white
-═══════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════
+   HERO — dark cinematic
+════════════════════════════════════════════ */
 .hero{
-  background:linear-gradient(135deg, #8B0000 0%, var(--red) 55%, #ff3352 100%);
-  padding:56px 0 0;
+  background:linear-gradient(140deg,#06080F 0%,#0F1117 45%,#120810 100%);
+  min-height:90vh;
   position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
 }
+/* Ghost watermark text */
+.hero-ghost{
+  position:absolute;
+  right:-2%;bottom:-8%;
+  font-size:clamp(110px,19vw,240px);
+  font-weight:900;line-height:1;
+  color:rgba(255,255,255,.028);
+  letter-spacing:-8px;
+  user-select:none;pointer-events:none;
+  white-space:nowrap;
+}
+/* Subtle red glow bottom left */
 .hero::before{
-  content:'';
-  position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/svg%3E") repeat;
+  content:'';position:absolute;
+  bottom:-20%;left:-10%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,4,41,.12) 0%,transparent 65%);
   pointer-events:none;
 }
-.hero-body{
-  position:relative;z-index:1;
-  text-align:center;max-width:680px;margin:0 auto 40px;color:#fff;
+/* Red stripe bottom edge of hero */
+.hero::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,transparent,var(--red) 40%,var(--red-lt) 60%,transparent);
 }
-.hero-kicker{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;
-  color:rgba(255,255,255,.85);
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
-  padding:5px 15px;border-radius:100px;margin-bottom:20px;
-}
-.hero-kicker span{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.8s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.hero-body h1{
-  font-size:clamp(2.1rem,5vw,3.4rem);font-weight:900;line-height:1.1;
-  margin-bottom:14px;letter-spacing:-.5px;
-}
-.hero-body p{font-size:1rem;color:rgba(255,255,255,.78);line-height:1.65;max-width:500px;margin:0 auto 24px}
 
-.trust-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.hero-content{
+  flex:1;
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:32px;
+  align-items:center;
+  padding:80px 0 48px;
+  position:relative;z-index:1;
+}
+
+/* ── LEFT TEXT ── */
+.hero-text{}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;
+  color:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  padding:5px 15px;border-radius:100px;margin-bottom:22px;
+}
+.hero-kicker span{width:6px;height:6px;border-radius:50%;background:var(--red-lt);animation:blink 1.8s ease-in-out infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.2;transform:scale(.6)}}
+
+.hero-text h1{
+  font-size:clamp(2.4rem,4.8vw,3.8rem);
+  font-weight:900;line-height:1.08;
+  letter-spacing:-1.5px;
+  color:#fff;margin-bottom:18px;
+}
+.hero-text h1 em{font-style:normal;color:var(--red-lt)}
+.hero-text p{font-size:1rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:420px;margin-bottom:32px}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.btn-fleet{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 26px;background:var(--red);color:#fff;
+  font-size:.92rem;font-weight:800;border-radius:10px;
+  box-shadow:0 5px 22px rgba(217,4,41,.45);
+  transition:background var(--t),transform var(--t),box-shadow var(--t);
+}
+.btn-fleet:hover{background:var(--red-dk);transform:translateY(-2px);box-shadow:0 8px 28px rgba(217,4,41,.55)}
+.btn-fleet svg{width:16px;height:16px;flex-shrink:0}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 22px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.85);
+  font-size:.92rem;font-weight:700;border-radius:10px;
+  transition:background var(--t),border-color var(--t);
+}
+.btn-wa:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+.btn-wa svg{width:16px;height:16px;flex-shrink:0}
+
+.trust-row{display:flex;flex-wrap:wrap;gap:8px}
 .tpill{
   display:inline-flex;align-items:center;gap:6px;
-  font-size:.78rem;font-weight:600;color:rgba(255,255,255,.9);
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
-  padding:6px 14px;border-radius:100px;
+  font-size:.76rem;font-weight:600;color:rgba(255,255,255,.6);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  padding:5px 13px;border-radius:100px;
 }
-.tpill svg{width:13px;height:13px;flex-shrink:0}
+.tpill svg{width:12px;height:12px;flex-shrink:0;color:rgba(217,4,41,.9)}
 
-/* Booking bar — white card on red hero */
-.booking-wrap{
-  position:relative;z-index:1;
-  background:#fff;margin-top:44px;
-  border-top:none;
+/* ── RIGHT — CAR ── */
+.hero-car-col{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
 }
+/* Scroll parallax wrapper */
+#heroCar{
+  width:100%;
+  transition:transform .1s linear;
+}
+/* Drive-in + float animation wrapper */
+.car-animate-wrap{
+  animation:driveIn 1.3s cubic-bezier(.18,.88,.32,1.1) both,
+            carFloat 5s ease-in-out 1.3s infinite;
+  will-change:transform;
+}
+@keyframes driveIn{
+  0%{opacity:0;transform:translateX(110%)}
+  100%{opacity:1;transform:translateX(0)}
+}
+@keyframes carFloat{
+  0%,100%{transform:translateY(0px)}
+  50%{transform:translateY(-14px)}
+}
+
+/* THE CAR SVG */
+.car-svg{width:100%;height:auto;display:block}
+
+/* WHEEL SPIN */
+.car-wheel{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:wheelSpin .65s linear infinite;
+}
+@keyframes wheelSpin{to{transform:rotate(360deg)}}
+
+/* ROAD */
+.car-road-wrap{
+  margin-top:6px;
+  padding:0 4px;
+  overflow:hidden;
+}
+.car-road{
+  height:3px;
+  background:rgba(255,255,255,.08);
+  position:relative;overflow:hidden;
+  border-radius:2px;
+}
+.car-road::after{
+  content:'';
+  position:absolute;top:0;left:-100%;
+  width:300%;height:100%;
+  background:repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.35) 0,rgba(255,255,255,.35) 36px,
+    transparent 36px,transparent 72px
+  );
+  animation:roadScroll 1s linear infinite;
+}
+@keyframes roadScroll{to{transform:translateX(33.33%)}}
+
+/* Headlight beam */
+.headlight-beam{
+  position:absolute;right:-10px;top:40%;
+  width:120px;height:50px;
+  background:linear-gradient(90deg,rgba(255,230,80,.12),transparent);
+  clip-path:polygon(0 40%,100% 0%,100% 100%,0 60%);
+  pointer-events:none;
+  animation:beamPulse 2.5s ease-in-out infinite;
+}
+@keyframes beamPulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* ════════════════════════════════════════════
+   BOOKING BAR
+════════════════════════════════════════════ */
+.booking-wrap{background:#fff;border-top:none}
+.booking-card{}
 .btabs{display:flex;border-bottom:1px solid var(--border)}
-.btab{
-  padding:12px 24px;font-size:.84rem;font-weight:700;
-  color:var(--muted);border-bottom:3px solid transparent;
-  transition:color var(--t),border-color var(--t);
-}
+.btab{padding:13px 26px;font-size:.85rem;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;transition:color var(--t),border-color var(--t)}
 .btab.active{color:var(--red);border-bottom-color:var(--red)}
 .btab:hover:not(.active){color:var(--ink)}
 .tab-body{display:none;padding:18px 24px}
 .tab-body.active{display:block}
-.bfields{
-  display:grid;
-  grid-template-columns:1.4fr 1.4fr .85fr 1fr .72fr 1fr .72fr auto;
-  gap:10px;align-items:end;
-}
+.bfields{display:grid;grid-template-columns:1.4fr 1.4fr .85fr 1fr .72fr 1fr .72fr auto;gap:10px;align-items:end}
 .bf{display:flex;flex-direction:column;gap:4px}
 .bf label{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
 .bf input,.bf select{
   height:40px;padding:0 10px;
   background:var(--pale);border:1.5px solid var(--border);
   border-radius:8px;font-size:.87rem;color:var(--ink);
-  transition:border-color var(--t),box-shadow var(--t);
   width:100%;appearance:none;-webkit-appearance:none;
+  transition:border-color var(--t),box-shadow var(--t);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23D90429' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;
 }
 .bf input{background-image:none;padding-right:10px}
-.bf input:focus,.bf select:focus{border-color:var(--red);box-shadow:0 0 0 3px var(--red-ring);background:#fff}
+.bf input:focus,.bf select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(217,4,41,.1);background:#fff}
 .bsrch{
-  height:40px;padding:0 22px;
-  background:var(--red);color:#fff;
+  height:40px;padding:0 22px;background:var(--red);color:#fff;
   font-size:.87rem;font-weight:800;border-radius:8px;
   box-shadow:var(--shr);white-space:nowrap;
   display:flex;align-items:center;gap:7px;
@@ -192,270 +268,184 @@ input,select{font:inherit;border:none;outline:none;background:none}
 .bsrch:hover{background:var(--red-dk);transform:translateY(-1px)}
 .mfields{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
 
-/* Stats row */
+/* ════════════════════════════════════════════
+   STATS — red bg
+════════════════════════════════════════════ */
 .stats-row{
   display:flex;justify-content:space-around;flex-wrap:wrap;
-  background:var(--warm);border-top:1px solid var(--border);
-  padding:28px 0;gap:0;
+  background:var(--red);
+  padding:28px 0;
 }
-.stat{text-align:center;padding:0 28px;border-right:1px solid var(--border)}
+.stat{text-align:center;padding:0 28px;border-right:1px solid rgba(255,255,255,.2)}
 .stat:last-child{border-right:none}
-.snum{font-size:2rem;font-weight:900;color:var(--red);line-height:1}
-.slabel{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:3px}
+.snum{font-size:2rem;font-weight:900;color:#fff;line-height:1}
+.slabel{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.7);margin-top:3px}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    FLEET
-═══════════════════════════════════════════════════════════ */
+════════════════════════════════════════════ */
 .fleet-section{padding:64px 0;background:#fff}
 .sh{text-align:center;margin-bottom:36px}
 .sh .ey{display:inline-block;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin-bottom:8px}
 .sh h2{font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:var(--ink)}
 .sh h2 em{font-style:normal;color:var(--red)}
 .sh p{font-size:.92rem;color:var(--muted);margin-top:8px}
-
 .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-bottom:32px}
-.fbtn{
-  padding:6px 16px;border-radius:100px;
-  font-size:.81rem;font-weight:700;color:var(--ink2);
-  background:#fff;border:1.5px solid var(--border);
-  transition:all var(--t);
-}
+.fbtn{padding:6px 16px;border-radius:100px;font-size:.81rem;font-weight:700;color:var(--ink2);background:#fff;border:1.5px solid var(--border);transition:all var(--t)}
 .fbtn.active,.fbtn:hover{background:var(--red);border-color:var(--red);color:#fff;box-shadow:var(--shr)}
-
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.car-card{
-  background:#fff;border-radius:var(--rl);
-  border:1.5px solid var(--border);overflow:hidden;
-  transition:transform var(--t),box-shadow var(--t),border-color var(--t);
-}
+.car-card{background:#fff;border-radius:var(--rl);border:1.5px solid var(--border);overflow:hidden;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
 .car-card:hover{transform:translateY(-4px);box-shadow:var(--shl);border-color:#f5b8be}
 .car-card.hidden{display:none}
-.car-img{background:var(--warm);padding:20px 18px 10px;position:relative}
-.car-tag{
-  position:absolute;top:10px;left:10px;
-  font-size:.61rem;font-weight:800;text-transform:uppercase;letter-spacing:.7px;
-  background:var(--ink);color:#fff;padding:3px 9px;border-radius:100px;
-}
-.car-tag.pop{background:var(--red)}
-.car-img svg{width:100%;height:auto;filter:drop-shadow(0 3px 10px rgba(0,0,0,.1))}
-.car-body{padding:14px 16px 18px}
-.car-name{font-size:.93rem;font-weight:800;color:var(--ink);margin-bottom:6px}
-.car-name span{font-weight:500;color:var(--muted);font-size:.83rem}
-.specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.specs span{font-size:.73rem;font-weight:700;color:var(--ink2)}
+.cimg{background:var(--warm);padding:20px 18px 10px;position:relative}
+.ctag{position:absolute;top:10px;left:10px;font-size:.61rem;font-weight:800;text-transform:uppercase;letter-spacing:.7px;background:var(--ink);color:#fff;padding:3px 9px;border-radius:100px}
+.ctag.pop{background:var(--red)}
+.cimg svg{width:100%;height:auto;filter:drop-shadow(0 3px 10px rgba(0,0,0,.1))}
+.cbody{padding:14px 16px 18px}
+.cname{font-size:.93rem;font-weight:800;color:var(--ink);margin-bottom:6px}
+.cname span{font-weight:500;color:var(--muted);font-size:.83rem}
+.cspecs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.cspecs span{font-size:.73rem;font-weight:700;color:var(--ink2)}
 .ctags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px}
 .ctags li{font-size:.7rem;font-weight:600;color:var(--muted);background:var(--pale);border:1px solid var(--border);padding:2px 8px;border-radius:4px}
-.car-foot{display:flex;align-items:center;justify-content:space-between}
-.price{font-size:1.05rem;font-weight:900;color:var(--red)}
-.price span{font-size:.7rem;font-weight:500;color:var(--muted)}
-.btn-bk{
-  padding:7px 16px;background:var(--red);color:#fff;
-  font-size:.79rem;font-weight:800;border-radius:7px;
-  box-shadow:var(--shr);
-  transition:background var(--t),transform var(--t);
-}
+.cfoot{display:flex;align-items:center;justify-content:space-between}
+.cprice{font-size:1.05rem;font-weight:900;color:var(--red)}
+.cprice span{font-size:.7rem;font-weight:500;color:var(--muted)}
+.btn-bk{padding:7px 16px;background:var(--red);color:#fff;font-size:.79rem;font-weight:800;border-radius:7px;box-shadow:var(--shr);transition:background var(--t),transform var(--t)}
 .btn-bk:hover{background:var(--red-dk);transform:translateY(-1px)}
 
-/* ═══════════════════════════════════════════════════════════
-   SOCIAL STRIP  — mid-page, icon-based, dark background
-═══════════════════════════════════════════════════════════ */
-.social-strip{
-  background:var(--ink);
-  padding:44px 0;
-}
-.ss-inner{
-  display:flex;align-items:center;justify-content:center;
-  gap:40px;flex-wrap:wrap;
-}
-.ss-text{color:#fff;margin-right:16px}
-.ss-text strong{font-size:1.05rem;font-weight:800;display:block;margin-bottom:3px}
-.ss-text span{font-size:.82rem;color:rgba(255,255,255,.5)}
-
-.ss-icons{display:flex;gap:14px;align-items:center}
-
-.soc-btn{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 22px;border-radius:100px;
-  font-size:.85rem;font-weight:800;color:#fff;
-  transition:transform var(--t),box-shadow var(--t),filter var(--t);
-  white-space:nowrap;
-}
-.soc-btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
-.soc-btn svg{width:20px;height:20px;flex-shrink:0}
-
+/* ════════════════════════════════════════════
+   SOCIAL STRIP — dark, mid-page
+════════════════════════════════════════════ */
+.social-strip{background:var(--ink2);padding:40px 0}
+.ss-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
+.ss-text strong{font-size:1rem;font-weight:800;display:block;color:#fff;margin-bottom:2px}
+.ss-text span{font-size:.8rem;color:rgba(255,255,255,.45)}
+.ss-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.soc-btn{display:flex;align-items:center;gap:9px;padding:11px 22px;border-radius:100px;font-size:.85rem;font-weight:800;color:#fff;transition:transform var(--t),box-shadow var(--t),filter var(--t);white-space:nowrap}
+.soc-btn:hover{transform:translateY(-3px);filter:brightness(1.1)}
+.soc-btn svg{width:19px;height:19px;flex-shrink:0}
 .soc-wa{background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,.4)}
-.soc-ig{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);box-shadow:0 4px 16px rgba(188,24,136,.35)}
+.soc-ig{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);box-shadow:0 4px 16px rgba(188,24,136,.3)}
 .soc-fb{background:#1877F2;box-shadow:0 4px 16px rgba(24,119,242,.4)}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    REVIEWS
-═══════════════════════════════════════════════════════════ */
+════════════════════════════════════════════ */
 .reviews-section{padding:64px 0;background:var(--warm)}
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.rv{
-  background:#fff;border:1.5px solid var(--border);
-  border-radius:var(--rl);padding:24px;
-  transition:box-shadow var(--t),border-color var(--t);
-}
+.rv{background:#fff;border:1.5px solid var(--border);border-radius:var(--rl);padding:24px;transition:box-shadow var(--t),border-color var(--t)}
 .rv:hover{box-shadow:var(--sh);border-color:#f5b8be}
 .rv-stars{color:#F59E0B;font-size:.95rem;letter-spacing:2px;margin-bottom:12px}
 .rv-text{font-size:.88rem;color:var(--ink2);line-height:1.7;margin-bottom:18px;font-style:italic}
 .rv-auth{display:flex;align-items:center;gap:10px}
-.rv-av{
-  width:38px;height:38px;border-radius:50%;
-  background:var(--red);color:#fff;
-  font-size:.73rem;font-weight:800;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
+.rv-av{width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;font-size:.73rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .rv-name{font-size:.87rem;font-weight:700;color:var(--ink)}
 .rv-meta{font-size:.72rem;color:var(--muted)}
 
-/* ═══════════════════════════════════════════════════════════
-   FOOTER  — dark
-═══════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
 .site-footer{background:var(--ink)}
-.ft-main{
-  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;
-  gap:40px;padding:48px 22px 36px;
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-.ft-brand p{font-size:.85rem;color:rgba(255,255,255,.38);line-height:1.7;max-width:240px;margin-top:12px}
-.ft-brand .logo-name{color:#ff6b7a;-webkit-text-fill-color:#ff6b7a}
-.ft-brand .logo-sub{color:rgba(255,255,255,.3)}
-.ft-col h4{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;color:rgba(255,255,255,.9);margin-bottom:14px}
+.ft-main{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding:48px 22px 36px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ft-brand p{font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:240px;margin-top:12px}
+.ft-brand .logo-name{color:var(--red-lt)}
+.ft-brand .logo-sub{color:rgba(255,255,255,.28)}
+.ft-col h4{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;color:rgba(255,255,255,.85);margin-bottom:14px}
 .ft-col ul{display:flex;flex-direction:column;gap:9px}
-.ft-col a{font-size:.87rem;color:rgba(255,255,255,.38);transition:color var(--t)}
+.ft-col a{font-size:.87rem;color:rgba(255,255,255,.35);transition:color var(--t)}
 .ft-col a:hover{color:#fff}
-.ft-bottom{
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:10px;padding:16px 22px;
-}
-.ft-bottom p,.ft-legal a{font-size:.77rem;color:rgba(255,255,255,.28)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:16px 22px}
+.ft-bottom p,.ft-legal a{font-size:.77rem;color:rgba(255,255,255,.25)}
 .ft-legal a{margin:0 4px;transition:color var(--t)}
 .ft-legal a:hover{color:rgba(255,255,255,.7)}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    FLOATING WHATSAPP
-═══════════════════════════════════════════════════════════ */
-.float-wa{
-  position:fixed;bottom:24px;right:24px;z-index:800;
-  display:flex;align-items:center;gap:9px;
-  background:#25D366;color:#fff;
-  padding:11px 18px 11px 14px;border-radius:100px;
-  font-size:.83rem;font-weight:800;
-  box-shadow:0 5px 20px rgba(37,211,102,.5);
-  transition:transform var(--t),box-shadow var(--t);
-}
+════════════════════════════════════════════ */
+.float-wa{position:fixed;bottom:24px;right:24px;z-index:800;display:flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:11px 18px 11px 14px;border-radius:100px;font-size:.83rem;font-weight:800;box-shadow:0 5px 20px rgba(37,211,102,.5);transition:transform var(--t),box-shadow var(--t)}
 .float-wa svg{width:20px;height:20px;flex-shrink:0}
 .float-wa:hover{transform:translateY(-2px);box-shadow:0 7px 28px rgba(37,211,102,.6)}
 .float-wa-txt{white-space:nowrap}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    SCROLL TOP
-═══════════════════════════════════════════════════════════ */
-.scroll-top{
-  position:fixed;bottom:24px;left:24px;z-index:800;
-  width:40px;height:40px;border-radius:50%;
-  background:var(--pale);border:1.5px solid var(--border);
-  color:var(--ink);font-size:1rem;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:var(--sh);opacity:0;pointer-events:none;
-  transform:translateY(6px);transition:opacity var(--t),transform var(--t),background var(--t),color var(--t);
-  cursor:pointer;
-}
+════════════════════════════════════════════ */
+.scroll-top{position:fixed;bottom:24px;left:24px;z-index:800;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.15);color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh);opacity:0;pointer-events:none;transform:translateY(6px);transition:opacity var(--t),transform var(--t),background var(--t);cursor:pointer}
 .scroll-top.vis{opacity:1;pointer-events:all;transform:translateY(0)}
-.scroll-top:hover{background:var(--red);border-color:var(--red);color:#fff}
+.scroll-top:hover{background:var(--red);border-color:var(--red)}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    FLATPICKR
-═══════════════════════════════════════════════════════════ */
+════════════════════════════════════════════ */
 .flatpickr-calendar{border-radius:var(--r)!important;box-shadow:var(--shl)!important;border:1px solid var(--border)!important}
 .flatpickr-day.selected,.flatpickr-day.selected:hover{background:var(--red)!important;border-color:var(--red)!important}
-.flatpickr-day:hover{background:var(--red-pale)!important}
+.flatpickr-day:hover{background:var(--warm)!important}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    REVEAL
-═══════════════════════════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
 .reveal.vis{opacity:1;transform:translateY(0)}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    MODAL
-═══════════════════════════════════════════════════════════ */
-#bModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:2000;
-  align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
-.modal-box{
-  background:#fff;border-radius:18px;padding:34px;
-  max-width:400px;width:100%;position:relative;
-  box-shadow:0 20px 60px rgba(0,0,0,.18);border-top:4px solid var(--red);
-}
-.modal-close{
-  position:absolute;top:12px;right:12px;
-  width:28px;height:28px;border-radius:50%;
-  background:var(--pale);font-size:1.1rem;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);cursor:pointer;border:none;
-}
+════════════════════════════════════════════ */
+#bModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:2000;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(5px)}
+.modal-box{background:#fff;border-radius:18px;padding:34px;max-width:400px;width:100%;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.2);border-top:4px solid var(--red)}
+.modal-close{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;background:var(--pale);font-size:1.1rem;display:flex;align-items:center;justify-content:center;color:var(--muted);cursor:pointer;border:none}
 .modal-box h3{font-size:1.25rem;font-weight:800;color:var(--ink);margin-bottom:7px}
 .modal-box p{font-size:.87rem;color:var(--muted);margin-bottom:20px;line-height:1.6}
 .modal-actions{display:flex;flex-direction:column;gap:9px}
-.mbtn{
-  padding:12px;font-size:.88rem;font-weight:800;border-radius:9px;
-  text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:filter var(--t),transform var(--t);
-}
+.mbtn{padding:12px;font-size:.88rem;font-weight:800;border-radius:9px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;transition:filter var(--t),transform var(--t)}
 .mbtn:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .mbtn-red{background:var(--red);color:#fff;box-shadow:var(--shr)}
 .mbtn-wa{background:#25D366;color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.4)}
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════
    RESPONSIVE
-═══════════════════════════════════════════════════════════ */
+════════════════════════════════════════════ */
 @media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;min-height:auto;padding:56px 0 40px}
+  .hero-car-col{margin-top:0}
+  .hero-text h1{font-size:2.6rem}
   .bfields{grid-template-columns:1fr 1fr 1fr}
   .fleet-grid{grid-template-columns:repeat(2,1fr)}
   .reviews-grid{grid-template-columns:repeat(2,1fr)}
   .ft-main{grid-template-columns:1fr 1fr;gap:28px}
 }
 @media(max-width:768px){
-  .nav{
-    position:fixed;top:0;right:0;height:100vh;width:250px;
-    background:#fff;border-left:1px solid var(--border);
-    flex-direction:column;align-items:flex-start;
-    padding:72px 20px 28px;
-    transform:translateX(100%);transition:transform .28s ease;
-    z-index:999;box-shadow:-6px 0 24px rgba(0,0,0,.08);
-  }
+  .nav{position:fixed;top:0;right:0;height:100vh;width:250px;background:var(--ink);border-left:1px solid rgba(255,255,255,.08);flex-direction:column;align-items:flex-start;padding:72px 20px 28px;transform:translateX(100%);transition:transform .28s ease;z-index:999;box-shadow:-6px 0 24px rgba(0,0,0,.3)}
   .nav.open{transform:translateX(0)}
   .nav ul{flex-direction:column;gap:2px;width:100%}
   .nav a{display:block;font-size:.97rem;padding:10px 12px}
   .burger{display:flex}
   .btn-phone,.btn-res{display:none}
-  .hero{padding:44px 0 0}
+  .hero{min-height:auto;padding-bottom:0}
+  .hero-content{grid-template-columns:1fr}
   .bfields{grid-template-columns:1fr 1fr}
   .tab-body{padding:14px 16px}
   .fleet-grid{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr}
   .ft-main{grid-template-columns:1fr;gap:24px;padding:36px 22px}
-  .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
-  .stat{border-right:none;background:var(--warm);padding:16px}
+  .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--red-dk)}
+  .stat{border-right:none;background:var(--red);padding:16px}
   .ss-inner{flex-direction:column;gap:20px;text-align:center}
-  .ss-text{margin-right:0}
-  .ss-icons{flex-wrap:wrap;justify-content:center}
-  .mfields{grid-template-columns:1fr}
+  .ss-btns{flex-wrap:wrap;justify-content:center}
   .float-wa-txt{display:none}
   .float-wa{padding:13px}
 }
 @media(max-width:480px){
-  .hero-body h1{font-size:2rem}
+  .hero-text h1{font-size:2rem;letter-spacing:-.8px}
   .bfields{grid-template-columns:1fr}
   .trust-row{gap:6px}
+  .hero-ctas{flex-direction:column}
 }
   </style>
 </head>
 <body>
 
-<!-- ═══ HEADER ══════════════════════════════════════════════ -->
+<!-- ════ HEADER ═══════════════════════════════════════════ -->
 <header class="hdr" id="hdr">
   <div class="container hdr-inner">
     <a href="#" class="logo" aria-label="Rydex Car Rental">
@@ -464,8 +454,7 @@ input,select{font:inherit;border:none;outline:none;background:none}
       </div>
       <div><div class="logo-name">Rydex</div><div class="logo-sub">Car Rental</div></div>
     </a>
-
-    <nav class="nav" id="mainNav" aria-label="Main navigation">
+    <nav class="nav" id="mainNav">
       <ul>
         <li><a href="#booking">Book</a></li>
         <li><a href="#fleet">Fleet</a></li>
@@ -473,7 +462,6 @@ input,select{font:inherit;border:none;outline:none;background:none}
         <li><a href="#connect">Contact</a></li>
       </ul>
     </nav>
-
     <div class="hdr-right">
       <a href="tel:+15550001234" class="btn-phone">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
@@ -485,13 +473,27 @@ input,select{font:inherit;border:none;outline:none;background:none}
   </div>
 </header>
 
-<!-- ═══ HERO ════════════════════════════════════════════════ -->
+<!-- ════ HERO ══════════════════════════════════════════════ -->
 <section class="hero" id="top">
-  <div class="container">
-    <div class="hero-body">
+  <div class="hero-ghost" aria-hidden="true">RYDEX</div>
+
+  <div class="container hero-content">
+
+    <!-- LEFT TEXT -->
+    <div class="hero-text">
       <div class="hero-kicker"><span></span>Book Online &amp; Save Up to 30%</div>
-      <h1>Your Journey.<br>Our Best Price.</h1>
-      <p>Reliable cars, transparent pricing, seamless 24/7 airport pickup. Zero hidden fees — guaranteed.</p>
+      <h1>Drive <em>Further.</em><br>Pay <em>Less.</em></h1>
+      <p>Premium car rental, transparent pricing, and seamless 24/7 airport pickup. Zero hidden fees — guaranteed.</p>
+      <div class="hero-ctas">
+        <a href="#fleet" class="btn-fleet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17H5a2 2 0 01-2-2V9a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          Browse Our Fleet
+        </a>
+        <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" class="btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
       <div class="trust-row">
         <div class="tpill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
@@ -505,18 +507,164 @@ input,select{font:inherit;border:none;outline:none;background:none}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           Rated 4.9 ★
         </div>
-        <div class="tpill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-          12,000+ Customers
-        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Booking form -->
+    <!-- RIGHT — ANIMATED CAR -->
+    <div class="hero-car-col">
+      <div id="heroCar">
+        <div class="car-animate-wrap">
+          <!-- HEADLIGHT BEAM -->
+          <div style="position:relative">
+            <div class="headlight-beam"></div>
+
+          <!-- ════ CAR SVG ════ -->
+          <svg class="car-svg" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" aria-label="Rydex rental car illustration" role="img">
+            <defs>
+              <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FF3352"/>
+                <stop offset="35%" stop-color="#D90429"/>
+                <stop offset="100%" stop-color="#8B0010"/>
+              </linearGradient>
+              <linearGradient id="winGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="rgba(190,225,255,0.92)"/>
+                <stop offset="100%" stop-color="rgba(130,180,230,0.72)"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Ground shadow -->
+            <ellipse cx="338" cy="232" rx="270" ry="10" fill="rgba(0,0,0,.28)"/>
+
+            <!-- ─ BODY SILL / LOWER PANEL ─ -->
+            <rect x="88" y="155" width="510" height="24" rx="5" fill="#8B0010"/>
+
+            <!-- ─ MAIN UPPER BODY ─ -->
+            <path d="
+              M 108 155
+              L 112 118
+              Q 115 96 132 80
+              L 165 62
+              Q 188 52 228 50
+              L 455 50
+              Q 492 50 520 64
+              L 558 102
+              Q 572 122 576 155
+              Z
+            " fill="url(#bodyGrad)"/>
+
+            <!-- ─ FRONT OVERHANG (hood / fender) ─ -->
+            <path d="M 576 142 L 612 148 L 616 162 L 612 170 Q 596 175 575 170 L 571 158 Z" fill="#B0001A"/>
+
+            <!-- ─ REAR OVERHANG ─ -->
+            <path d="M 88 142 L 62 148 L 56 162 L 62 170 Q 76 175 96 170 L 100 158 Z" fill="#B0001A"/>
+
+            <!-- ─ WINDSHIELD ─ -->
+            <path d="M 520 67 L 558 104 L 558 126 L 510 126 L 500 68 Z" fill="url(#winGrad)"/>
+
+            <!-- ─ REAR WINDOW ─ -->
+            <path d="M 165 64 L 132 104 L 132 126 L 190 126 L 202 55 Z" fill="url(#winGrad)"/>
+
+            <!-- ─ DOOR WINDOWS ─ -->
+            <rect x="210" y="57" width="84" height="67" rx="3" fill="url(#winGrad)"/>
+            <rect x="304" y="57" width="84" height="67" rx="3" fill="url(#winGrad)"/>
+            <rect x="397" y="57" width="98" height="67" rx="3" fill="url(#winGrad)"/>
+
+            <!-- Window frame pillars -->
+            <rect x="205" y="55" width="6" height="71" fill="#D90429"/>
+            <rect x="299" y="55" width="6" height="71" fill="#D90429"/>
+            <rect x="393" y="55" width="6" height="71" fill="#C0001E"/>
+
+            <!-- ─ WINDOW HIGHLIGHTS (reflection) ─ -->
+            <rect x="215" y="62" width="36" height="10" rx="2" fill="rgba(255,255,255,.15)"/>
+            <rect x="309" y="62" width="36" height="10" rx="2" fill="rgba(255,255,255,.15)"/>
+            <rect x="403" y="62" width="36" height="10" rx="2" fill="rgba(255,255,255,.15)"/>
+
+            <!-- ─ BODY SHINE (roof highlight) ─ -->
+            <path d="M 220 52 L 455 52 L 445 62 L 230 62 Z" fill="rgba(255,255,255,.13)"/>
+            <!-- Side body highlight -->
+            <path d="M 130 95 L 570 95 L 570 105 L 130 105 Z" fill="rgba(255,255,255,.06)"/>
+
+            <!-- ─ DOOR VERTICAL LINES ─ -->
+            <line x1="303" y1="126" x2="300" y2="155" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+            <line x1="207" y1="126" x2="205" y2="155" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+            <line x1="395" y1="126" x2="393" y2="155" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+
+            <!-- ─ DOOR HANDLES ─ -->
+            <rect x="246" y="136" width="30" height="7" rx="3.5" fill="rgba(255,255,255,.25)"/>
+            <rect x="340" y="136" width="30" height="7" rx="3.5" fill="rgba(255,255,255,.25)"/>
+            <rect x="432" y="136" width="28" height="7" rx="3.5" fill="rgba(255,255,255,.25)"/>
+
+            <!-- ─ FRONT GRILLE ─ -->
+            <rect x="603" y="158" width="14" height="9" rx="2" fill="#111" stroke="#333" stroke-width="1"/>
+            <!-- Grille slats -->
+            <line x1="607" y1="159" x2="607" y2="166" stroke="#444" stroke-width="1"/>
+            <line x1="611" y1="159" x2="611" y2="166" stroke="#444" stroke-width="1"/>
+
+            <!-- ─ HEADLIGHT (front) ─ -->
+            <path d="M 598 144 L 616 142 L 618 154 L 598 156 Z" fill="#FFE055" filter="url(#glow)"/>
+            <rect x="598" y="140" width="20" height="4" rx="2" fill="rgba(255,240,150,.85)"/>
+            <!-- Headlight glow -->
+            <ellipse cx="616" cy="150" rx="10" ry="6" fill="rgba(255,230,80,.2)"/>
+
+            <!-- ─ TAIL LIGHT (rear) ─ -->
+            <path d="M 56 144 L 80 142 L 80 158 L 56 160 Z" fill="#FF2020" filter="url(#glow)"/>
+            <rect x="57" y="140" width="24" height="4" rx="2" fill="rgba(255,80,80,.9)"/>
+
+            <!-- ─ WHEEL ARCH HIGHLIGHT ─ -->
+            <path d="M 140 158 Q 182 164 224 158" stroke="rgba(0,0,0,.3)" stroke-width="3" fill="none"/>
+            <path d="M 455 158 Q 497 164 539 158" stroke="rgba(0,0,0,.3)" stroke-width="3" fill="none"/>
+
+            <!-- ════ REAR WHEEL (animated) ════ -->
+            <g class="car-wheel">
+              <circle cx="182" cy="188" r="46" fill="#161622"/>
+              <circle cx="182" cy="188" r="40" fill="none" stroke="#222232" stroke-width="8"/>
+              <circle cx="182" cy="188" r="30" fill="#C6C6D6"/>
+              <!-- 6 spokes -->
+              <line x1="182" y1="158" x2="182" y2="218" stroke="#888" stroke-width="4.5"/>
+              <line x1="182" y1="158" x2="182" y2="218" stroke="#888" stroke-width="4.5" transform="rotate(60 182 188)"/>
+              <line x1="182" y1="158" x2="182" y2="218" stroke="#888" stroke-width="4.5" transform="rotate(120 182 188)"/>
+              <!-- Rim ring -->
+              <circle cx="182" cy="188" r="18" fill="#B0B0C0"/>
+              <circle cx="182" cy="188" r="10" fill="#888"/>
+              <circle cx="182" cy="188" r="6" fill="#D90429"/>
+              <circle cx="182" cy="188" r="2.5" fill="#fff"/>
+            </g>
+
+            <!-- ════ FRONT WHEEL (animated) ════ -->
+            <g class="car-wheel">
+              <circle cx="502" cy="188" r="46" fill="#161622"/>
+              <circle cx="502" cy="188" r="40" fill="none" stroke="#222232" stroke-width="8"/>
+              <circle cx="502" cy="188" r="30" fill="#C6C6D6"/>
+              <line x1="502" y1="158" x2="502" y2="218" stroke="#888" stroke-width="4.5"/>
+              <line x1="502" y1="158" x2="502" y2="218" stroke="#888" stroke-width="4.5" transform="rotate(60 502 188)"/>
+              <line x1="502" y1="158" x2="502" y2="218" stroke="#888" stroke-width="4.5" transform="rotate(120 502 188)"/>
+              <circle cx="502" cy="188" r="18" fill="#B0B0C0"/>
+              <circle cx="502" cy="188" r="10" fill="#888"/>
+              <circle cx="502" cy="188" r="6" fill="#D90429"/>
+              <circle cx="502" cy="188" r="2.5" fill="#fff"/>
+            </g>
+          </svg>
+          </div><!-- /relative -->
+
+          <!-- ROAD DASHES -->
+          <div class="car-road-wrap">
+            <div class="car-road"></div>
+          </div>
+
+        </div><!-- /car-animate-wrap -->
+      </div><!-- /heroCar -->
+    </div><!-- /hero-car-col -->
+
+  </div><!-- /hero-content -->
+
+  <!-- BOOKING FORM -->
   <div class="booking-wrap" id="booking">
     <div class="container">
-      <div style="background:#fff;border-radius:0;border-top:none">
+      <div class="booking-card">
         <div class="btabs" role="tablist">
           <button class="btab active" data-tab="new" role="tab" aria-selected="true">New Reservation</button>
           <button class="btab" data-tab="mod" role="tab" aria-selected="false">View / Modify</button>
@@ -529,9 +677,9 @@ input,select{font:inherit;border:none;outline:none;background:none}
               <select id="rloc"><option value="">Select location</option><option>Airport (24/7)</option><option>Downtown Office</option><option>Hotel Collection</option></select></div>
             <div class="bf"><label for="dage">Driver Age</label>
               <select id="dage"><option>25 – 74 yrs</option><option>21 – 24 yrs</option><option>75+ yrs</option></select></div>
-            <div class="bf"><label for="pd">Pick-up Date</label><input type="text" id="pd" placeholder="Select date" readonly /></div>
+            <div class="bf"><label for="pd">Pick-up Date</label><input type="text" id="pd" placeholder="Select date" readonly/></div>
             <div class="bf"><label for="pt">Time</label><select id="pt"><option value="">--:--</option></select></div>
-            <div class="bf"><label for="rd">Return Date</label><input type="text" id="rd" placeholder="Select date" readonly /></div>
+            <div class="bf"><label for="rd">Return Date</label><input type="text" id="rd" placeholder="Select date" readonly/></div>
             <div class="bf"><label for="rt">Time</label><select id="rt"><option value="">--:--</option></select></div>
             <button class="bsrch" onclick="handleSearch()">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Search
@@ -540,17 +688,16 @@ input,select{font:inherit;border:none;outline:none;background:none}
         </div>
         <div class="tab-body" id="tab-mod">
           <div class="mfields">
-            <div class="bf"><label>Reservation No.</label><input type="text" placeholder="RYD-00123" /></div>
-            <div class="bf"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
+            <div class="bf"><label>Reservation No.</label><input type="text" placeholder="RYD-00123"/></div>
+            <div class="bf"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
             <button class="bsrch" onclick="alert('Coming soon!')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Find
             </button>
           </div>
         </div>
       </div>
-
-      <!-- Stats -->
-      <div class="stats-row" aria-label="Quick stats">
+      <!-- STATS -->
+      <div class="stats-row" aria-label="Key numbers">
         <div class="stat"><div class="snum" data-target="500">0+</div><div class="slabel">Vehicles</div></div>
         <div class="stat"><div class="snum" data-target="12000">0+</div><div class="slabel">Happy Customers</div></div>
         <div class="stat"><div class="snum" data-target="15">0+</div><div class="slabel">Years of Service</div></div>
@@ -560,13 +707,13 @@ input,select{font:inherit;border:none;outline:none;background:none}
   </div>
 </section>
 
-<!-- ═══ FLEET ════════════════════════════════════════════════ -->
+<!-- ════ FLEET ══════════════════════════════════════════════ -->
 <section class="fleet-section" id="fleet">
   <div class="container">
     <div class="sh">
       <p class="ey">Our Vehicles</p>
       <h2>Find Your <em>Perfect Ride</em></h2>
-      <p>Quality cars for every journey.</p>
+      <p>Quality cars for every journey — filtered for you.</p>
     </div>
     <div class="filters" role="group">
       <button class="fbtn active" data-filter="all">All</button>
@@ -578,74 +725,121 @@ input,select{font:inherit;border:none;outline:none;background:none}
     <div class="fleet-grid" id="fleetGrid">
 
       <div class="car-card reveal" data-category="economy">
-        <div class="car-img"><div class="car-tag">Economy</div>
-          <svg viewBox="0 0 400 160" fill="none"><path d="M50 115 Q65 65 145 50 Q230 38 300 55 L330 115 Q270 130 200 130 Q120 130 50 115Z" fill="#fdd"/><path d="M50 115 L330 115 L338 128 L43 128Z" fill="#fbb"/><ellipse cx="118" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="118" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="118" cy="128" rx="6" ry="6" fill="#fff"/><ellipse cx="268" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="268" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="268" cy="128" rx="6" ry="6" fill="#fff"/><path d="M95 58 L102 95 L200 95 L210 50 Q155 42 95 58Z" fill="#b3d4f5" opacity=".8"/><path d="M215 48 Q270 40 305 55 L300 95 L206 95Z" fill="#b3d4f5" opacity=".8"/><circle cx="44" cy="112" r="7" fill="#FFB800"/><circle cx="336" cy="112" r="7" fill="#D90429"/></svg>
+        <div class="cimg"><div class="ctag">Economy</div>
+          <svg viewBox="0 0 400 160" fill="none"><defs><linearGradient id="c1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF3352"/><stop offset="100%" stop-color="#A80018"/></linearGradient></defs>
+          <ellipse cx="195" cy="152" rx="165" ry="8" fill="rgba(0,0,0,.12)"/>
+          <path d="M55 115 Q68 65 148 50 Q232 38 302 55 L332 115 Q272 130 198 130 Q118 130 55 115Z" fill="url(#c1)"/>
+          <path d="M55 115 L332 115 L340 128 L47 128Z" fill="#8B0010"/>
+          <ellipse cx="120" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="120" cy="128" rx="14" ry="14" fill="#C6C6D6"/><ellipse cx="120" cy="128" rx="6" ry="6" fill="#D90429"/><ellipse cx="120" cy="128" rx="2.5" ry="2.5" fill="#fff"/>
+          <ellipse cx="270" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="270" cy="128" rx="14" ry="14" fill="#C6C6D6"/><ellipse cx="270" cy="128" rx="6" ry="6" fill="#D90429"/><ellipse cx="270" cy="128" rx="2.5" ry="2.5" fill="#fff"/>
+          <path d="M97 58 L104 95 L202 95 L212 50 Q157 42 97 58Z" fill="rgba(190,225,255,.85)"/>
+          <path d="M217 48 Q272 40 307 55 L302 95 L208 95Z" fill="rgba(190,225,255,.85)"/>
+          <circle cx="47" cy="112" r="7" fill="#FFB800"/><circle cx="338" cy="112" r="7" fill="#FF2020"/></svg>
         </div>
-        <div class="car-body">
-          <div class="car-name">Toyota Yaris <span>or similar</span></div>
-          <div class="specs"><span>1,200 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
+        <div class="cbody">
+          <div class="cname">Toyota Yaris <span>or similar</span></div>
+          <div class="cspecs"><span>1,200 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
           <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>Bluetooth</li></ul>
-          <div class="car-foot"><div class="price">From $29<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+          <div class="cfoot"><div class="cprice">From $29<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
         </div>
       </div>
 
       <div class="car-card reveal" data-category="economy">
-        <div class="car-img"><div class="car-tag">Economy</div>
-          <svg viewBox="0 0 400 160" fill="none"><path d="M45 112 Q62 58 148 45 Q235 33 308 52 L335 112 Q272 128 200 128 Q118 128 45 112Z" fill="#fdd"/><path d="M45 112 L335 112 L342 126 L38 126Z" fill="#fbb"/><ellipse cx="115" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="115" cy="126" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="115" cy="126" rx="6" ry="6" fill="#fff"/><ellipse cx="270" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="270" cy="126" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="270" cy="126" rx="6" ry="6" fill="#fff"/><path d="M92 53 L100 92 L202 92 L214 46 Q156 38 92 53Z" fill="#b3d4f5" opacity=".8"/><path d="M218 44 Q275 36 308 52 L302 92 L208 92Z" fill="#b3d4f5" opacity=".8"/><circle cx="40" cy="110" r="7" fill="#FFB800"/><circle cx="340" cy="110" r="7" fill="#D90429"/></svg>
+        <div class="cimg"><div class="ctag">Economy</div>
+          <svg viewBox="0 0 400 160" fill="none">
+          <ellipse cx="192" cy="152" rx="162" ry="8" fill="rgba(0,0,0,.12)"/>
+          <path d="M48 112 Q64 58 150 45 Q237 33 310 52 L337 112 Q274 128 200 128 Q118 128 48 112Z" fill="url(#c1)"/>
+          <path d="M48 112 L337 112 L344 126 L41 126Z" fill="#8B0010"/>
+          <ellipse cx="117" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="117" cy="126" rx="14" ry="14" fill="#C6C6D6"/><ellipse cx="117" cy="126" rx="6" ry="6" fill="#D90429"/><ellipse cx="117" cy="126" rx="2.5" ry="2.5" fill="#fff"/>
+          <ellipse cx="272" cy="126" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="272" cy="126" rx="14" ry="14" fill="#C6C6D6"/><ellipse cx="272" cy="126" rx="6" ry="6" fill="#D90429"/><ellipse cx="272" cy="126" rx="2.5" ry="2.5" fill="#fff"/>
+          <path d="M94 53 L102 92 L204 92 L216 46 Q158 38 94 53Z" fill="rgba(190,225,255,.85)"/>
+          <path d="M220 44 Q277 36 310 52 L304 92 L210 92Z" fill="rgba(190,225,255,.85)"/>
+          <circle cx="42" cy="110" r="7" fill="#FFB800"/><circle cx="342" cy="110" r="7" fill="#FF2020"/></svg>
         </div>
-        <div class="car-body">
-          <div class="car-name">Honda Fit <span>or similar</span></div>
-          <div class="specs"><span>1,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
+        <div class="cbody">
+          <div class="cname">Honda Fit <span>or similar</span></div>
+          <div class="cspecs"><span>1,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
           <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>USB Charger</li></ul>
-          <div class="car-foot"><div class="price">From $32<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+          <div class="cfoot"><div class="cprice">From $32<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
         </div>
       </div>
 
       <div class="car-card reveal" data-category="family">
-        <div class="car-img"><div class="car-tag pop">Family</div>
-          <svg viewBox="0 0 400 160" fill="none"><path d="M35 112 Q48 55 138 42 Q240 28 318 50 L348 112 Q280 132 200 132 Q115 132 35 112Z" fill="#fdd"/><path d="M35 112 L348 112 L355 130 L28 130Z" fill="#fbb"/><ellipse cx="112" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="112" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="112" cy="130" rx="6" ry="6" fill="#fff"/><ellipse cx="276" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="276" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="276" cy="130" rx="6" ry="6" fill="#fff"/><path d="M88 50 L96 95 L205 95 L218 44 Q158 34 88 50Z" fill="#b3d4f5" opacity=".8"/><path d="M222 42 Q282 32 318 50 L310 95 L210 95Z" fill="#b3d4f5" opacity=".8"/><circle cx="30" cy="110" r="7" fill="#FFB800"/><circle cx="353" cy="110" r="7" fill="#D90429"/></svg>
+        <div class="cimg"><div class="ctag pop">Family</div>
+          <svg viewBox="0 0 400 160" fill="none">
+          <ellipse cx="198" cy="153" rx="172" ry="8" fill="rgba(0,0,0,.12)"/>
+          <path d="M38 112 Q50 55 140 42 Q242 28 320 50 L350 112 Q282 132 200 132 Q114 132 38 112Z" fill="url(#c1)"/>
+          <path d="M38 112 L350 112 L357 130 L31 130Z" fill="#8B0010"/>
+          <ellipse cx="114" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="114" cy="130" rx="15" ry="15" fill="#C6C6D6"/><ellipse cx="114" cy="130" rx="7" ry="7" fill="#D90429"/><ellipse cx="114" cy="130" rx="3" ry="3" fill="#fff"/>
+          <ellipse cx="278" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="278" cy="130" rx="15" ry="15" fill="#C6C6D6"/><ellipse cx="278" cy="130" rx="7" ry="7" fill="#D90429"/><ellipse cx="278" cy="130" rx="3" ry="3" fill="#fff"/>
+          <path d="M90 50 L98 95 L207 95 L220 44 Q160 34 90 50Z" fill="rgba(190,225,255,.85)"/>
+          <path d="M224 42 Q284 32 320 50 L312 95 L212 95Z" fill="rgba(190,225,255,.85)"/>
+          <circle cx="32" cy="110" r="7" fill="#FFB800"/><circle cx="355" cy="110" r="7" fill="#FF2020"/></svg>
         </div>
-        <div class="car-body">
-          <div class="car-name">Mazda Premacy <span>or similar</span></div>
-          <div class="specs"><span>2,000 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>7 Seats</span></div>
+        <div class="cbody">
+          <div class="cname">Mazda Premacy <span>or similar</span></div>
+          <div class="cspecs"><span>2,000 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>7 Seats</span></div>
           <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>CD Player</li></ul>
-          <div class="car-foot"><div class="price">From $48<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+          <div class="cfoot"><div class="cprice">From $48<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
         </div>
       </div>
 
       <div class="car-card reveal" data-category="suv">
-        <div class="car-img"><div class="car-tag pop">SUV</div>
-          <svg viewBox="0 0 400 160" fill="none"><path d="M30 108 Q40 48 130 35 Q238 22 322 45 L355 108 Q285 128 200 128 Q110 128 30 108Z" fill="#fdd"/><path d="M30 108 L355 108 L362 128 L22 128Z" fill="#fbb"/><ellipse cx="106" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="106" cy="128" rx="16" ry="16" fill="#D90429" opacity=".6"/><ellipse cx="106" cy="128" rx="7" ry="7" fill="#fff"/><ellipse cx="284" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="284" cy="128" rx="16" ry="16" fill="#D90429" opacity=".6"/><ellipse cx="284" cy="128" rx="7" ry="7" fill="#fff"/><path d="M82 42 L90 94 L205 94 L220 36 Q158 24 82 42Z" fill="#b3d4f5" opacity=".8"/><path d="M225 34 Q290 22 322 45 L315 94 L212 94Z" fill="#b3d4f5" opacity=".8"/><circle cx="24" cy="106" r="7" fill="#FFB800"/><circle cx="360" cy="106" r="7" fill="#D90429"/></svg>
+        <div class="cimg"><div class="ctag pop">SUV</div>
+          <svg viewBox="0 0 400 160" fill="none">
+          <ellipse cx="196" cy="150" rx="178" ry="9" fill="rgba(0,0,0,.14)"/>
+          <path d="M32 108 Q42 48 132 35 Q240 22 324 45 L357 108 Q287 128 200 128 Q108 128 32 108Z" fill="url(#c1)"/>
+          <path d="M32 108 L357 108 L364 128 L24 128Z" fill="#8B0010"/>
+          <ellipse cx="108" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="108" cy="128" rx="17" ry="17" fill="#C6C6D6"/><ellipse cx="108" cy="128" rx="8" ry="8" fill="#D90429"/><ellipse cx="108" cy="128" rx="3" ry="3" fill="#fff"/>
+          <ellipse cx="286" cy="128" rx="28" ry="28" fill="#1a1a2e"/><ellipse cx="286" cy="128" rx="17" ry="17" fill="#C6C6D6"/><ellipse cx="286" cy="128" rx="8" ry="8" fill="#D90429"/><ellipse cx="286" cy="128" rx="3" ry="3" fill="#fff"/>
+          <path d="M84 42 L92 94 L207 94 L222 36 Q160 24 84 42Z" fill="rgba(190,225,255,.85)"/>
+          <path d="M227 34 Q292 22 324 45 L317 94 L214 94Z" fill="rgba(190,225,255,.85)"/>
+          <circle cx="26" cy="106" r="7" fill="#FFB800"/><circle cx="362" cy="106" r="7" fill="#FF2020"/></svg>
         </div>
-        <div class="car-body">
-          <div class="car-name">Toyota RAV4 <span>or similar</span></div>
-          <div class="specs"><span>2,500 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
+        <div class="cbody">
+          <div class="cname">Toyota RAV4 <span>or similar</span></div>
+          <div class="cspecs"><span>2,500 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>5 Seats</span></div>
           <ul class="ctags"><li>Automatic</li><li>Climate Control</li><li>Unlimited Miles</li><li>4WD</li></ul>
-          <div class="car-foot"><div class="price">From $62<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+          <div class="cfoot"><div class="cprice">From $62<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
         </div>
       </div>
 
       <div class="car-card reveal" data-category="family">
-        <div class="car-img"><div class="car-tag">Family XL</div>
-          <svg viewBox="0 0 400 160" fill="none"><path d="M25 110 Q38 46 130 32 Q238 18 325 44 L358 110 Q288 132 200 132 Q108 132 25 110Z" fill="#fdd"/><path d="M25 110 L358 110 L365 130 L18 130Z" fill="#fbb"/><ellipse cx="104" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="104" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="104" cy="130" rx="6" ry="6" fill="#fff"/><ellipse cx="280" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="280" cy="130" rx="15" ry="15" fill="#D90429" opacity=".6"/><ellipse cx="280" cy="130" rx="6" ry="6" fill="#fff"/><path d="M82 40 L90 95 L202 95 L218 34 Q155 22 82 40Z" fill="#b3d4f5" opacity=".8"/><path d="M222 32 Q288 20 325 44 L318 95 L215 95Z" fill="#b3d4f5" opacity=".8"/></svg>
+        <div class="cimg"><div class="ctag">Family XL</div>
+          <svg viewBox="0 0 400 160" fill="none">
+          <ellipse cx="196" cy="152" rx="174" ry="8" fill="rgba(0,0,0,.12)"/>
+          <path d="M27 110 Q40 46 132 32 Q240 18 327 44 L360 110 Q290 132 200 132 Q106 132 27 110Z" fill="url(#c1)"/>
+          <path d="M27 110 L360 110 L367 130 L20 130Z" fill="#8B0010"/>
+          <ellipse cx="106" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="106" cy="130" rx="15" ry="15" fill="#C6C6D6"/><ellipse cx="106" cy="130" rx="7" ry="7" fill="#D90429"/><ellipse cx="106" cy="130" rx="3" ry="3" fill="#fff"/>
+          <ellipse cx="282" cy="130" rx="26" ry="26" fill="#1a1a2e"/><ellipse cx="282" cy="130" rx="15" ry="15" fill="#C6C6D6"/><ellipse cx="282" cy="130" rx="7" ry="7" fill="#D90429"/><ellipse cx="282" cy="130" rx="3" ry="3" fill="#fff"/>
+          <path d="M84 40 L92 95 L204 95 L220 34 Q157 22 84 40Z" fill="rgba(190,225,255,.85)"/>
+          <path d="M224 32 Q290 20 327 44 L320 95 L217 95Z" fill="rgba(190,225,255,.85)"/></svg>
         </div>
-        <div class="car-body">
-          <div class="car-name">Chrysler Voyager <span>or similar</span></div>
-          <div class="specs"><span>3,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>8 Seats</span></div>
+        <div class="cbody">
+          <div class="cname">Chrysler Voyager <span>or similar</span></div>
+          <div class="cspecs"><span>3,300 cc</span><span>·</span><span>5 Doors</span><span>·</span><span>8 Seats</span></div>
           <ul class="ctags"><li>Automatic</li><li>Air Con</li><li>Unlimited Miles</li><li>Cruise Control</li></ul>
-          <div class="car-foot"><div class="price">From $74<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+          <div class="cfoot"><div class="cprice">From $74<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
         </div>
       </div>
 
       <div class="car-card reveal" data-category="luxury">
-        <div class="car-img"><div class="car-tag pop">Luxury</div>
-          <svg viewBox="0 0 400 160" fill="none"><path d="M48 112 Q58 55 145 42 Q228 30 315 55 L338 112 Q278 128 200 128 Q118 128 48 112Z" fill="#fdd"/><path d="M48 112 L338 112 L345 128 L42 128Z" fill="#fbb"/><ellipse cx="118" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="118" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="118" cy="128" rx="6" ry="6" fill="#fff"/><ellipse cx="272" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="272" cy="128" rx="14" ry="14" fill="#D90429" opacity=".6"/><ellipse cx="272" cy="128" rx="6" ry="6" fill="#fff"/><path d="M95 50 L102 92 L200 92 L212 44 Q154 36 95 50Z" fill="#b3d4f5" opacity=".8"/><path d="M216 42 Q272 34 315 55 L308 92 L208 92Z" fill="#b3d4f5" opacity=".8"/><circle cx="44" cy="110" r="7" fill="#FFB800"/><circle cx="342" cy="110" r="7" fill="#D90429"/></svg>
+        <div class="cimg"><div class="ctag pop">Luxury</div>
+          <svg viewBox="0 0 400 160" fill="none">
+          <ellipse cx="196" cy="151" rx="163" ry="8" fill="rgba(0,0,0,.14)"/>
+          <path d="M50 112 Q60 55 147 42 Q230 30 317 55 L340 112 Q280 128 200 128 Q116 128 50 112Z" fill="url(#c1)"/>
+          <path d="M50 112 L340 112 L347 128 L43 128Z" fill="#8B0010"/>
+          <ellipse cx="120" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="120" cy="128" rx="14" ry="14" fill="#C6C6D6"/><ellipse cx="120" cy="128" rx="6" ry="6" fill="#D90429"/><ellipse cx="120" cy="128" rx="2.5" ry="2.5" fill="#fff"/>
+          <ellipse cx="274" cy="128" rx="24" ry="24" fill="#1a1a2e"/><ellipse cx="274" cy="128" rx="14" ry="14" fill="#C6C6D6"/><ellipse cx="274" cy="128" rx="6" ry="6" fill="#D90429"/><ellipse cx="274" cy="128" rx="2.5" ry="2.5" fill="#fff"/>
+          <path d="M97 50 L104 92 L202 92 L214 44 Q156 36 97 50Z" fill="rgba(190,225,255,.85)"/>
+          <path d="M218 42 Q274 34 317 55 L310 92 L210 92Z" fill="rgba(190,225,255,.85)"/>
+          <circle cx="46" cy="110" r="7" fill="#FFB800"/><circle cx="344" cy="110" r="7" fill="#FF2020"/></svg>
         </div>
-        <div class="car-body">
-          <div class="car-name">BMW 5 Series <span>or similar</span></div>
-          <div class="specs"><span>2,000 cc</span><span>·</span><span>4 Doors</span><span>·</span><span>5 Seats</span></div>
+        <div class="cbody">
+          <div class="cname">BMW 5 Series <span>or similar</span></div>
+          <div class="cspecs"><span>2,000 cc</span><span>·</span><span>4 Doors</span><span>·</span><span>5 Seats</span></div>
           <ul class="ctags"><li>Automatic</li><li>Climate Control</li><li>Sunroof</li><li>Heated Seats</li></ul>
-          <div class="car-foot"><div class="price">From $98<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
+          <div class="cfoot"><div class="cprice">From $98<span>/day</span></div><button class="btn-bk" onclick="openModal()">Book</button></div>
         </div>
       </div>
 
@@ -653,29 +847,23 @@ input,select{font:inherit;border:none;outline:none;background:none}
   </div>
 </section>
 
-<!-- ═══ SOCIAL STRIP — middle of page ══════════════════════ -->
-<div class="social-strip" id="connect" aria-label="Social media and contact">
+<!-- ════ SOCIAL STRIP — mid-page ══════════════════════════ -->
+<div class="social-strip" id="connect">
   <div class="container ss-inner">
     <div class="ss-text">
       <strong>Get in Touch</strong>
       <span>We're one tap away</span>
     </div>
-    <div class="ss-icons">
-      <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
-         class="soc-btn soc-wa"
-         aria-label="Chat with Rydex on WhatsApp" title="WhatsApp" itemprop="sameAs">
+    <div class="ss-btns">
+      <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" class="soc-btn soc-wa" aria-label="Chat on WhatsApp" itemprop="sameAs">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
-      <a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
-         class="soc-btn soc-ig"
-         aria-label="Follow Rydex on Instagram" title="Instagram" itemprop="sameAs">
+      <a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer" class="soc-btn soc-ig" aria-label="Follow on Instagram" itemprop="sameAs">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         Instagram
       </a>
-      <a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer"
-         class="soc-btn soc-fb"
-         aria-label="Follow Rydex on Facebook" title="Facebook" itemprop="sameAs">
+      <a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer" class="soc-btn soc-fb" aria-label="Follow on Facebook" itemprop="sameAs">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         Facebook
       </a>
@@ -683,7 +871,7 @@ input,select{font:inherit;border:none;outline:none;background:none}
   </div>
 </div>
 
-<!-- ═══ REVIEWS ══════════════════════════════════════════════ -->
+<!-- ════ REVIEWS ════════════════════════════════════════════ -->
 <section class="reviews-section" id="reviews">
   <div class="container">
     <div class="sh">
@@ -692,77 +880,35 @@ input,select{font:inherit;border:none;outline:none;background:none}
       <p>⭐⭐⭐⭐⭐ &nbsp;4.9 / 5 from 300+ verified customers</p>
     </div>
     <div class="reviews-grid">
-      <div class="rv reveal">
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Car was ready at the airport the moment I landed — smooth and effortless. Highly recommend Rydex to anyone."</p>
-        <div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James Mitchell</div><div class="rv-meta">Airport pickup · Economy</div></div></div>
-      </div>
-      <div class="rv reveal">
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Unbeatable prices vs the big airport desks. Super friendly staff, nothing was too much trouble. Will definitely book again."</p>
-        <div class="rv-auth"><div class="rv-av">SR</div><div><div class="rv-name">Sofia Rodriguez</div><div class="rv-meta">Hotel delivery · SUV</div></div></div>
-      </div>
-      <div class="rv reveal">
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Easy WhatsApp comms, fast replies, clean cars. I've booked three times now and it just gets better every time."</p>
-        <div class="rv-auth"><div class="rv-av">TK</div><div><div class="rv-name">Thomas Klein</div><div class="rv-meta">3× repeat customer</div></div></div>
-      </div>
-      <div class="rv reveal">
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Flight delayed — needed an extra day. Rydex were totally flexible and even delivered to my hotel. Truly outstanding."</p>
-        <div class="rv-auth"><div class="rv-av">NP</div><div><div class="rv-name">Nina Petrov</div><div class="rv-meta">2-week stay · Family MPV</div></div></div>
-      </div>
-      <div class="rv reveal">
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Quoted price = actual price. Not a cent more. The RAV4 was immaculate and the pickup was quick. Zero stress."</p>
-        <div class="rv-auth"><div class="rv-av">AO</div><div><div class="rv-name">Amara Okonkwo</div><div class="rv-meta">Airport · SUV</div></div></div>
-      </div>
-      <div class="rv reveal">
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Two weeks, seamless pickup and drop-off, excellent communication throughout. Left completely happy. Book with confidence!"</p>
-        <div class="rv-auth"><div class="rv-av">WB</div><div><div class="rv-name">William Barnes</div><div class="rv-meta">Downtown office · Luxury</div></div></div>
-      </div>
+      <div class="rv reveal"><div class="rv-stars">★★★★★</div><p class="rv-text">"Car was ready at the airport the moment I landed — smooth and effortless. Highly recommend Rydex."</p><div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James Mitchell</div><div class="rv-meta">Airport pickup · Economy</div></div></div></div>
+      <div class="rv reveal"><div class="rv-stars">★★★★★</div><p class="rv-text">"Unbeatable prices vs the big airport desks. Super friendly staff, nothing was too much trouble. Will book again."</p><div class="rv-auth"><div class="rv-av">SR</div><div><div class="rv-name">Sofia Rodriguez</div><div class="rv-meta">Hotel delivery · SUV</div></div></div></div>
+      <div class="rv reveal"><div class="rv-stars">★★★★★</div><p class="rv-text">"Easy WhatsApp comms, fast replies, immaculate cars. Booked three times now — it just gets better every time."</p><div class="rv-auth"><div class="rv-av">TK</div><div><div class="rv-name">Thomas Klein</div><div class="rv-meta">3× repeat customer</div></div></div></div>
+      <div class="rv reveal"><div class="rv-stars">★★★★★</div><p class="rv-text">"Flight delayed — needed an extra day. Rydex were totally flexible and even delivered to my hotel. Outstanding."</p><div class="rv-auth"><div class="rv-av">NP</div><div><div class="rv-name">Nina Petrov</div><div class="rv-meta">2-week stay · Family MPV</div></div></div></div>
+      <div class="rv reveal"><div class="rv-stars">★★★★★</div><p class="rv-text">"Quoted price = actual price. Not a cent more. RAV4 was immaculate and pickup was instant. Zero stress."</p><div class="rv-auth"><div class="rv-av">AO</div><div><div class="rv-name">Amara Okonkwo</div><div class="rv-meta">Airport · SUV</div></div></div></div>
+      <div class="rv reveal"><div class="rv-stars">★★★★★</div><p class="rv-text">"Two weeks, seamless pickup and drop-off, excellent communication. Left completely happy. Book with confidence!"</p><div class="rv-auth"><div class="rv-av">WB</div><div><div class="rv-name">William Barnes</div><div class="rv-meta">Downtown · Luxury</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<!-- ════ FOOTER ══════════════════════════════════════════════ -->
 <footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
   <div class="container ft-main">
     <div class="ft-brand">
       <a href="#" class="logo" aria-label="Rydex Car Rental" itemprop="name">
         <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 17H5a2 2 0 01-2-2V9a2 2 0 012-2h10l4 4v6a2 2 0 01-2 2z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
-        <div class="ft-brand"><div class="logo-name">Rydex</div><div class="logo-sub">Car Rental</div></div>
+        <div><div class="logo-name">Rydex</div><div class="logo-sub">Car Rental</div></div>
       </a>
       <p itemprop="description">Affordable, reliable rentals — always there when you need us.</p>
     </div>
-    <div class="ft-col">
-      <h4>Reservations</h4>
-      <ul>
-        <li><a href="#booking">New Reservation</a></li>
-        <li><a href="#booking">Modify Booking</a></li>
-        <li><a href="#fleet">Browse Fleet</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h4>Information</h4>
-      <ul>
-        <li><a href="#">Airport Pick-up</a></li>
-        <li><a href="#">Terms &amp; Conditions</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="brand.html">Brand Assets</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:+15550001234" itemprop="telephone">+1 (555) 000-1234</a></li>
-        <li><a href="mailto:info@rydexrentals.com" itemprop="email">info@rydexrentals.com</a></li>
-        <li><a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" itemprop="sameAs">WhatsApp</a></li>
-        <li><a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Instagram</a></li>
-        <li><a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Facebook</a></li>
-      </ul>
-    </div>
+    <div class="ft-col"><h4>Reservations</h4><ul><li><a href="#booking">New Reservation</a></li><li><a href="#booking">Modify Booking</a></li><li><a href="#fleet">Browse Fleet</a></li></ul></div>
+    <div class="ft-col"><h4>Information</h4><ul><li><a href="#">Airport Pick-up</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">FAQs</a></li><li><a href="brand.html">Brand Assets</a></li></ul></div>
+    <div class="ft-col"><h4>Contact</h4><ul>
+      <li><a href="tel:+15550001234" itemprop="telephone">+1 (555) 000-1234</a></li>
+      <li><a href="mailto:info@rydexrentals.com" itemprop="email">info@rydexrentals.com</a></li>
+      <li><a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" itemprop="sameAs">WhatsApp</a></li>
+      <li><a href="https://instagram.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Instagram</a></li>
+      <li><a href="https://facebook.com/rydexcarrental" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Facebook</a></li>
+    </ul></div>
   </div>
   <div class="container ft-bottom">
     <p>© 2026 Rydex Car Rental. All Rights Reserved.</p>
@@ -770,19 +916,18 @@ input,select{font:inherit;border:none;outline:none;background:none}
   </div>
 </footer>
 
-<!-- ═══ FLOATING WHATSAPP ═══════════════════════════════════ -->
-<a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer"
-   class="float-wa" aria-label="WhatsApp Rydex Car Rental">
+<!-- ════ FLOATING WHATSAPP ════════════════════════════════════ -->
+<a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" class="float-wa" aria-label="WhatsApp Rydex">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   <span class="float-wa-txt">Chat with Us</span>
 </a>
 
-<!-- ═══ MODAL ════════════════════════════════════════════════ -->
-<div id="bModal" role="dialog" aria-modal="true" aria-label="Book this vehicle">
+<!-- ════ MODAL ════════════════════════════════════════════════ -->
+<div id="bModal" role="dialog" aria-modal="true" aria-label="Book vehicle">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     <h3>Reserve This Car</h3>
-    <p>Use the booking form above, or reach us instantly on WhatsApp.</p>
+    <p>Use the booking form, or reach us instantly on WhatsApp.</p>
     <div class="modal-actions">
       <a href="#booking" onclick="closeModal()" class="mbtn mbtn-red">Go to Booking Form</a>
       <a href="https://wa.me/15550001234" target="_blank" rel="noopener noreferrer" class="mbtn mbtn-wa">
