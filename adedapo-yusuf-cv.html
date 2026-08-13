@@ -119,6 +119,7 @@
     .role-badge.green  { border: 1px solid var(--green);  color: var(--green);  background: rgba(0,255,157,.06); }
     .role-badge.cyan   { border: 1px solid var(--cyan);   color: var(--cyan);   background: rgba(0,212,255,.06); }
     .role-badge.purple { border: 1px solid var(--purple); color: var(--purple); background: rgba(155,89,247,.06); }
+    .role-badge.gold   { border: 1px solid #f5c518;       color: #f5c518;       background: rgba(245,197,24,.08); }
 
     /* Contact block */
     .contact-block {
@@ -446,6 +447,103 @@
     }
 
     /* ══════════════════════════════
+       OSCP HIGHLIGHT BANNER
+    ══════════════════════════════ */
+    .oscp-banner {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(135deg, rgba(245,197,24,.08) 0%, rgba(0,255,157,.05) 100%);
+      border: 1px solid rgba(245,197,24,.35);
+      border-radius: 4px;
+      padding: 16px 24px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oscp-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #f5c518, var(--green), #f5c518);
+    }
+
+    .oscp-shield {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 8px rgba(245,197,24,.5));
+    }
+
+    .oscp-text .oscp-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #f5c518;
+      letter-spacing: .1em;
+    }
+
+    .oscp-text .oscp-sub {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .oscp-text .oscp-sub strong { color: var(--green); }
+
+    .oscp-badge-pill {
+      margin-left: auto;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .7rem;
+      padding: 6px 16px;
+      border: 1px solid #f5c518;
+      border-radius: 20px;
+      color: #f5c518;
+      background: rgba(245,197,24,.07);
+      letter-spacing: .1em;
+      white-space: nowrap;
+    }
+
+    /* Multi-discipline card */
+    .multiskill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .multiskill-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 18px 16px;
+      background: rgba(0,0,0,.15);
+      text-align: center;
+      transition: border-color .2s, transform .15s;
+    }
+
+    .multiskill-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .ms-icon { font-size: 1.8rem; margin-bottom: 8px; }
+
+    .ms-title {
+      font-family: 'Orbitron', monospace;
+      font-size: .7rem;
+      color: #fff;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+    }
+
+    .ms-desc {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════
        FOOTER
     ══════════════════════════════ */
     footer {
@@ -467,7 +565,10 @@
       .contact-block { text-align: left; }
       .grid-2 { grid-template-columns: 1fr; }
       .attack-grid { grid-template-columns: repeat(2, 1fr); }
+      .multiskill-grid { grid-template-columns: 1fr; }
       .name-block h1 { font-size: 1.8rem; }
+      .oscp-banner { flex-wrap: wrap; }
+      .oscp-badge-pill { margin-left: 0; }
     }
 
     /* ══════════════════════════════
@@ -495,6 +596,8 @@
           <span class="role-badge green">Web Penetration Tester</span>
           <span class="role-badge cyan">Network Engineer</span>
           <span class="role-badge purple">Security Researcher</span>
+          <span class="role-badge gold">&#9733; OSCP Certified</span>
+          <span class="role-badge cyan">Digital Marketer</span>
         </div>
       </div>
       <div class="contact-block">
@@ -520,8 +623,12 @@
         <div class="stat-label">Vulns Identified</div>
       </div>
       <div class="stat">
-        <div class="stat-num">6+</div>
-        <div class="stat-label">Years Total XP</div>
+        <div class="stat-num" style="color:#f5c518">OSCP</div>
+        <div class="stat-label">Certified</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Disciplines</div>
       </div>
     </div>
   </header>
@@ -530,15 +637,28 @@
   <section>
     <h2 class="section-title">// Profile</h2>
     <p class="profile-text">
-      Driven and methodical <strong>cybersecurity specialist</strong> with over 5 years of hands-on web application
-      penetration testing experience combined with a year of network engineering practice. Grounded in both
-      <strong>offensive security</strong> and <strong>defensive infrastructure design</strong>, I bridge the gap between
-      breaking systems and building resilient ones. Currently pursuing higher education at
-      <strong>Cyprus International University</strong>, continuously deepening expertise in emerging threat vectors,
-      zero-day research, and secure network architectures. Passionate about identifying critical vulnerabilities before
-      adversaries do — and engineering networks that resist them.
+      <strong>OSCP-certified</strong> cybersecurity specialist and multi-disciplinary technologist with over 5 years of
+      hands-on web application penetration testing and a year of network engineering practice — backed by
+      <strong>extensive practical lab training</strong> across real-world attack simulations, CTF platforms, and
+      controlled red-team environments. Grounded in both <strong>offensive security</strong> and
+      <strong>defensive infrastructure design</strong>, I bridge the gap between breaking systems and building resilient
+      ones. Beyond the technical domain, I bring a rare cross-functional edge in <strong>email marketing</strong> and
+      <strong>performance ads</strong>, enabling me to understand social engineering vectors, brand-spoofing threats,
+      and phishing campaigns from both a marketing execution and a security research perspective. Currently pursuing
+      higher education at <strong>Cyprus International University</strong>, continuously deepening expertise in emerging
+      threat vectors, zero-day research, and secure network architectures. I operate where security meets strategy.
     </p>
   </section>
+
+  <!-- ═══════════ OSCP BANNER ═══════════ -->
+  <div class="oscp-banner">
+    <div class="oscp-shield">🛡️</div>
+    <div class="oscp-text">
+      <div class="oscp-title">OSCP — OFFENSIVE SECURITY CERTIFIED PROFESSIONAL</div>
+      <div class="oscp-sub">Offensive Security · PEN-200 / PWK Course · <strong>Active Certification</strong> · Hands-On 24-Hr Exam</div>
+    </div>
+    <div class="oscp-badge-pill">VERIFIED ✓</div>
+  </div>
 
   <!-- ═══════════ EXPERIENCE ═══════════ -->
   <section>
@@ -621,6 +741,18 @@
           <span class="skill-tag p">SQL</span>
         </div>
       </div>
+
+      <div class="skill-group" style="margin-top:16px">
+        <div class="skill-group-label">Digital Marketing</div>
+        <div class="skill-tags">
+          <span class="skill-tag g">Email Marketing</span>
+          <span class="skill-tag g">Google Ads</span>
+          <span class="skill-tag g">Meta Ads</span>
+          <span class="skill-tag c">Mailchimp</span>
+          <span class="skill-tag c">Campaign Analytics</span>
+          <span class="skill-tag p">Conversion Optimisation</span>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -654,6 +786,14 @@
         <div class="skill-bar-meta"><span>Python Exploit Scripting</span><span>Proficient</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%"></div></div>
       </div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-meta"><span>Email Marketing &amp; Automation</span><span>Advanced</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%; background: linear-gradient(90deg, #f5c518, var(--cyan));"></div></div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-meta"><span>Paid Ads (Google / Meta)</span><span>Advanced</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%; background: linear-gradient(90deg, #f5c518, var(--cyan));"></div></div>
+      </div>
     </section>
 
   </div><!-- /grid-2 -->
@@ -680,6 +820,14 @@
     <section>
       <h2 class="section-title">// Certifications &amp; Training</h2>
 
+      <div class="cert-item" style="background:rgba(245,197,24,.05); border:1px solid rgba(245,197,24,.25); border-radius:4px; padding:10px 12px;">
+        <div class="cert-icon" style="background:rgba(245,197,24,.12); border-color:rgba(245,197,24,.4);">🏅</div>
+        <div>
+          <div class="cert-name" style="color:#f5c518;">OSCP — Offensive Security Certified Professional</div>
+          <div class="cert-body">Offensive Security · PEN-200 · 24-Hr Hands-On Practical Exam · Active</div>
+        </div>
+      </div>
+
       <div class="cert-item">
         <div class="cert-icon">🎯</div>
         <div>
@@ -692,7 +840,7 @@
         <div class="cert-icon">🕵️</div>
         <div>
           <div class="cert-name">TryHackMe — Top 5% Global</div>
-          <div class="cert-body">Web App, Network, Active Directory Paths</div>
+          <div class="cert-body">Web App, Network, Active Directory Paths · Lab-Trained</div>
         </div>
       </div>
 
@@ -700,7 +848,7 @@
         <div class="cert-icon">🏆</div>
         <div>
           <div class="cert-name">HackTheBox — Hacker Rank</div>
-          <div class="cert-body">OWASP, API Security, Linux Privilege Escalation</div>
+          <div class="cert-body">OWASP, API Security, Linux Privilege Escalation · Lab-Trained</div>
         </div>
       </div>
 
@@ -713,10 +861,10 @@
       </div>
 
       <div class="cert-item">
-        <div class="cert-icon">🔐</div>
+        <div class="cert-icon">📧</div>
         <div>
-          <div class="cert-name">OWASP Web Security Testing Guide</div>
-          <div class="cert-body">Full WSTG v4.2 — Self-Certified Practitioner</div>
+          <div class="cert-name">Google Digital Marketing &amp; E-Commerce</div>
+          <div class="cert-body">Google Career Certificate · Email, Ads &amp; Campaign Strategy</div>
         </div>
       </div>
     </section>
@@ -739,25 +887,50 @@
 
   </div><!-- /grid-2 -->
 
+  <!-- ═══════════ MULTI-DISCIPLINE ADVANTAGE ═══════════ -->
+  <section>
+    <h2 class="section-title">// Multi-Discipline Advantage</h2>
+    <div class="multiskill-grid">
+      <div class="multiskill-card">
+        <div class="ms-icon">⚔️</div>
+        <div class="ms-title">Practical Lab Training</div>
+        <div class="ms-desc">Extensive hands-on experience across HTB, TryHackMe, PortSwigger and custom VMs — not just theory, but real exploit chains in controlled environments.</div>
+      </div>
+      <div class="multiskill-card">
+        <div class="ms-icon">📧</div>
+        <div class="ms-title">Email Marketing</div>
+        <div class="ms-desc">Campaign design, segmentation, A/B testing and deliverability optimisation — plus unique insight into phishing simulation and anti-spoofing defences.</div>
+      </div>
+      <div class="multiskill-card">
+        <div class="ms-icon">📊</div>
+        <div class="ms-title">Performance Ads</div>
+        <div class="ms-desc">Google &amp; Meta paid advertising strategy, audience targeting, and funnel analytics — bridging marketing ops with security threat modelling for brand protection.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ SOFT SKILLS / TRAITS ═══════════ -->
   <section>
     <h2 class="section-title">// Operating Traits</h2>
     <div style="display:flex; flex-wrap:wrap; gap:12px;">
       <span class="skill-tag g">Analytical Mindset</span>
       <span class="skill-tag g">Ethical Discipline</span>
+      <span class="skill-tag g">Lab-Trained Practitioner</span>
       <span class="skill-tag c">Detail-Oriented</span>
       <span class="skill-tag c">Technical Documentation</span>
       <span class="skill-tag c">Cross-Team Communication</span>
+      <span class="skill-tag c">Marketing &amp; Security Bridge</span>
       <span class="skill-tag p">Continuous Learner</span>
       <span class="skill-tag p">Problem Solver</span>
       <span class="skill-tag p">Remote &amp; Async Ready</span>
+      <span class="skill-tag p">Multi-Talented</span>
     </div>
   </section>
 
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer>
-    <span>[ ADEDAPO YUSUF · KYRENIA, NORTHERN CYPRUS ]</span> &nbsp;·&nbsp;
-    All engagements conducted under authorised scope. <span>References available upon request.</span>
+    <span>[ ADEDAPO YUSUF · OSCP · KYRENIA, NORTHERN CYPRUS ]</span> &nbsp;·&nbsp;
+    All engagements conducted under authorised scope &amp; ethical disclosure standards. <span>References available upon request.</span>
   </footer>
 
 </div>
